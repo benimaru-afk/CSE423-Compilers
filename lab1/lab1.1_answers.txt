@@ -1,0 +1,32 @@
+Benjamin Richard Mannal - Lab 1 - 1/21/26
+
+Questions and Answers ---
+
+1. When you run flex flex-wc.l, what output file does flex write?
+
+A: In my directory it creates the file 'lex.yy.c'
+
+2. When you run gcc on Flex's output .c file, what is the executable file named?
+
+A: a.out
+
+3. Run your program on itself with ./a.out <flex-wc.l
+
+A: When running it on itself with './a.out <flex-wc.l' (on a modified flex-wc.l) i got the following...
+
+brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/k0$ ./a.out <flex-wc.l 
+rows=25 words=64 chars=509
+
+4. Fix your program to take the name of the file as a command line argument, instead of using < to redirect standard input.
+
+A: my output after adjusting main to accept a command line arguement (passing lex.yy.c as the arguement) is as follows...
+
+brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/k0$ ./a.out lex.yy.c
+rows=1752 words=7075 chards=44232
+
+5. Convert to separate compilation! move main() into a separate main.c and write a makefile that compiles main.c and lex.yy.c separately and then links them.
+
+A: After making a Makefile and compiling the files, linking them, etc, I got the output ...
+
+brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/k0$ ./a.out flex-wc.l
+rows=18 words=41 chars=368
