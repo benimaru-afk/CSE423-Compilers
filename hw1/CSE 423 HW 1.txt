@@ -1,0 +1,13 @@
+Benjamin Richard Mannal - CSE 423 HW 1
+
+1. I got my Kotlin compiler from the sdk manager. I installed it by running the command 'sdk install kotlin'. I verified the installation by running 'kotlinc -version', which displayed the installed version of the Kotlin compiler. I ran into an issue where I also needed Java installed so I also installed java through sdk.
+
+2 and 3.
+brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/hw1$ kotlinc hello.kt -include-runtime -d hello.jar        
+brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/hw1$ ls
+hello.jar  hello.kt
+brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/hw1$ java -jar hello.jar
+Hello, World!
+
+4. Small Board Game 
+
