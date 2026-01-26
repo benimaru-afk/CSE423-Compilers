@@ -9,5 +9,6 @@ hello.jar  hello.kt
 brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/hw1$ java -jar hello.jar
 Hello, World!
 
-4. Small Board Game 
+4. Small Board Game
+- In Kotlin I made a simple board game to roll and move a player along a board with some simple win conditions of reaching the end of the board and gaving 25+ coins to win.
 
