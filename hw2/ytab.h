@@ -86,25 +86,25 @@
 #define RANGE_UNTIL 381
 
 /* Type cast */
-#define AS 390
+#define AS 390                          /*as*/
 
 /* ========== DELIMITERS & PUNCTUATION ========== */
 #define LPAREN 400
 #define RPAREN 401
-#define LCURL 402
-#define RCURL 403
-#define LSQUARE 404
-#define RSQUARE 405
-#define LANGLE 406
-#define RANGLE 407
-#define COMMA 408
-#define DOT 409
-#define COLON 410
-#define SEMI 411
-#define ARROW 412
-#define DOUBLE_COLON 413
+#define LCURL 402                       /*{*/
+#define RCURL 403                       /*}*/
+#define LSQUARE 404                     /*[*/
+#define RSQUARE 405                     /*]*/
+#define LANGLE 406                      /*<*/
+#define RANGLE 407                      /*>*/
+#define COMMA 408                       /*,*/
+#define DOT 409                         /*.*/
+#define COLON 410                       /*:*/
+#define SEMI 411                        /*;*/
+#define ARROW 412                       /*->*/
+#define DOUBLE_COLON 413                /*::*/
 
 /* ========== SPECIAL ========== */
-#define NEWLINE 420
+#define NEWLINE 420                     /*\n*/
 
 #endif /* YTAB_H */

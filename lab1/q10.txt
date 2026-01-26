@@ -1,0 +1,7 @@
+Questions to Ask Your Instructor:
+
+Are we handling string interpolation in k0?
+Do we need to support all number formats or just basic integers/floats?
+Are annotations in scope for k0?
+Should we handle raw/multi-line strings?
+Do we need the full set of Kotlin operators or just basic ones?
