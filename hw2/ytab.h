@@ -7,26 +7,26 @@
  */
 
 /* ========== KEYWORDS ========== */
-#define FUN 258
-#define VAL 259
-#define VAR 260
-#define IF 261
-#define ELSE 262
-#define WHILE 263
-#define FOR 264
-#define RETURN 265
-#define BREAK 266
-#define CONTINUE 267
-#define WHEN 268
-#define IN 269
-#define DO 270
-#define IMPORT 271
-#define CONST 272
+#define FUN 258              /*fun*/
+#define VAL 259              /*val*/
+#define VAR 260              /*var*/
+#define IF 261               /*if*/
+#define ELSE 262             /*else*/
+#define WHILE 263           /*while*/
+#define FOR 264              /*for*/
+#define RETURN 265           /*return*/
+#define BREAK 266            /*break*/
+#define CONTINUE 267         /*continue*/
+#define WHEN 268             /*when*/
+#define IN 269               /*in*/
+#define DO 270               /*do*/
+#define IMPORT 271           /*import*/
+#define CONST 272            /*const*/
 
 /* ========== LITERALS ========== */
-#define INTEGERLITERAL 280
-#define LONGLITERAL 281
-#define REALLITERAL 282
+#define INTEGERLITERAL 280  /*[0-9]+*/
+#define LONGLITERAL 281     
+#define REALLITERAL 282     /*[0-9]+"."[0-9]+*/
 #define DOUBLELITERAL 283
 #define BOOLEANLITERAL 284
 #define CHARACTERLITERAL 285
@@ -59,8 +59,8 @@
 /* Comparison operators */
 #define EQ 330
 #define NEQ 331
-#define GT 332
-#define LT 333
+#define GT RANGLE
+#define LT LANGLE
 #define GTE 334
 #define LTE 335
 
@@ -73,8 +73,6 @@
 #define OR 351
 #define NOT 352
 
-/* Non-null assertion */
-#define EXCL 360
 
 /* Null-safe operators */
 #define SAFE_CALL 370
