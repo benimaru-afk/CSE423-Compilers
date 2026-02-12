@@ -101,6 +101,6 @@
 #define DOUBLE_COLON 413                /*::*/
 
 /* ========== SPECIAL ========== */
-#define NEWLINE 420                     /*\n*/
+/*#define NEWLINE 420*/                     /*\n*/
 
 #endif /* YTAB_H */

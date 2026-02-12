@@ -25,7 +25,7 @@
 
 /* ========== LITERALS ========== */
 #define INTEGERLITERAL 280  /*[0-9]+*/
-#define LONGLITERAL 281     
+#define LONGLITERAL 281
 #define REALLITERAL 282     /*[0-9]+"."[0-9]+*/
 #define DOUBLELITERAL 283
 #define BOOLEANLITERAL 284

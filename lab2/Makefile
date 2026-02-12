@@ -12,4 +12,4 @@ clean:
 	rm -f k0lex lex.yy.c *.o
 
 test: k0lex
-	./k0lex hello.kt
+	./k0lex full_coverage1.kt

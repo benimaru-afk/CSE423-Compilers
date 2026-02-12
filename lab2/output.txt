@@ -1,0 +1,482 @@
+Category    Text                Lineno      Filename            Ival/Sval
+--------------------------------------------------------------------------------
+271         import              7           full_coverage1.kt   
+290         kotlin              7           full_coverage1.kt   
+409         .                   7           full_coverage1.kt   
+290         test                7           full_coverage1.kt   
+258         fun                 10          full_coverage1.kt   
+290         testFunction        10          full_coverage1.kt   
+400         (                   10          full_coverage1.kt   
+401         )                   10          full_coverage1.kt   
+402         {                   10          full_coverage1.kt   
+259         val                 11          full_coverage1.kt   
+290         x                   11          full_coverage1.kt   
+300         =                   11          full_coverage1.kt   
+280         5                   11          full_coverage1.kt   5
+260         var                 12          full_coverage1.kt   
+290         y                   12          full_coverage1.kt   
+300         =                   12          full_coverage1.kt   
+280         10                  12          full_coverage1.kt   10
+261         if                  15          full_coverage1.kt   
+400         (                   15          full_coverage1.kt   
+290         x                   15          full_coverage1.kt   
+406         <                   15          full_coverage1.kt   
+290         y                   15          full_coverage1.kt   
+401         )                   15          full_coverage1.kt   
+402         {                   15          full_coverage1.kt   
+290         println             16          full_coverage1.kt   
+400         (                   16          full_coverage1.kt   
+286         "less"              16          full_coverage1.kt   less
+401         )                   16          full_coverage1.kt   
+403         }                   17          full_coverage1.kt   
+262         else                17          full_coverage1.kt   
+402         {                   17          full_coverage1.kt   
+290         println             18          full_coverage1.kt   
+400         (                   18          full_coverage1.kt   
+286         "greater"           18          full_coverage1.kt   greater
+401         )                   18          full_coverage1.kt   
+403         }                   19          full_coverage1.kt   
+263         while               22          full_coverage1.kt   
+400         (                   22          full_coverage1.kt   
+290         y                   22          full_coverage1.kt   
+407         >                   22          full_coverage1.kt   
+280         0                   22          full_coverage1.kt   0
+401         )                   22          full_coverage1.kt   
+402         {                   22          full_coverage1.kt   
+290         y                   23          full_coverage1.kt   
+321         --                  23          full_coverage1.kt   
+261         if                  24          full_coverage1.kt   
+400         (                   24          full_coverage1.kt   
+290         y                   24          full_coverage1.kt   
+330         ==                  24          full_coverage1.kt   
+280         3                   24          full_coverage1.kt   3
+401         )                   24          full_coverage1.kt   
+266         break               24          full_coverage1.kt   
+261         if                  25          full_coverage1.kt   
+400         (                   25          full_coverage1.kt   
+290         y                   25          full_coverage1.kt   
+330         ==                  25          full_coverage1.kt   
+280         7                   25          full_coverage1.kt   7
+401         )                   25          full_coverage1.kt   
+267         continue            25          full_coverage1.kt   
+403         }                   26          full_coverage1.kt   
+264         for                 29          full_coverage1.kt   
+400         (                   29          full_coverage1.kt   
+290         i                   29          full_coverage1.kt   
+269         in                  29          full_coverage1.kt   
+280         1                   29          full_coverage1.kt   1
+380         ..                  29          full_coverage1.kt   
+280         10                  29          full_coverage1.kt   10
+401         )                   29          full_coverage1.kt   
+402         {                   29          full_coverage1.kt   
+290         println             30          full_coverage1.kt   
+400         (                   30          full_coverage1.kt   
+290         i                   30          full_coverage1.kt   
+401         )                   30          full_coverage1.kt   
+403         }                   31          full_coverage1.kt   
+268         when                34          full_coverage1.kt   
+400         (                   34          full_coverage1.kt   
+290         x                   34          full_coverage1.kt   
+401         )                   34          full_coverage1.kt   
+402         {                   34          full_coverage1.kt   
+280         5                   35          full_coverage1.kt   5
+412         ->                  35          full_coverage1.kt   
+290         println             35          full_coverage1.kt   
+400         (                   35          full_coverage1.kt   
+286         "five"              35          full_coverage1.kt   five
+401         )                   35          full_coverage1.kt   
+403         }                   36          full_coverage1.kt   
+270         do                  39          full_coverage1.kt   
+402         {                   39          full_coverage1.kt   
+290         x                   40          full_coverage1.kt   
+320         ++                  40          full_coverage1.kt   
+403         }                   41          full_coverage1.kt   
+263         while               41          full_coverage1.kt   
+400         (                   41          full_coverage1.kt   
+290         x                   41          full_coverage1.kt   
+406         <                   41          full_coverage1.kt   
+280         10                  41          full_coverage1.kt   10
+401         )                   41          full_coverage1.kt   
+265         return              43          full_coverage1.kt   
+403         }                   44          full_coverage1.kt   
+272         const               47          full_coverage1.kt   
+259         val                 47          full_coverage1.kt   
+290         MAX                 47          full_coverage1.kt   
+300         =                   47          full_coverage1.kt   
+280         100                 47          full_coverage1.kt   100
+258         fun                 50          full_coverage1.kt   
+290         testLiterals        50          full_coverage1.kt   
+400         (                   50          full_coverage1.kt   
+401         )                   50          full_coverage1.kt   
+402         {                   50          full_coverage1.kt   
+259         val                 51          full_coverage1.kt   
+290         intLit              51          full_coverage1.kt   
+300         =                   51          full_coverage1.kt   
+280         42                  51          full_coverage1.kt   42
+259         val                 52          full_coverage1.kt   
+290         realLit             52          full_coverage1.kt   
+300         =                   52          full_coverage1.kt   
+282         3.14                52          full_coverage1.kt   3.140000
+259         val                 53          full_coverage1.kt   
+290         boolTrue            53          full_coverage1.kt   
+300         =                   53          full_coverage1.kt   
+284         true                53          full_coverage1.kt   
+259         val                 54          full_coverage1.kt   
+290         boolFalse           54          full_coverage1.kt   
+300         =                   54          full_coverage1.kt   
+284         false               54          full_coverage1.kt   
+259         val                 55          full_coverage1.kt   
+290         charLit             55          full_coverage1.kt   
+300         =                   55          full_coverage1.kt   
+285         'A'                 55          full_coverage1.kt   
+259         val                 56          full_coverage1.kt   
+290         strLit              56          full_coverage1.kt   
+300         =                   56          full_coverage1.kt   
+286         "Hello\tWorld\n"    56          full_coverage1.kt   Hello	World
+
+259         val                 57          full_coverage1.kt   
+290         nullVal             57          full_coverage1.kt   
+300         =                   57          full_coverage1.kt   
+287         null                57          full_coverage1.kt   
+403         }                   58          full_coverage1.kt   
+258         fun                 61          full_coverage1.kt   
+290         testAssignment      61          full_coverage1.kt   
+400         (                   61          full_coverage1.kt   
+401         )                   61          full_coverage1.kt   
+402         {                   61          full_coverage1.kt   
+260         var                 62          full_coverage1.kt   
+290         a                   62          full_coverage1.kt   
+300         =                   62          full_coverage1.kt   
+280         10                  62          full_coverage1.kt   10
+290         a                   63          full_coverage1.kt   
+301         +=                  63          full_coverage1.kt   
+280         5                   63          full_coverage1.kt   5
+290         a                   64          full_coverage1.kt   
+302         -=                  64          full_coverage1.kt   
+280         3                   64          full_coverage1.kt   3
+290         a                   65          full_coverage1.kt   
+303         *=                  65          full_coverage1.kt   
+280         2                   65          full_coverage1.kt   2
+290         a                   66          full_coverage1.kt   
+304         /=                  66          full_coverage1.kt   
+280         4                   66          full_coverage1.kt   4
+290         a                   67          full_coverage1.kt   
+305         %=                  67          full_coverage1.kt   
+280         3                   67          full_coverage1.kt   3
+403         }                   68          full_coverage1.kt   
+258         fun                 71          full_coverage1.kt   
+290         testArithmetic      71          full_coverage1.kt   
+400         (                   71          full_coverage1.kt   
+401         )                   71          full_coverage1.kt   
+402         {                   71          full_coverage1.kt   
+259         val                 72          full_coverage1.kt   
+290         sum                 72          full_coverage1.kt   
+300         =                   72          full_coverage1.kt   
+280         5                   72          full_coverage1.kt   5
+310         +                   72          full_coverage1.kt   
+280         3                   72          full_coverage1.kt   3
+259         val                 73          full_coverage1.kt   
+290         diff                73          full_coverage1.kt   
+300         =                   73          full_coverage1.kt   
+280         5                   73          full_coverage1.kt   5
+311         -                   73          full_coverage1.kt   
+280         3                   73          full_coverage1.kt   3
+259         val                 74          full_coverage1.kt   
+290         prod                74          full_coverage1.kt   
+300         =                   74          full_coverage1.kt   
+280         5                   74          full_coverage1.kt   5
+312         *                   74          full_coverage1.kt   
+280         3                   74          full_coverage1.kt   3
+259         val                 75          full_coverage1.kt   
+290         quot                75          full_coverage1.kt   
+300         =                   75          full_coverage1.kt   
+280         10                  75          full_coverage1.kt   10
+313         /                   75          full_coverage1.kt   
+280         2                   75          full_coverage1.kt   2
+259         val                 76          full_coverage1.kt   
+290         rem                 76          full_coverage1.kt   
+300         =                   76          full_coverage1.kt   
+280         10                  76          full_coverage1.kt   10
+314         %                   76          full_coverage1.kt   
+280         3                   76          full_coverage1.kt   3
+403         }                   77          full_coverage1.kt   
+258         fun                 80          full_coverage1.kt   
+290         testIncDec          80          full_coverage1.kt   
+400         (                   80          full_coverage1.kt   
+401         )                   80          full_coverage1.kt   
+402         {                   80          full_coverage1.kt   
+260         var                 81          full_coverage1.kt   
+290         x                   81          full_coverage1.kt   
+300         =                   81          full_coverage1.kt   
+280         5                   81          full_coverage1.kt   5
+290         x                   82          full_coverage1.kt   
+320         ++                  82          full_coverage1.kt   
+290         x                   83          full_coverage1.kt   
+321         --                  83          full_coverage1.kt   
+403         }                   84          full_coverage1.kt   
+258         fun                 87          full_coverage1.kt   
+290         testComparison      87          full_coverage1.kt   
+400         (                   87          full_coverage1.kt   
+401         )                   87          full_coverage1.kt   
+402         {                   87          full_coverage1.kt   
+259         val                 88          full_coverage1.kt   
+290         eq                  88          full_coverage1.kt   
+300         =                   88          full_coverage1.kt   
+400         (                   88          full_coverage1.kt   
+280         5                   88          full_coverage1.kt   5
+330         ==                  88          full_coverage1.kt   
+280         5                   88          full_coverage1.kt   5
+401         )                   88          full_coverage1.kt   
+259         val                 89          full_coverage1.kt   
+290         neq                 89          full_coverage1.kt   
+300         =                   89          full_coverage1.kt   
+400         (                   89          full_coverage1.kt   
+280         5                   89          full_coverage1.kt   5
+331         !=                  89          full_coverage1.kt   
+280         3                   89          full_coverage1.kt   3
+401         )                   89          full_coverage1.kt   
+259         val                 90          full_coverage1.kt   
+290         lt                  90          full_coverage1.kt   
+300         =                   90          full_coverage1.kt   
+400         (                   90          full_coverage1.kt   
+280         3                   90          full_coverage1.kt   3
+406         <                   90          full_coverage1.kt   
+280         5                   90          full_coverage1.kt   5
+401         )                   90          full_coverage1.kt   
+259         val                 91          full_coverage1.kt   
+290         gt                  91          full_coverage1.kt   
+300         =                   91          full_coverage1.kt   
+400         (                   91          full_coverage1.kt   
+280         5                   91          full_coverage1.kt   5
+407         >                   91          full_coverage1.kt   
+280         3                   91          full_coverage1.kt   3
+401         )                   91          full_coverage1.kt   
+259         val                 92          full_coverage1.kt   
+290         lte                 92          full_coverage1.kt   
+300         =                   92          full_coverage1.kt   
+400         (                   92          full_coverage1.kt   
+280         3                   92          full_coverage1.kt   3
+333         <=                  92          full_coverage1.kt   
+280         5                   92          full_coverage1.kt   5
+401         )                   92          full_coverage1.kt   
+259         val                 93          full_coverage1.kt   
+290         gte                 93          full_coverage1.kt   
+300         =                   93          full_coverage1.kt   
+400         (                   93          full_coverage1.kt   
+280         5                   93          full_coverage1.kt   5
+332         >=                  93          full_coverage1.kt   
+280         3                   93          full_coverage1.kt   3
+401         )                   93          full_coverage1.kt   
+403         }                   94          full_coverage1.kt   
+258         fun                 97          full_coverage1.kt   
+290         testRefEquality     97          full_coverage1.kt   
+400         (                   97          full_coverage1.kt   
+401         )                   97          full_coverage1.kt   
+402         {                   97          full_coverage1.kt   
+259         val                 98          full_coverage1.kt   
+290         obj1                98          full_coverage1.kt   
+300         =                   98          full_coverage1.kt   
+286         "test"              98          full_coverage1.kt   test
+259         val                 99          full_coverage1.kt   
+290         obj2                99          full_coverage1.kt   
+300         =                   99          full_coverage1.kt   
+286         "test"              99          full_coverage1.kt   test
+259         val                 100         full_coverage1.kt   
+290         same                100         full_coverage1.kt   
+300         =                   100         full_coverage1.kt   
+400         (                   100         full_coverage1.kt   
+290         obj1                100         full_coverage1.kt   
+340         ===                 100         full_coverage1.kt   
+290         obj2                100         full_coverage1.kt   
+401         )                   100         full_coverage1.kt   
+259         val                 101         full_coverage1.kt   
+290         diff                101         full_coverage1.kt   
+300         =                   101         full_coverage1.kt   
+400         (                   101         full_coverage1.kt   
+290         obj1                101         full_coverage1.kt   
+341         !==                 101         full_coverage1.kt   
+290         obj2                101         full_coverage1.kt   
+401         )                   101         full_coverage1.kt   
+403         }                   102         full_coverage1.kt   
+258         fun                 105         full_coverage1.kt   
+290         testLogical         105         full_coverage1.kt   
+400         (                   105         full_coverage1.kt   
+401         )                   105         full_coverage1.kt   
+402         {                   105         full_coverage1.kt   
+259         val                 106         full_coverage1.kt   
+290         andResult           106         full_coverage1.kt   
+300         =                   106         full_coverage1.kt   
+400         (                   106         full_coverage1.kt   
+284         true                106         full_coverage1.kt   
+350         &&                  106         full_coverage1.kt   
+284         false               106         full_coverage1.kt   
+401         )                   106         full_coverage1.kt   
+259         val                 107         full_coverage1.kt   
+290         orResult            107         full_coverage1.kt   
+300         =                   107         full_coverage1.kt   
+400         (                   107         full_coverage1.kt   
+284         true                107         full_coverage1.kt   
+351         ||                  107         full_coverage1.kt   
+284         false               107         full_coverage1.kt   
+401         )                   107         full_coverage1.kt   
+259         val                 108         full_coverage1.kt   
+290         notResult           108         full_coverage1.kt   
+300         =                   108         full_coverage1.kt   
+352         !                   108         full_coverage1.kt   
+284         true                108         full_coverage1.kt   
+403         }                   109         full_coverage1.kt   
+258         fun                 112         full_coverage1.kt   
+290         testNullSafe        112         full_coverage1.kt   
+400         (                   112         full_coverage1.kt   
+401         )                   112         full_coverage1.kt   
+402         {                   112         full_coverage1.kt   
+259         val                 113         full_coverage1.kt   
+290         str                 113         full_coverage1.kt   
+410         :                   113         full_coverage1.kt   
+290         String              113         full_coverage1.kt   
+372         ?                   113         full_coverage1.kt   
+300         =                   113         full_coverage1.kt   
+287         null                113         full_coverage1.kt   
+259         val                 114         full_coverage1.kt   
+290         len                 114         full_coverage1.kt   
+300         =                   114         full_coverage1.kt   
+290         str                 114         full_coverage1.kt   
+370         ?.                  114         full_coverage1.kt   
+290         length              114         full_coverage1.kt   
+259         val                 115         full_coverage1.kt   
+290         result              115         full_coverage1.kt   
+300         =                   115         full_coverage1.kt   
+290         str                 115         full_coverage1.kt   
+371         ?:                  115         full_coverage1.kt   
+286         "default"           115         full_coverage1.kt   default
+259         val                 116         full_coverage1.kt   
+290         nullable            116         full_coverage1.kt   
+410         :                   116         full_coverage1.kt   
+290         Int                 116         full_coverage1.kt   
+372         ?                   116         full_coverage1.kt   
+300         =                   116         full_coverage1.kt   
+280         5                   116         full_coverage1.kt   5
+403         }                   117         full_coverage1.kt   
+258         fun                 120         full_coverage1.kt   
+290         testRange           120         full_coverage1.kt   
+400         (                   120         full_coverage1.kt   
+401         )                   120         full_coverage1.kt   
+402         {                   120         full_coverage1.kt   
+259         val                 121         full_coverage1.kt   
+290         range1              121         full_coverage1.kt   
+300         =                   121         full_coverage1.kt   
+280         1                   121         full_coverage1.kt   1
+380         ..                  121         full_coverage1.kt   
+280         10                  121         full_coverage1.kt   10
+259         val                 122         full_coverage1.kt   
+290         range2              122         full_coverage1.kt   
+300         =                   122         full_coverage1.kt   
+280         1                   122         full_coverage1.kt   1
+381         ..<                 122         full_coverage1.kt   
+280         10                  122         full_coverage1.kt   10
+403         }                   123         full_coverage1.kt   
+258         fun                 126         full_coverage1.kt   
+290         testTypeCast        126         full_coverage1.kt   
+400         (                   126         full_coverage1.kt   
+401         )                   126         full_coverage1.kt   
+402         {                   126         full_coverage1.kt   
+259         val                 127         full_coverage1.kt   
+290         obj                 127         full_coverage1.kt   
+410         :                   127         full_coverage1.kt   
+290         Any                 127         full_coverage1.kt   
+300         =                   127         full_coverage1.kt   
+286         "string"            127         full_coverage1.kt   string
+259         val                 128         full_coverage1.kt   
+290         str                 128         full_coverage1.kt   
+300         =                   128         full_coverage1.kt   
+290         obj                 128         full_coverage1.kt   
+390         as                  128         full_coverage1.kt   
+290         String              128         full_coverage1.kt   
+403         }                   129         full_coverage1.kt   
+258         fun                 132         full_coverage1.kt   
+290         testDelimiters      132         full_coverage1.kt   
+400         (                   132         full_coverage1.kt   
+401         )                   132         full_coverage1.kt   
+402         {                   132         full_coverage1.kt   
+259         val                 133         full_coverage1.kt   
+290         list                133         full_coverage1.kt   
+300         =                   133         full_coverage1.kt   
+290         listOf              133         full_coverage1.kt   
+400         (                   133         full_coverage1.kt   
+280         1                   133         full_coverage1.kt   1
+408         ,                   133         full_coverage1.kt   
+280         2                   133         full_coverage1.kt   2
+408         ,                   133         full_coverage1.kt   
+280         3                   133         full_coverage1.kt   3
+401         )                   133         full_coverage1.kt   
+259         val                 134         full_coverage1.kt   
+290         map                 134         full_coverage1.kt   
+300         =                   134         full_coverage1.kt   
+290         mapOf               134         full_coverage1.kt   
+400         (                   134         full_coverage1.kt   
+286         "key"               134         full_coverage1.kt   key
+290         to                  134         full_coverage1.kt   
+286         "value"             134         full_coverage1.kt   value
+401         )                   134         full_coverage1.kt   
+259         val                 135         full_coverage1.kt   
+290         arr                 135         full_coverage1.kt   
+300         =                   135         full_coverage1.kt   
+290         arrayOf             135         full_coverage1.kt   
+400         (                   135         full_coverage1.kt   
+280         1                   135         full_coverage1.kt   1
+408         ,                   135         full_coverage1.kt   
+280         2                   135         full_coverage1.kt   2
+408         ,                   135         full_coverage1.kt   
+280         3                   135         full_coverage1.kt   3
+401         )                   135         full_coverage1.kt   
+259         val                 136         full_coverage1.kt   
+290         generic             136         full_coverage1.kt   
+410         :                   136         full_coverage1.kt   
+290         List                136         full_coverage1.kt   
+406         <                   136         full_coverage1.kt   
+290         Int                 136         full_coverage1.kt   
+407         >                   136         full_coverage1.kt   
+300         =                   136         full_coverage1.kt   
+290         list                136         full_coverage1.kt   
+259         val                 139         full_coverage1.kt   
+290         lambda              139         full_coverage1.kt   
+300         =                   139         full_coverage1.kt   
+402         {                   139         full_coverage1.kt   
+290         x                   139         full_coverage1.kt   
+410         :                   139         full_coverage1.kt   
+290         Int                 139         full_coverage1.kt   
+412         ->                  139         full_coverage1.kt   
+290         x                   139         full_coverage1.kt   
+312         *                   139         full_coverage1.kt   
+280         2                   139         full_coverage1.kt   2
+403         }                   139         full_coverage1.kt   
+259         val                 142         full_coverage1.kt   
+290         ref                 142         full_coverage1.kt   
+300         =                   142         full_coverage1.kt   
+290         String              142         full_coverage1.kt   
+413         ::                  142         full_coverage1.kt   
+290         length              142         full_coverage1.kt   
+259         val                 145         full_coverage1.kt   
+290         x                   145         full_coverage1.kt   
+300         =                   145         full_coverage1.kt   
+280         5                   145         full_coverage1.kt   5
+411         ;                   145         full_coverage1.kt   
+259         val                 145         full_coverage1.kt   
+290         y                   145         full_coverage1.kt   
+300         =                   145         full_coverage1.kt   
+280         10                  145         full_coverage1.kt   10
+411         ;                   145         full_coverage1.kt   
+259         val                 148         full_coverage1.kt   
+290         len                 148         full_coverage1.kt   
+300         =                   148         full_coverage1.kt   
+286         "test"              148         full_coverage1.kt   test
+409         .                   148         full_coverage1.kt   
+290         length              148         full_coverage1.kt   
+403         }                   149         full_coverage1.kt   
+312         *                   155         full_coverage1.kt   
+290         Still               155         full_coverage1.kt   
+269         in                  155         full_coverage1.kt   
+290         outer               155         full_coverage1.kt   
+290         comment             155         full_coverage1.kt   
+312         *                   156         full_coverage1.kt   
+313         /                   156         full_coverage1.kt   
