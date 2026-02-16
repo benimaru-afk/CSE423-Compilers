@@ -117,7 +117,7 @@ char* unescape_string(char *str);
                       exit(1);
                     }
 
-"\""([^"\n\\]|\\.)*"\""  {
+\"([^\\\"\n]|\\[ntr\"\\])*\"  {
                       make_token(STRINGLITERAL);
                       yytoken.sval = unescape_string(yytext);
                       return STRINGLITERAL;
@@ -130,7 +130,7 @@ char* unescape_string(char *str);
                     }
 
 
-"\'"([^'\n\\]|\\.)"\'"  {
+'([^\\'\r\n]|\\[ntr'\"\\])'  {
                       make_token(CHARACTERLITERAL);
                       return CHARACTERLITERAL;
                     }
