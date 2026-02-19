@@ -1,0 +1,80 @@
+Lab3 Answers - Benjamin Mannal
+
+Section 1. Building a Bison Parser for the Name Sequence Language (individual)
+
+1. When you run flex nnws.l, what output file does flex write?
+- flex writes lex.yy.c as the output file when you run flex nnws.l.
+
+2. When you run gcc -c lex.yy.c, what do you get?
+- I recieve the following when running gcc -c lex.yy.c:
+
+    brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE       
+    /CSE423/Compilers/CSE423-Compilers/lab3$ gcc -c lex.yy.c
+    nnws.l:2:10: fatal error: ns.tab.h: No such file or directory
+        2 | #include "ns.tab.h"
+        |          ^~~~~~~~~~
+    compilation terminated.
+
+3. When you run bison ns.y, what output file does Bison write?
+- when running bison ns.y, Bison writes ns.tab.c as the output file.
+
+4. Devise a command line for compiling the bison output to a .o file. Fix warnings by added extern prototypes for yylex() and yyerror().
+- gcc -c ns.tab.c -o ns.tab.o -Wall -Wextra -Werror -DYYDEBUG=1
+
+5. When you run bison -d ns.y, what header file does Bison generate?
+- When running bison -d ns.y, Bison generates the header file ns.tab.h.
+
+6. Add #include "ns.tab.h" to the header section of nnws.l. Such C code goes inside %{ ... %} marks. Re-run flex nnws.l and rerun gcc -c lex.yy.c
+- It outputs the lex.yy.o file without any errors.
+
+7. Write a third module, main.c, that initializes yyin by opening whatever filename is given in argv[1] and then calls yyparse() and prints out the yyparse() return value to standard output with a message such as yyparse returns 0.
+- main.c is attached in submission
+
+8. Add a yyerror() function to main.c:
+        int yyerror(char *s) {
+        fprintf(stderr, "%s\n", s); exit(1);
+        }
+
+- this has been added to the main.c file attached in submission.
+
+9. Compile your main.c to main.o with gcc -c main.c
+- This outputs main.o without any errors.
+
+10. Devise a command line for linking the lex and bison output .o files with main.o to make an executable named ns (short for "name sequence")
+- gcc main.o lex.yy.o ns.tab.o -o ns -lfl
+
+11. Run your program on itself with ./ns nnws.l. What does it write out?
+- When running ./ns nnws.l, it writes out the following:
+    brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/lab3$ ./ns nnws.l 
+    bad char
+    bad char
+    bad char
+    bad char
+    syntax error
+    brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/lab3$
+
+12. Run your program on an input file (you can name this file whatever you want) containing
+        DrJ 1 Evil 0
+What does it write out?
+- When running the program on an input file containing "DrJ 1 Evil 0", it writes out the following:
+    brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/lab3$ ./ns input.txt 
+    DrJ 1 Evil 0 
+    yyparse returns 0
+    brmannal@BensLaptop:/mnt/c/Users/benma/OneDrive/Desktop/Senior Year/Spring/CSE423/Compilers/CSE423-Compilers/lab3$
+
+
+Section 2. How to Translate Kotlin's Grammar Rules into Bison (group)
+If you complete this lab, you should have your Flex homework wired up to a Kotlin-subset grammar. When it is running, you have a syntax checker for the K0 language. [Then you can proceed with the rest of HW#3, building syntax trees.]
+
+Create a new lab3/ subdirectory.
+Create your own k0gram.y file, maybe blank at first
+Declare the %token's per your .h file (copy paste and modify!)
+Look (like we did before) at the Kotlin syntax grammarLinks to an external site.. Drill down focusing on topLevelObject, functionDeclaration, functionValueParameters, type, typeConstraints, functionBody, block, statements, statement, declaration, assignment, loopStatement, expression, controlStructureBody.
+Each lab member translate at least 7 Kotlin grammar rules into Bison format. Your team should produce at least 14-21 Kotlin production rules. Share and review with each other, make suggestions and fixes as needed.
+Edit k0gram.y as needed! Lab goal: create enough Kotlin grammar to parse a "hello world" program.
+Copy in your k0lex.l flex specification from HW#2.
+Modify k0lex.l and k0gram.y until they have the same set of TERMINAL symbol names. Maybe this means renaming everything in one or the other.
+Run bison -d on k0gram.y to make a k0gram.tab.h.
+Modify your k0lex.l to #include k0gram.tab.h instead of whatever previous terminal symbol definitions it used in HW#2.
+Modify your HW2 main() function to call yyparse() one time in place of the while loop that called yylex() over and over again.
+Test your program (now a syntax checker) on both valid K0 inputs like a "hello world" program, as well as on some inputs with syntax errors.
