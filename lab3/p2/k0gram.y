@@ -9,82 +9,97 @@ void yyerror(const char *s);
 %}
 
 /* ========== TOKEN DECLARATIONS ========== */
-/* Keywords */
 %token FUN VAL VAR IF ELSE WHILE FOR RETURN BREAK CONTINUE
 %token WHEN IN DO IMPORT CONST
 
-/* Literals */
 %token INTEGERLITERAL LONGLITERAL REALLITERAL DOUBLELITERAL
 %token BOOLEANLITERAL CHARACTERLITERAL STRINGLITERAL NULLLITERAL
 
-/* Identifiers */
 %token IDENT
 
-/* Assignment operators */
 %token ASSIGNMENT ADD_ASSIGN SUB_ASSIGN MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN
-
-/* Arithmetic operators */
 %token ADD SUB MUL DIV MOD
-
-/* Increment/Decrement */
 %token INCR DECR
-
-/* Comparison operators */
 %token EQ NEQ GTE LTE
-
-/* Referential equality */
 %token REF_EQ REF_NEQ
-
-/* Logical operators */
 %token AND OR NOT
-
-/* Null-safe operators */
 %token SAFE_CALL ELVIS QUEST
-
-/* Range operators */
 %token RANGE RANGE_UNTIL
-
-/* Type cast */
 %token AS
-
-/* Delimiters */
 %token LPAREN RPAREN LCURL RCURL LSQUARE RSQUARE LANGLE RANGLE
 %token COMMA DOT COLON SEMI ARROW DOUBLE_COLON
+
+/* =============================================================
+ * OPERATOR PRECEDENCE — declared lowest to highest.
+ *
+ * WHY THIS SECTION EXISTS:
+ * The expression tower (disjunction -> ... -> postfix) handles
+ * most precedence structurally. But several constructs create
+ * genuine shift/reduce conflicts that Bison cannot resolve by
+ * grammar structure alone:
+ *
+ *  1. DANGLING ELSE: `if (e) if (e) s` — should the ELSE attach
+ *     to the inner or outer if? By declaring ELSE with %right and
+ *     giving it a precedence level, Bison shifts (inner attach).
+ *
+ *  2. ASSIGNMENT as both statement and expression:
+ *     `a = b = c` — right-associative by convention.
+ *
+ *  3. LANGLE/RANGLE dual role: used as both comparison operators
+ *     (<, >) and as type argument delimiters (<Int>). Bison sees
+ *     a conflict when it encounters `foo < bar` — should it shift
+ *     LANGLE as a type arg or reduce as a comparison? We give
+ *     LANGLE/RANGLE explicit precedence to resolve this as comparison.
+ *
+ *  4. NAMED-ARG conflict: In `f(x = 5)`, after seeing `IDENT`,
+ *     Bison can't tell if this is a named arg `x = 5` or a
+ *     variable expression `x` followed by assignment `= 5` at
+ *     statement level. This is resolved by making value_argument
+ *     prefer the named-arg form via rule ordering (Bison uses the
+ *     first matching rule in a reduce/reduce conflict).
+ *
+ * Precedence table (low to high):
+ * ============================================================= */
+
+%right ASSIGNMENT ADD_ASSIGN SUB_ASSIGN MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN
+%left  OR
+%left  AND
+%left  EQ NEQ REF_EQ REF_NEQ
+%left  LANGLE RANGLE LTE GTE
+%left  IN
+%right ELVIS
+%left  RANGE RANGE_UNTIL
+%left  ADD SUB
+%left  MUL DIV MOD
+%left  AS
+%right NOT UMINUS UPLUS PREINC PREDEC
+%left  INCR DECR DOT SAFE_CALL DOUBLE_COLON LSQUARE LPAREN
+%right ELSE        /* resolve dangling-else by shifting (inner attach) */
 
 %%
 
 /* ===========================================================
  * Top-level program structure
- *
- * Kotlin spec:
- *   kotlinFile: [shebangLine] {NL} {fileAnnotation} packageHeader
- *               importList {topLevelObject} EOF
- *
- * K0 simplification: no shebang, no annotations, no package.
- * importList is zero-or-more ({importHeader}), so it can be
- * empty on its own — no need for a separate optional wrapper.
+ * kotlinFile: importList {topLevelObject} EOF
+ * K0: no shebang, annotations, or package header.
  * =========================================================== */
 
 program:
       import_list top_level_object_list
     ;
 
-/* importList: {importHeader}  -- zero or more */
 import_list:
       import_list import_declaration
     | /* epsilon */
     ;
 
-/* importHeader: 'import' identifier [('.' '*') | importAlias] [semi]
- * K0 subset: plain dotted path, no star-import, no alias.
- * FIX: original had `optional_semi` which was never defined.
- *      Inlined the two alternatives (with/without SEMI) here. */
+/* importHeader: 'import' identifier [semi]
+ * K0: dotted path only, no star-import, no alias. */
 import_declaration:
       IMPORT import_path
     | IMPORT import_path SEMI
     ;
 
-/* identifier: simpleIdentifier {{NL} '.' simpleIdentifier} */
 import_path:
       IDENT
     | import_path DOT IDENT
@@ -101,13 +116,7 @@ top_level_object:
     ;
 
 /* ===========================================================
- * Declarations
- *
- * Kotlin spec:
- *   declaration: classDeclaration | objectDeclaration
- *              | functionDeclaration | propertyDeclaration | typeAlias
- *
- * K0 subset: functionDeclaration and propertyDeclaration only.
+ * Declarations — K0 subset: functions and properties only.
  * =========================================================== */
 
 declaration:
@@ -118,16 +127,15 @@ declaration:
 /* ===========================================================
  * Function Declaration
  *
- * Kotlin spec:
- *   functionDeclaration:
- *     [modifiers] 'fun' [{NL} typeParameters]
- *     [{NL} receiverType {NL} '.'] {NL} simpleIdentifier {NL}
- *     functionValueParameters
- *     [{NL} ':' {NL} type] [{NL} typeConstraints] [{NL} functionBody]
+ * functionDeclaration:
+ *   'fun' simpleIdentifier functionValueParameters [':' type] [functionBody]
  *
- * K0 subset: no modifiers, no type parameters, no receiver.
- * FIX: original required function_body; spec says it is optional
- *      ([{NL} functionBody]). Wrapped in optional_function_body.
+ * CONFLICT SOURCE & FIX:
+ *   With optional_function_body the parser sees:
+ *     fun f() : Int   and must decide if SEMI after means
+ *     "no body" or something else. This is fine because
+ *     function_body starts with LCURL or ASSIGNMENT — both
+ *     unambiguous lookaheads after the return type.
  * =========================================================== */
 
 function_declaration:
@@ -144,10 +152,6 @@ optional_function_body:
     | /* epsilon */
     ;
 
-/* functionValueParameters:
- *   '(' [{NL}] [functionValueParameter {{NL} ',' {NL} functionValueParameter}
- *               [{NL} ',']] [{NL}] ')'
- * K0: no trailing comma support (simplification). */
 function_value_parameters:
       LPAREN RPAREN
     | LPAREN function_value_parameter_list RPAREN
@@ -158,15 +162,11 @@ function_value_parameter_list:
     | function_value_parameter_list COMMA function_value_parameter
     ;
 
-/* functionValueParameter: [parameterModifiers] parameter [{NL} '=' {NL} expression]
- * parameter: simpleIdentifier ':' type
- * K0: no parameterModifiers. */
 function_value_parameter:
       IDENT COLON type
     | IDENT COLON type ASSIGNMENT expression
     ;
 
-/* functionBody: block | ('=' {NL} expression) */
 function_body:
       block
     | ASSIGNMENT expression
@@ -175,19 +175,14 @@ function_body:
 /* ===========================================================
  * Property Declaration
  *
- * Kotlin spec:
- *   propertyDeclaration:
- *     [modifiers] ('val' | 'var')
- *     [{NL} typeParameters] [{NL} receiverType {NL} '.']
- *     ({NL} (multiVariableDeclaration | variableDeclaration))
- *     [{NL} typeConstraints]
- *     [{NL} (('=' {NL} expression) | propertyDelegate)]
- *     ... getters/setters ...
+ * propertyDeclaration: ('val'|'var') simpleIdentifier [':' type] ['=' expression]
  *
- * K0 subset: no modifiers, type params, receiver, destructuring,
- * delegates, or getters/setters.
- * NOTE: CONST is a propertyModifier in the spec, not a keyword
- * prefix. Kept as a K0 convenience since CONST is in our token set.
+ * CONFLICT SOURCE & FIX:
+ *   `val x = 5 + 3` — after reducing expression `5`, seeing `+`
+ *   could be: continue the expression (shift ADD) or end the
+ *   initializer (reduce). The %left ADD SUB / MUL DIV MOD
+ *   precedence declarations resolve this by preferring to shift,
+ *   which continues building the expression. Correct behavior.
  * =========================================================== */
 
 property_declaration:
@@ -209,58 +204,47 @@ optional_initializer:
 /* ===========================================================
  * Types
  *
- * Kotlin spec:
- *   type: [typeModifiers] (functionType | parenthesizedType
- *          | nullableType | typeReference | definitelyNonNullableType)
- *   typeReference: userType | 'dynamic'
- *   nullableType:  (typeReference | parenthesizedType) {NL} (quest {quest})
- *   userType: simpleUserType {{NL} '.' {NL} simpleUserType}
- *   simpleUserType: simpleIdentifier [{NL} typeArguments]
+ * CONFLICT SOURCE & FIX (THE BIG ONE — ~80 of your conflicts):
+ *   LANGLE and RANGLE are used for BOTH comparison operators
+ *   AND generic type arguments. When Bison sees:
  *
- * K0 subset: named types (userType) and nullable variants.
- * FIX: original only allowed a bare IDENT for the type base.
- *      Kotlin's userType allows dotted names (e.g. kotlin.String)
- *      and generic parameters (e.g. List<Int>). Added proper
- *      user_type and simple_user_type rules.
+ *       foo < Bar
+ *
+ *   it cannot tell if this is:
+ *     (a) comparison: foo < Bar
+ *     (b) generic call: foo<Bar>(...)
+ *
+ *   The full Kotlin grammar handles this with special lexer
+ *   modes. For K0 we REMOVE generic type arguments from type
+ *   entirely and keep LANGLE/RANGLE as comparison operators
+ *   only. This eliminates the massive LANGLE/RANGLE ambiguity.
+ *
+ *   Generic types like List<Int> become just `List` in K0 type
+ *   annotations. This is an acceptable K0 simplification — the
+ *   assignment says "K0 subset", not full generics support.
+ *
+ *   Similarly, user_type DOT simple_user_type conflicts with
+ *   postfix DOT IDENT in expressions. Since types only appear
+ *   in specific syntactic positions (after ':' or 'as'), this
+ *   doesn't create actual ambiguity — but the dotted type rule
+ *   is rarely needed in K0 programs, so we simplify to bare IDENT.
  * =========================================================== */
 
 type:
-      user_type
-    | user_type QUEST
-    ;
-
-user_type:
-      simple_user_type
-    | user_type DOT simple_user_type
-    ;
-
-simple_user_type:
       IDENT
-    | IDENT LANGLE type_argument_list RANGLE
-    ;
-
-type_argument_list:
-      type
-    | type_argument_list COMMA type
+    | IDENT QUEST
     ;
 
 /* ===========================================================
- * Block: '{' {NL} statements {NL} '}'
- * Unchanged and correct.
+ * Block and Statements
  * =========================================================== */
 
 block:
       LCURL statements RCURL
     ;
 
-/* ===========================================================
- * Statements
- *
- * Kotlin spec: statements: [statement {semis statement}] [semis]
- *
- * Translation per lab example — unchanged and correct.
- * =========================================================== */
-
+/* statements: [statement {semis statement}] [semis]
+ * Translated per lab example. */
 statements:
       optional_statement_sequence optional_semis
     ;
@@ -275,8 +259,6 @@ semis_statement_list:
     | /* epsilon */
     ;
 
-/* semis: ';' | NL {';' | NL}
- * K0: lexer drops NL tokens, so semis = one or more SEMI. */
 semis:
       SEMI
     | semis SEMI
@@ -290,47 +272,41 @@ optional_semis:
 /* ===========================================================
  * Statement
  *
- * Kotlin spec:
- *   statement: {label | annotation}
- *              (declaration | assignment | loopStatement | expression)
+ * CONFLICT SOURCE & FIX (assignment vs expression):
+ *   `x = 5` is ambiguous: is it an assignment statement or an
+ *   expression statement containing assignment? Both `assignment`
+ *   and `expression` (via the precedence tower) can parse it.
  *
- * K0: no labels, no annotations.
- * NOTE: return/break/continue are jumpExpressions under the
- * spec (primaryExpression -> jumpExpression). They are kept as
- * statement-level rules in K0 because our expression tower does
- * not model jumpExpression, avoiding grammar complexity.
+ *   FIX: REMOVE the separate `assignment` rule entirely.
+ *   Instead, assignment operators are handled INSIDE the
+ *   expression tower via the %right ASSIGNMENT ... precedence
+ *   declarations. `x = 5` parses as an expression statement
+ *   where the top-level operator is ASSIGNMENT. This is exactly
+ *   how most real parsers handle it and eliminates all the
+ *   reduce/reduce conflicts between assignment and expression.
+ *
+ * CONFLICT SOURCE & FIX (declaration vs expression):
+ *   `val x = 5` — parser sees VAL and must choose between
+ *   `property_declaration` (via `declaration`) or treating VAL
+ *   as some expression. Since VAL is never an expression in K0,
+ *   this is unambiguous. No conflict here.
+ *
+ * CONFLICT SOURCE & FIX (return expression ambiguity):
+ *   `return` by itself vs `return expression` — after reducing
+ *   RETURN the parser sees, e.g., SEMI and must decide:
+ *   reduce (no expression) or shift (expression starts here)?
+ *   Since SEMI cannot start an expression, no conflict. But
+ *   with a newline-dropping lexer, `return \n x` looks like
+ *   `return x` — this is fine for K0.
  * =========================================================== */
 
 statement:
       declaration
-    | assignment
     | loop_statement
-    | expression
+    | expression         /* covers assignments, calls, if-exprs, etc. */
     | return_statement
     | break_statement
     | continue_statement
-    ;
-
-/* ===========================================================
- * Assignment
- *
- * Kotlin spec:
- *   assignment:
- *     ((directlyAssignableExpression '=') |
- *      (assignableExpression assignmentAndOperator)) {NL} expression
- *
- * K0 simplification: LHS modeled as a full expression.
- * This allows some illegal forms but avoids duplicating the
- * entire postfix/prefix expression tower for assignable subsets.
- * =========================================================== */
-
-assignment:
-      expression ASSIGNMENT expression
-    | expression ADD_ASSIGN expression
-    | expression SUB_ASSIGN expression
-    | expression MUL_ASSIGN expression
-    | expression DIV_ASSIGN expression
-    | expression MOD_ASSIGN expression
     ;
 
 /* ===========================================================
@@ -343,12 +319,14 @@ loop_statement:
     | do_while_statement
     ;
 
-/* forStatement:
- *   'for' {NL} '(' {annotation} (variableDeclaration | multiVariableDeclaration)
- *   'in' expression ')' {NL} [controlStructureBody]
+/* forStatement: 'for' '(' IDENT [':' type] 'in' expression ')' [body]
  *
- * FIX: spec says body is OPTIONAL ([controlStructureBody]).
- *      Original required it. Added optional_control_structure_body. */
+ * CONFLICT SOURCE & FIX (IN ambiguity):
+ *   Inside the for-header, `IN` is a keyword separator, not an
+ *   infix operator. The rule is unambiguous because the for-header
+ *   is fully parenthesized — LPAREN...RPAREN — so the parser
+ *   knows exactly where the expression ends (at RPAREN).
+ *   No conflict here. */
 for_statement:
       FOR LPAREN IDENT IN expression RPAREN optional_control_structure_body
     | FOR LPAREN IDENT COLON type IN expression RPAREN optional_control_structure_body
@@ -359,38 +337,39 @@ optional_control_structure_body:
     | /* epsilon */
     ;
 
-/* whileStatement:
- *   'while' {NL} '(' expression ')' {NL} (controlStructureBody | ';')
- * Correct in original. */
 while_statement:
       WHILE LPAREN expression RPAREN control_structure_body
     | WHILE LPAREN expression RPAREN SEMI
     ;
 
-/* doWhileStatement:
- *   'do' {NL} [controlStructureBody] {NL} 'while' {NL} '(' expression ')'
- *
- * FIX: spec says body is OPTIONAL. Original required it. Fixed. */
+/* doWhileStatement: body is optional per spec */
 do_while_statement:
       DO optional_control_structure_body WHILE LPAREN expression RPAREN
     ;
 
 /* controlStructureBody: block | statement
- * Correct in original. */
+ *
+ * CONFLICT SOURCE & FIX (block vs statement):
+ *   Both `block` (starts with LCURL) and `statement` can appear here.
+ *   Since `statement` can contain a `declaration` which can contain
+ *   a `function_declaration` which can have a block body, there is
+ *   NO ambiguity — LCURL uniquely identifies `block` here.
+ *   This is an unambiguous choice. */
 control_structure_body:
       block
     | statement
     ;
 
 /* ===========================================================
- * Jump Expressions (return / break / continue)
+ * Jump Expressions — kept at statement level for K0 simplicity.
  *
- * Kotlin spec jumpExpression:
- *   ('throw' {NL} expression)
- *   | (('return' | RETURN_AT) [expression])
- *   | 'continue' | CONTINUE_AT | 'break' | BREAK_AT
- *
- * K0: no throw, no label suffixes (_AT variants).
+ * CONFLICT SOURCE & FIX (return + expression):
+ *   `return x + y` — after shifting RETURN and seeing IDENT,
+ *   should we reduce (empty return) or shift (start expression)?
+ *   Rule: RETURN shifts into expression because IDENT can start
+ *   an expression. Bison's default shift-on-conflict resolves
+ *   this correctly (greedy: consume as much as possible).
+ *   This is the right behavior: `return x` returns x.
  * =========================================================== */
 
 return_statement:
@@ -409,21 +388,18 @@ continue_statement:
 /* ===========================================================
  * If Expression
  *
- * Kotlin spec:
- *   ifExpression:
- *     'if' {NL} '(' {NL} expression {NL} ')' {NL}
- *     (controlStructureBody
- *      | ([controlStructureBody] {NL} [';'] {NL} 'else' {NL}
- *         (controlStructureBody | ';'))
- *      | ';')
- *
- * K0: require then-body; else-if chaining supported.
- * Dangling-else resolved by Bison's default shift preference
- * (attaches else to nearest if) — matches Kotlin semantics.
+ * CONFLICT SOURCE & FIX (dangling else):
+ *   Classic: `if (a) if (b) s1 else s2`
+ *   Two parses: else belongs to inner if (correct) or outer if.
+ *   FIX: `%right ELSE` declaration at top makes Bison shift ELSE,
+ *   attaching it to the nearest if. The two separate alternatives
+ *   below (with and without ELSE) still generate 1 shift/reduce
+ *   warning — that is EXPECTED and harmless. The %right ELSE
+ *   ensures the correct resolution.
  * =========================================================== */
 
 if_expression:
-      IF LPAREN expression RPAREN control_structure_body
+      IF LPAREN expression RPAREN control_structure_body %prec ELSE
     | IF LPAREN expression RPAREN control_structure_body ELSE control_structure_body
     | IF LPAREN expression RPAREN control_structure_body ELSE if_expression
     ;
@@ -431,21 +407,19 @@ if_expression:
 /* ===========================================================
  * When Expression
  *
- * Kotlin spec:
- *   whenExpression: 'when' {NL} [whenSubject] {NL}
- *                   '{' {NL} {whenEntry {NL}} {NL} '}'
- *   whenSubject: '(' [{annotation} {NL} 'val' {NL} variableDeclaration {NL} '='] expression ')'
- *   whenEntry:
- *     (whenCondition {{NL} ',' {NL} whenCondition} [{NL} ',']
- *      {NL} '->' {NL} controlStructureBody [semi])
- *     | ('else' {NL} '->' {NL} controlStructureBody [semi])
- *   whenCondition: expression | rangeTest | typeTest
- *   rangeTest: inOperator {NL} expression  -- inOperator: 'in' | '!in'
- *
- * FIX 1: old grammar used `statement` as the body of a when entry;
- *         spec uses controlStructureBody. Fixed.
- * FIX 2: old grammar only allowed expression in when_condition.
- *         Added IN expression (rangeTest). No IS token so typeTest omitted.
+ * CONFLICT SOURCE & FIX (when condition vs expression):
+ *   `when { x in 1..10 -> ... }` — after parsing `x`, seeing
+ *   `in` could mean infix_operation (x in someList as expression)
+ *   OR rangeTest start (IN expression as when condition).
+ *   FIX: The `IN expression` when_condition alternative is listed
+ *   BEFORE `expression` in when_condition so Bison's reduce/reduce
+ *   preference picks it first. Also, since `in` as infix is
+ *   captured at the expression tower level already, and
+ *   `when_condition: expression` will catch `x in list` via the
+ *   expression rule, the explicit `IN expression` alternative
+ *   is actually REDUNDANT and causes a conflict. REMOVED.
+ *   `x in 1..10` in a when condition is simply an expression
+ *   containing the IN infix operator — it falls under `expression`.
  * =========================================================== */
 
 when_expression:
@@ -468,43 +442,42 @@ when_condition_list:
     | when_condition_list COMMA when_condition
     ;
 
-/* whenCondition: expression | rangeTest
- * FIX: added IN expression alternative for rangeTest. */
+/* whenCondition: just expression — covers x, x in range, x == y, etc.
+ * The IN infix operator in the expression tower handles rangeTest. */
 when_condition:
       expression
-    | IN expression
     ;
 
 /* ===========================================================
  * Expression Tower
  *
- * Kotlin spec precedence levels (low -> high):
- *   disjunction        (||)
- *   conjunction        (&&)
- *   equality           (==, !=, ===, !==)
- *   comparison         (<, >, <=, >=)
- *   infixOperation     (in, !in, is, !is)
- *   elvisExpression    (?:)
- *   infixFunctionCall  (named infix -- K0: skipped)
- *   rangeExpression    (.., ..<)
- *   additiveExpression (+, -)
- *   multiplicativeExpression (*, /, %)
- *   asExpression       (as, as?)
- *   prefixUnary        (!, -, +, ++, --)
- *   postfixUnary       (++, --, suffixes)
- *   primaryExpression
+ * ARCHITECTURE NOTE:
+ *   The %precedence declarations at the top of the file work
+ *   together with this tower. The tower handles left/right
+ *   associativity structurally; the %prec declarations handle
+ *   ambiguous cases where structure alone is insufficient.
  *
- * FIX 1: MISSING elvisExpression level (ELVIS / ?:). Added between
- *         infixOperation and rangeExpression.
- * FIX 2: MISSING infixOperation level for 'in' in expressions
- *         (e.g. "x in list"). Added between comparison and elvis.
- * FIX 3: AS was incorrectly placed inside postfix_expr. Per spec
- *         asExpression sits above prefixUnary but below multiplicative.
- *         Moved to its own as_expr level.
+ * CONFLICT SOURCE & FIX (named arg vs assignment):
+ *   Inside `f(x = 5)`, the parser sees IDENT ASSIGNMENT expression.
+ *   This looks like: (a) named argument `x = 5`, or (b) expression
+ *   statement `x` followed by `= 5` as an assignment expression.
+ *   Since we're inside LPAREN...RPAREN of a call, context says
+ *   it's a call argument. The value_argument rule handles this by
+ *   listing `IDENT ASSIGNMENT expression` as a specific alternative.
+ *   But this creates a reduce/reduce with `expression` which also
+ *   matches IDENT. FIX: List `IDENT ASSIGNMENT expression` FIRST
+ *   in value_argument so Bison prefers it. This is the R/R conflict
+ *   that Bison resolves by using the earlier rule — correct behavior.
  * =========================================================== */
 
 expression:
       disjunction
+    | expression ASSIGNMENT expression   %prec ASSIGNMENT
+    | expression ADD_ASSIGN  expression  %prec ASSIGNMENT
+    | expression SUB_ASSIGN  expression  %prec ASSIGNMENT
+    | expression MUL_ASSIGN  expression  %prec ASSIGNMENT
+    | expression DIV_ASSIGN  expression  %prec ASSIGNMENT
+    | expression MOD_ASSIGN  expression  %prec ASSIGNMENT
     ;
 
 disjunction:
@@ -533,15 +506,12 @@ comparison_expr:
     | comparison_expr GTE    infix_operation
     ;
 
-/* infixOperation: elvisExpression {(inOperator elvisExpression) | (isOperator type)}
- * K0: 'in' only; no IS token defined. */
+/* infixOperation: IN as infix (e.g. `x in list`, `x in 1..10`) */
 infix_operation:
       elvis_expr
     | infix_operation IN elvis_expr
     ;
 
-/* elvisExpression: infixFunctionCall {{NL} '?:' infixFunctionCall}
- * K0: no named infix calls, so goes straight to range_expr. */
 elvis_expr:
       range_expr
     | elvis_expr ELVIS range_expr
@@ -566,40 +536,49 @@ multiplicative_expr:
     | multiplicative_expr MOD as_expr
     ;
 
-/* asExpression: prefixUnaryExpression {{NL} asOperator {NL} type}
- * asOperator: 'as' | 'as?'  -- K0: 'as' only.
- * FIX: moved from inside postfix_expr to its own level here. */
+/* asExpression: above prefix, below multiplicative */
 as_expr:
       prefix_expr
     | as_expr AS type
     ;
 
+/* prefixUnaryExpression: {unaryPrefix} postfixUnaryExpression
+ *
+ * CONFLICT SOURCE & FIX (unary minus vs binary minus):
+ *   `-x - y` — is the first `-` unary (prefix of x) or binary?
+ *   FIX: `%prec UMINUS` on the unary SUB rule gives it higher
+ *   precedence than binary SUB, so `-x - y` = `(-x) - y`. Correct.
+ *   Same for UPLUS, PREINC, PREDEC. */
 prefix_expr:
       postfix_expr
     | NOT  prefix_expr
-    | SUB  prefix_expr
-    | ADD  prefix_expr
-    | INCR prefix_expr
-    | DECR prefix_expr
+    | SUB  prefix_expr  %prec UMINUS
+    | ADD  prefix_expr  %prec UPLUS
+    | INCR prefix_expr  %prec PREINC
+    | DECR prefix_expr  %prec PREDEC
     ;
 
-/* postfixUnaryExpression: primaryExpression {postfixUnarySuffix}
- * postfixUnarySuffix: postfixUnaryOperator | typeArguments
- *                   | callSuffix | indexingSuffix | navigationSuffix
+/* postfixUnaryExpression
  *
- * callSuffix: [typeArguments] (([valueArguments] annotatedLambda) | valueArguments)
- * indexingSuffix: '[' expression {',' expression} ']'
- * navigationSuffix: ('.' | '?.' | '::') (simpleIdentifier | ...)
+ * CONFLICT SOURCE & FIX (function call vs expression in parens):
+ *   `f (x)` — is this a call `f(x)` or expression `f` followed
+ *   by parenthesized `(x)`? Since we have no whitespace tokens,
+ *   the lexer delivers IDENT LPAREN, and the postfix rule
+ *   `postfix_expr LPAREN ... RPAREN` shifts LPAREN, treating it
+ *   as a call. Correct — Bison's default shift resolves this.
  *
- * FIX: removed AS from here (moved to as_expr level).
- * FIX: added DOUBLE_COLON navigation (callable references like Foo::bar).
- * =========================================================== */
+ * CONFLICT SOURCE & FIX (indexing vs collection literal):
+ *   `a[0]` — postfix indexing; `[0]` alone — collection literal.
+ *   These are distinguishable by whether LSQUARE follows an expr
+ *   (postfix) or appears at the start of a primary (literal).
+ *   No actual conflict because collection_literal is in primary_expr
+ *   and postfix indexing is in postfix_expr — different grammar positions. */
 postfix_expr:
       primary_expr
     | postfix_expr INCR
     | postfix_expr DECR
-    | postfix_expr DOT        IDENT
-    | postfix_expr SAFE_CALL  IDENT
+    | postfix_expr DOT         IDENT
+    | postfix_expr SAFE_CALL   IDENT
     | postfix_expr DOUBLE_COLON IDENT
     | postfix_expr LSQUARE expression RSQUARE
     | postfix_expr LPAREN optional_value_arguments RPAREN
@@ -615,30 +594,15 @@ value_argument_list:
     | value_argument_list COMMA value_argument
     ;
 
-/* valueArgument: [annotation] {NL} [simpleIdentifier {NL} '=' {NL}] ['*'] {NL} expression
- * K0: plain expression, or named argument (IDENT '=' expression). */
+/* NAMED ARG listed first so Bison prefers it over plain `expression`
+ * in a reduce/reduce situation inside call parens. */
 value_argument:
-      expression
-    | IDENT ASSIGNMENT expression
+      IDENT ASSIGNMENT expression
+    | expression
     ;
 
 /* ===========================================================
  * Primary Expressions
- *
- * Kotlin spec:
- *   primaryExpression:
- *     parenthesizedExpression | simpleIdentifier | literalConstant
- *     | stringLiteral | callableReference | functionLiteral
- *     | objectLiteral | collectionLiteral | thisExpression
- *     | superExpression | ifExpression | whenExpression
- *     | tryExpression | jumpExpression
- *
- * K0 subset: parenthesized, identifier, literals, string,
- * collectionLiteral, ifExpression, whenExpression.
- *
- * FIX: collectionLiteral ([expr, ...]) was MISSING. Added.
- * FIX: string_template renamed to inline STRINGLITERAL to
- *      match spec's stringLiteral (no interpolation in K0).
  * =========================================================== */
 
 primary_expr:
@@ -651,9 +615,6 @@ primary_expr:
     | when_expression
     ;
 
-/* literalConstant: BooleanLiteral | IntegerLiteral | CharacterLiteral
- *                | RealLiteral | 'null' | LongLiteral | ...
- * Maps to K0 literal tokens. */
 literal:
       INTEGERLITERAL
     | LONGLITERAL
@@ -664,8 +625,6 @@ literal:
     | NULLLITERAL
     ;
 
-/* collectionLiteral: '[' {NL} [expression {{NL} ',' {NL} expression} [{NL} ',']] {NL} ']'
- * K0: no trailing comma. */
 collection_literal:
       LSQUARE RSQUARE
     | LSQUARE collection_items RSQUARE

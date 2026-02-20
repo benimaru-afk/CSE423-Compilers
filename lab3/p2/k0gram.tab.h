@@ -119,7 +119,11 @@ extern int yydebug;
     COLON = 320,                   /* COLON  */
     SEMI = 321,                    /* SEMI  */
     ARROW = 322,                   /* ARROW  */
-    DOUBLE_COLON = 323             /* DOUBLE_COLON  */
+    DOUBLE_COLON = 323,            /* DOUBLE_COLON  */
+    UMINUS = 324,                  /* UMINUS  */
+    UPLUS = 325,                   /* UPLUS  */
+    PREINC = 326,                  /* PREINC  */
+    PREDEC = 327                   /* PREDEC  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
