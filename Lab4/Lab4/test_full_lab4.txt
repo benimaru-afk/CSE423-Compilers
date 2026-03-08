@@ -1,0 +1,2020 @@
+LEAF: category=271 text=import line=1 file=Test_full.kt
+LEAF: category=282 text=kotlin line=1 file=Test_full.kt
+LEAF: category=319 text=. line=1 file=Test_full.kt
+LEAF: category=282 text=math line=1 file=Test_full.kt
+LEAF: category=271 text=import line=2 file=Test_full.kt
+LEAF: category=282 text=java line=2 file=Test_full.kt
+LEAF: category=319 text=. line=2 file=Test_full.kt
+LEAF: category=282 text=util line=2 file=Test_full.kt
+LEAF: category=319 text=. line=2 file=Test_full.kt
+LEAF: category=282 text=ArrayList line=2 file=Test_full.kt
+LEAF: category=258 text=fun line=5 file=Test_full.kt
+LEAF: category=282 text=main line=5 file=Test_full.kt
+LEAF: category=312 text=( line=5 file=Test_full.kt
+LEAF: category=313 text=) line=5 file=Test_full.kt
+LEAF: category=314 text={ line=5 file=Test_full.kt
+LEAF: category=282 text=println line=6 file=Test_full.kt
+LEAF: category=312 text=( line=6 file=Test_full.kt
+LEAF: category=280 text="Hello, World!" line=6 file=Test_full.kt
+LEAF: category=313 text=) line=6 file=Test_full.kt
+LEAF: category=315 text=} line=7 file=Test_full.kt
+LEAF: category=258 text=fun line=10 file=Test_full.kt
+LEAF: category=282 text=add line=10 file=Test_full.kt
+LEAF: category=312 text=( line=10 file=Test_full.kt
+LEAF: category=282 text=x line=10 file=Test_full.kt
+LEAF: category=320 text=: line=10 file=Test_full.kt
+LEAF: category=282 text=Int line=10 file=Test_full.kt
+LEAF: category=318 text=, line=10 file=Test_full.kt
+LEAF: category=282 text=y line=10 file=Test_full.kt
+LEAF: category=320 text=: line=10 file=Test_full.kt
+LEAF: category=282 text=Int line=10 file=Test_full.kt
+LEAF: category=313 text=) line=10 file=Test_full.kt
+LEAF: category=320 text=: line=10 file=Test_full.kt
+LEAF: category=282 text=Int line=10 file=Test_full.kt
+LEAF: category=314 text={ line=10 file=Test_full.kt
+LEAF: category=265 text=return line=11 file=Test_full.kt
+LEAF: category=282 text=x line=11 file=Test_full.kt
+LEAF: category=289 text=+ line=11 file=Test_full.kt
+LEAF: category=282 text=y line=11 file=Test_full.kt
+LEAF: category=315 text=} line=12 file=Test_full.kt
+LEAF: category=258 text=fun line=14 file=Test_full.kt
+LEAF: category=282 text=compute line=14 file=Test_full.kt
+LEAF: category=312 text=( line=14 file=Test_full.kt
+LEAF: category=282 text=a line=14 file=Test_full.kt
+LEAF: category=320 text=: line=14 file=Test_full.kt
+LEAF: category=282 text=Int line=14 file=Test_full.kt
+LEAF: category=318 text=, line=14 file=Test_full.kt
+LEAF: category=282 text=b line=14 file=Test_full.kt
+LEAF: category=320 text=: line=14 file=Test_full.kt
+LEAF: category=282 text=Int line=14 file=Test_full.kt
+LEAF: category=313 text=) line=14 file=Test_full.kt
+LEAF: category=320 text=: line=14 file=Test_full.kt
+LEAF: category=282 text=Int line=14 file=Test_full.kt
+LEAF: category=314 text={ line=14 file=Test_full.kt
+LEAF: category=259 text=val line=15 file=Test_full.kt
+LEAF: category=282 text=sum line=15 file=Test_full.kt
+LEAF: category=283 text== line=15 file=Test_full.kt
+LEAF: category=282 text=a line=15 file=Test_full.kt
+LEAF: category=289 text=+ line=15 file=Test_full.kt
+LEAF: category=282 text=b line=15 file=Test_full.kt
+LEAF: category=259 text=val line=16 file=Test_full.kt
+LEAF: category=282 text=product line=16 file=Test_full.kt
+LEAF: category=283 text== line=16 file=Test_full.kt
+LEAF: category=282 text=a line=16 file=Test_full.kt
+LEAF: category=291 text=* line=16 file=Test_full.kt
+LEAF: category=282 text=b line=16 file=Test_full.kt
+LEAF: category=259 text=val line=17 file=Test_full.kt
+LEAF: category=282 text=ratio line=17 file=Test_full.kt
+LEAF: category=283 text== line=17 file=Test_full.kt
+LEAF: category=282 text=a line=17 file=Test_full.kt
+LEAF: category=292 text=/ line=17 file=Test_full.kt
+LEAF: category=282 text=b line=17 file=Test_full.kt
+LEAF: category=265 text=return line=18 file=Test_full.kt
+LEAF: category=282 text=sum line=18 file=Test_full.kt
+LEAF: category=289 text=+ line=18 file=Test_full.kt
+LEAF: category=282 text=product line=18 file=Test_full.kt
+LEAF: category=290 text=- line=18 file=Test_full.kt
+LEAF: category=282 text=ratio line=18 file=Test_full.kt
+LEAF: category=315 text=} line=19 file=Test_full.kt
+LEAF: category=258 text=fun line=22 file=Test_full.kt
+LEAF: category=282 text=variables line=22 file=Test_full.kt
+LEAF: category=312 text=( line=22 file=Test_full.kt
+LEAF: category=313 text=) line=22 file=Test_full.kt
+LEAF: category=314 text={ line=22 file=Test_full.kt
+LEAF: category=259 text=val line=23 file=Test_full.kt
+LEAF: category=282 text=a line=23 file=Test_full.kt
+LEAF: category=283 text== line=23 file=Test_full.kt
+LEAF: category=274 text=10 line=23 file=Test_full.kt
+LEAF: category=260 text=var line=24 file=Test_full.kt
+LEAF: category=282 text=b line=24 file=Test_full.kt
+LEAF: category=283 text== line=24 file=Test_full.kt
+LEAF: category=274 text=20 line=24 file=Test_full.kt
+LEAF: category=259 text=val line=25 file=Test_full.kt
+LEAF: category=282 text=big line=25 file=Test_full.kt
+LEAF: category=283 text== line=25 file=Test_full.kt
+LEAF: category=275 text=100L line=25 file=Test_full.kt
+LEAF: category=259 text=val line=26 file=Test_full.kt
+LEAF: category=282 text=pi line=26 file=Test_full.kt
+LEAF: category=283 text== line=26 file=Test_full.kt
+LEAF: category=276 text=3.14 line=26 file=Test_full.kt
+LEAF: category=259 text=val line=27 file=Test_full.kt
+LEAF: category=282 text=flag line=27 file=Test_full.kt
+LEAF: category=283 text== line=27 file=Test_full.kt
+LEAF: category=278 text=true line=27 file=Test_full.kt
+LEAF: category=259 text=val line=28 file=Test_full.kt
+LEAF: category=282 text=nothing line=28 file=Test_full.kt
+LEAF: category=283 text== line=28 file=Test_full.kt
+LEAF: category=281 text=null line=28 file=Test_full.kt
+LEAF: category=259 text=val line=29 file=Test_full.kt
+LEAF: category=282 text=letter line=29 file=Test_full.kt
+LEAF: category=283 text== line=29 file=Test_full.kt
+LEAF: category=279 text='z' line=29 file=Test_full.kt
+LEAF: category=259 text=val line=30 file=Test_full.kt
+LEAF: category=282 text=greeting line=30 file=Test_full.kt
+LEAF: category=283 text== line=30 file=Test_full.kt
+LEAF: category=280 text="hello" line=30 file=Test_full.kt
+LEAF: category=282 text=b line=31 file=Test_full.kt
+LEAF: category=284 text=+= line=31 file=Test_full.kt
+LEAF: category=274 text=5 line=31 file=Test_full.kt
+LEAF: category=282 text=b line=32 file=Test_full.kt
+LEAF: category=285 text=-= line=32 file=Test_full.kt
+LEAF: category=274 text=1 line=32 file=Test_full.kt
+LEAF: category=282 text=b line=33 file=Test_full.kt
+LEAF: category=286 text=*= line=33 file=Test_full.kt
+LEAF: category=274 text=2 line=33 file=Test_full.kt
+LEAF: category=282 text=b line=34 file=Test_full.kt
+LEAF: category=287 text=/= line=34 file=Test_full.kt
+LEAF: category=274 text=3 line=34 file=Test_full.kt
+LEAF: category=282 text=b line=35 file=Test_full.kt
+LEAF: category=288 text=%= line=35 file=Test_full.kt
+LEAF: category=274 text=4 line=35 file=Test_full.kt
+LEAF: category=282 text=b line=36 file=Test_full.kt
+LEAF: category=294 text=++ line=36 file=Test_full.kt
+LEAF: category=282 text=b line=37 file=Test_full.kt
+LEAF: category=295 text=-- line=37 file=Test_full.kt
+LEAF: category=259 text=val line=38 file=Test_full.kt
+LEAF: category=282 text=neg line=38 file=Test_full.kt
+LEAF: category=283 text== line=38 file=Test_full.kt
+LEAF: category=290 text=- line=38 file=Test_full.kt
+LEAF: category=282 text=a line=38 file=Test_full.kt
+LEAF: category=259 text=val line=39 file=Test_full.kt
+LEAF: category=282 text=pos line=39 file=Test_full.kt
+LEAF: category=283 text== line=39 file=Test_full.kt
+LEAF: category=289 text=+ line=39 file=Test_full.kt
+LEAF: category=282 text=a line=39 file=Test_full.kt
+LEAF: category=315 text=} line=40 file=Test_full.kt
+LEAF: category=258 text=fun line=43 file=Test_full.kt
+LEAF: category=282 text=classify line=43 file=Test_full.kt
+LEAF: category=312 text=( line=43 file=Test_full.kt
+LEAF: category=282 text=n line=43 file=Test_full.kt
+LEAF: category=320 text=: line=43 file=Test_full.kt
+LEAF: category=282 text=Int line=43 file=Test_full.kt
+LEAF: category=313 text=) line=43 file=Test_full.kt
+LEAF: category=320 text=: line=43 file=Test_full.kt
+LEAF: category=282 text=Int line=43 file=Test_full.kt
+LEAF: category=314 text={ line=43 file=Test_full.kt
+LEAF: category=261 text=if line=44 file=Test_full.kt
+LEAF: category=312 text=( line=44 file=Test_full.kt
+LEAF: category=282 text=n line=44 file=Test_full.kt
+LEAF: category=301 text=> line=44 file=Test_full.kt
+LEAF: category=274 text=0 line=44 file=Test_full.kt
+LEAF: category=313 text=) line=44 file=Test_full.kt
+LEAF: category=314 text={ line=44 file=Test_full.kt
+LEAF: category=265 text=return line=45 file=Test_full.kt
+LEAF: category=274 text=1 line=45 file=Test_full.kt
+LEAF: category=315 text=} line=46 file=Test_full.kt
+LEAF: category=262 text=else line=46 file=Test_full.kt
+LEAF: category=261 text=if line=46 file=Test_full.kt
+LEAF: category=312 text=( line=46 file=Test_full.kt
+LEAF: category=282 text=n line=46 file=Test_full.kt
+LEAF: category=300 text=< line=46 file=Test_full.kt
+LEAF: category=274 text=0 line=46 file=Test_full.kt
+LEAF: category=313 text=) line=46 file=Test_full.kt
+LEAF: category=314 text={ line=46 file=Test_full.kt
+LEAF: category=265 text=return line=47 file=Test_full.kt
+LEAF: category=290 text=- line=47 file=Test_full.kt
+LEAF: category=274 text=1 line=47 file=Test_full.kt
+LEAF: category=315 text=} line=48 file=Test_full.kt
+LEAF: category=262 text=else line=48 file=Test_full.kt
+LEAF: category=314 text={ line=48 file=Test_full.kt
+LEAF: category=265 text=return line=49 file=Test_full.kt
+LEAF: category=274 text=0 line=49 file=Test_full.kt
+LEAF: category=315 text=} line=50 file=Test_full.kt
+LEAF: category=315 text=} line=51 file=Test_full.kt
+LEAF: category=258 text=fun line=54 file=Test_full.kt
+LEAF: category=282 text=countdown line=54 file=Test_full.kt
+LEAF: category=312 text=( line=54 file=Test_full.kt
+LEAF: category=282 text=n line=54 file=Test_full.kt
+LEAF: category=320 text=: line=54 file=Test_full.kt
+LEAF: category=282 text=Int line=54 file=Test_full.kt
+LEAF: category=313 text=) line=54 file=Test_full.kt
+LEAF: category=314 text={ line=54 file=Test_full.kt
+LEAF: category=260 text=var line=55 file=Test_full.kt
+LEAF: category=282 text=i line=55 file=Test_full.kt
+LEAF: category=283 text== line=55 file=Test_full.kt
+LEAF: category=282 text=n line=55 file=Test_full.kt
+LEAF: category=263 text=while line=56 file=Test_full.kt
+LEAF: category=312 text=( line=56 file=Test_full.kt
+LEAF: category=282 text=i line=56 file=Test_full.kt
+LEAF: category=301 text=> line=56 file=Test_full.kt
+LEAF: category=274 text=0 line=56 file=Test_full.kt
+LEAF: category=313 text=) line=56 file=Test_full.kt
+LEAF: category=314 text={ line=56 file=Test_full.kt
+LEAF: category=282 text=println line=57 file=Test_full.kt
+LEAF: category=312 text=( line=57 file=Test_full.kt
+LEAF: category=282 text=i line=57 file=Test_full.kt
+LEAF: category=313 text=) line=57 file=Test_full.kt
+LEAF: category=282 text=i line=58 file=Test_full.kt
+LEAF: category=295 text=-- line=58 file=Test_full.kt
+LEAF: category=315 text=} line=59 file=Test_full.kt
+LEAF: category=315 text=} line=60 file=Test_full.kt
+LEAF: category=258 text=fun line=63 file=Test_full.kt
+LEAF: category=282 text=doLoop line=63 file=Test_full.kt
+LEAF: category=312 text=( line=63 file=Test_full.kt
+LEAF: category=313 text=) line=63 file=Test_full.kt
+LEAF: category=314 text={ line=63 file=Test_full.kt
+LEAF: category=260 text=var line=64 file=Test_full.kt
+LEAF: category=282 text=x line=64 file=Test_full.kt
+LEAF: category=283 text== line=64 file=Test_full.kt
+LEAF: category=274 text=0 line=64 file=Test_full.kt
+LEAF: category=270 text=do line=65 file=Test_full.kt
+LEAF: category=314 text={ line=65 file=Test_full.kt
+LEAF: category=282 text=x line=66 file=Test_full.kt
+LEAF: category=294 text=++ line=66 file=Test_full.kt
+LEAF: category=315 text=} line=67 file=Test_full.kt
+LEAF: category=263 text=while line=67 file=Test_full.kt
+LEAF: category=312 text=( line=67 file=Test_full.kt
+LEAF: category=282 text=x line=67 file=Test_full.kt
+LEAF: category=300 text=< line=67 file=Test_full.kt
+LEAF: category=274 text=10 line=67 file=Test_full.kt
+LEAF: category=313 text=) line=67 file=Test_full.kt
+LEAF: category=315 text=} line=68 file=Test_full.kt
+LEAF: category=258 text=fun line=71 file=Test_full.kt
+LEAF: category=282 text=sumList line=71 file=Test_full.kt
+LEAF: category=312 text=( line=71 file=Test_full.kt
+LEAF: category=282 text=items line=71 file=Test_full.kt
+LEAF: category=320 text=: line=71 file=Test_full.kt
+LEAF: category=282 text=List line=71 file=Test_full.kt
+LEAF: category=313 text=) line=71 file=Test_full.kt
+LEAF: category=314 text={ line=71 file=Test_full.kt
+LEAF: category=260 text=var line=72 file=Test_full.kt
+LEAF: category=282 text=total line=72 file=Test_full.kt
+LEAF: category=283 text== line=72 file=Test_full.kt
+LEAF: category=274 text=0 line=72 file=Test_full.kt
+LEAF: category=264 text=for line=73 file=Test_full.kt
+LEAF: category=312 text=( line=73 file=Test_full.kt
+LEAF: category=282 text=x line=73 file=Test_full.kt
+LEAF: category=269 text=in line=73 file=Test_full.kt
+LEAF: category=282 text=items line=73 file=Test_full.kt
+LEAF: category=313 text=) line=73 file=Test_full.kt
+LEAF: category=314 text={ line=73 file=Test_full.kt
+LEAF: category=282 text=total line=74 file=Test_full.kt
+LEAF: category=284 text=+= line=74 file=Test_full.kt
+LEAF: category=282 text=x line=74 file=Test_full.kt
+LEAF: category=315 text=} line=75 file=Test_full.kt
+LEAF: category=265 text=return line=76 file=Test_full.kt
+LEAF: category=282 text=total line=76 file=Test_full.kt
+LEAF: category=315 text=} line=77 file=Test_full.kt
+LEAF: category=258 text=fun line=80 file=Test_full.kt
+LEAF: category=282 text=typedFor line=80 file=Test_full.kt
+LEAF: category=312 text=( line=80 file=Test_full.kt
+LEAF: category=282 text=items line=80 file=Test_full.kt
+LEAF: category=320 text=: line=80 file=Test_full.kt
+LEAF: category=282 text=List line=80 file=Test_full.kt
+LEAF: category=313 text=) line=80 file=Test_full.kt
+LEAF: category=314 text={ line=80 file=Test_full.kt
+LEAF: category=264 text=for line=81 file=Test_full.kt
+LEAF: category=312 text=( line=81 file=Test_full.kt
+LEAF: category=282 text=x line=81 file=Test_full.kt
+LEAF: category=320 text=: line=81 file=Test_full.kt
+LEAF: category=282 text=Int line=81 file=Test_full.kt
+LEAF: category=269 text=in line=81 file=Test_full.kt
+LEAF: category=282 text=items line=81 file=Test_full.kt
+LEAF: category=313 text=) line=81 file=Test_full.kt
+LEAF: category=314 text={ line=81 file=Test_full.kt
+LEAF: category=282 text=println line=82 file=Test_full.kt
+LEAF: category=312 text=( line=82 file=Test_full.kt
+LEAF: category=282 text=x line=82 file=Test_full.kt
+LEAF: category=313 text=) line=82 file=Test_full.kt
+LEAF: category=315 text=} line=83 file=Test_full.kt
+LEAF: category=315 text=} line=84 file=Test_full.kt
+LEAF: category=258 text=fun line=87 file=Test_full.kt
+LEAF: category=282 text=describe line=87 file=Test_full.kt
+LEAF: category=312 text=( line=87 file=Test_full.kt
+LEAF: category=282 text=x line=87 file=Test_full.kt
+LEAF: category=320 text=: line=87 file=Test_full.kt
+LEAF: category=282 text=Int line=87 file=Test_full.kt
+LEAF: category=313 text=) line=87 file=Test_full.kt
+LEAF: category=314 text={ line=87 file=Test_full.kt
+LEAF: category=268 text=when line=88 file=Test_full.kt
+LEAF: category=312 text=( line=88 file=Test_full.kt
+LEAF: category=282 text=x line=88 file=Test_full.kt
+LEAF: category=313 text=) line=88 file=Test_full.kt
+LEAF: category=314 text={ line=88 file=Test_full.kt
+LEAF: category=274 text=1 line=89 file=Test_full.kt
+LEAF: category=322 text=-> line=89 file=Test_full.kt
+LEAF: category=282 text=println line=89 file=Test_full.kt
+LEAF: category=312 text=( line=89 file=Test_full.kt
+LEAF: category=280 text="one" line=89 file=Test_full.kt
+LEAF: category=313 text=) line=89 file=Test_full.kt
+LEAF: category=274 text=2 line=90 file=Test_full.kt
+LEAF: category=322 text=-> line=90 file=Test_full.kt
+LEAF: category=282 text=println line=90 file=Test_full.kt
+LEAF: category=312 text=( line=90 file=Test_full.kt
+LEAF: category=280 text="two" line=90 file=Test_full.kt
+LEAF: category=313 text=) line=90 file=Test_full.kt
+LEAF: category=274 text=3 line=91 file=Test_full.kt
+LEAF: category=322 text=-> line=91 file=Test_full.kt
+LEAF: category=282 text=println line=91 file=Test_full.kt
+LEAF: category=312 text=( line=91 file=Test_full.kt
+LEAF: category=280 text="three" line=91 file=Test_full.kt
+LEAF: category=313 text=) line=91 file=Test_full.kt
+LEAF: category=262 text=else line=92 file=Test_full.kt
+LEAF: category=322 text=-> line=92 file=Test_full.kt
+LEAF: category=282 text=println line=92 file=Test_full.kt
+LEAF: category=312 text=( line=92 file=Test_full.kt
+LEAF: category=280 text="other" line=92 file=Test_full.kt
+LEAF: category=313 text=) line=92 file=Test_full.kt
+LEAF: category=315 text=} line=93 file=Test_full.kt
+LEAF: category=315 text=} line=94 file=Test_full.kt
+LEAF: category=258 text=fun line=97 file=Test_full.kt
+LEAF: category=282 text=grade line=97 file=Test_full.kt
+LEAF: category=312 text=( line=97 file=Test_full.kt
+LEAF: category=282 text=score line=97 file=Test_full.kt
+LEAF: category=320 text=: line=97 file=Test_full.kt
+LEAF: category=282 text=Int line=97 file=Test_full.kt
+LEAF: category=313 text=) line=97 file=Test_full.kt
+LEAF: category=314 text={ line=97 file=Test_full.kt
+LEAF: category=268 text=when line=98 file=Test_full.kt
+LEAF: category=314 text={ line=98 file=Test_full.kt
+LEAF: category=282 text=score line=99 file=Test_full.kt
+LEAF: category=298 text=>= line=99 file=Test_full.kt
+LEAF: category=274 text=90 line=99 file=Test_full.kt
+LEAF: category=322 text=-> line=99 file=Test_full.kt
+LEAF: category=282 text=println line=99 file=Test_full.kt
+LEAF: category=312 text=( line=99 file=Test_full.kt
+LEAF: category=280 text="A" line=99 file=Test_full.kt
+LEAF: category=313 text=) line=99 file=Test_full.kt
+LEAF: category=282 text=score line=100 file=Test_full.kt
+LEAF: category=298 text=>= line=100 file=Test_full.kt
+LEAF: category=274 text=80 line=100 file=Test_full.kt
+LEAF: category=322 text=-> line=100 file=Test_full.kt
+LEAF: category=282 text=println line=100 file=Test_full.kt
+LEAF: category=312 text=( line=100 file=Test_full.kt
+LEAF: category=280 text="B" line=100 file=Test_full.kt
+LEAF: category=313 text=) line=100 file=Test_full.kt
+LEAF: category=282 text=score line=101 file=Test_full.kt
+LEAF: category=298 text=>= line=101 file=Test_full.kt
+LEAF: category=274 text=70 line=101 file=Test_full.kt
+LEAF: category=322 text=-> line=101 file=Test_full.kt
+LEAF: category=282 text=println line=101 file=Test_full.kt
+LEAF: category=312 text=( line=101 file=Test_full.kt
+LEAF: category=280 text="C" line=101 file=Test_full.kt
+LEAF: category=313 text=) line=101 file=Test_full.kt
+LEAF: category=262 text=else line=102 file=Test_full.kt
+LEAF: category=322 text=-> line=102 file=Test_full.kt
+LEAF: category=282 text=println line=102 file=Test_full.kt
+LEAF: category=312 text=( line=102 file=Test_full.kt
+LEAF: category=280 text="F" line=102 file=Test_full.kt
+LEAF: category=313 text=) line=102 file=Test_full.kt
+LEAF: category=315 text=} line=103 file=Test_full.kt
+LEAF: category=315 text=} line=104 file=Test_full.kt
+LEAF: category=258 text=fun line=107 file=Test_full.kt
+LEAF: category=282 text=expressions line=107 file=Test_full.kt
+LEAF: category=312 text=( line=107 file=Test_full.kt
+LEAF: category=313 text=) line=107 file=Test_full.kt
+LEAF: category=314 text={ line=107 file=Test_full.kt
+LEAF: category=259 text=val line=108 file=Test_full.kt
+LEAF: category=282 text=x line=108 file=Test_full.kt
+LEAF: category=283 text== line=108 file=Test_full.kt
+LEAF: category=274 text=1 line=108 file=Test_full.kt
+LEAF: category=289 text=+ line=108 file=Test_full.kt
+LEAF: category=274 text=2 line=108 file=Test_full.kt
+LEAF: category=291 text=* line=108 file=Test_full.kt
+LEAF: category=274 text=3 line=108 file=Test_full.kt
+LEAF: category=290 text=- line=108 file=Test_full.kt
+LEAF: category=274 text=4 line=108 file=Test_full.kt
+LEAF: category=292 text=/ line=108 file=Test_full.kt
+LEAF: category=274 text=2 line=108 file=Test_full.kt
+LEAF: category=259 text=val line=109 file=Test_full.kt
+LEAF: category=282 text=y line=109 file=Test_full.kt
+LEAF: category=283 text== line=109 file=Test_full.kt
+LEAF: category=282 text=x line=109 file=Test_full.kt
+LEAF: category=301 text=> line=109 file=Test_full.kt
+LEAF: category=274 text=0 line=109 file=Test_full.kt
+LEAF: category=304 text=&& line=109 file=Test_full.kt
+LEAF: category=282 text=x line=109 file=Test_full.kt
+LEAF: category=300 text=< line=109 file=Test_full.kt
+LEAF: category=274 text=100 line=109 file=Test_full.kt
+LEAF: category=259 text=val line=110 file=Test_full.kt
+LEAF: category=282 text=z line=110 file=Test_full.kt
+LEAF: category=283 text== line=110 file=Test_full.kt
+LEAF: category=282 text=y line=110 file=Test_full.kt
+LEAF: category=305 text=|| line=110 file=Test_full.kt
+LEAF: category=278 text=false line=110 file=Test_full.kt
+LEAF: category=259 text=val line=111 file=Test_full.kt
+LEAF: category=282 text=w line=111 file=Test_full.kt
+LEAF: category=283 text== line=111 file=Test_full.kt
+LEAF: category=306 text=! line=111 file=Test_full.kt
+LEAF: category=282 text=z line=111 file=Test_full.kt
+LEAF: category=259 text=val line=112 file=Test_full.kt
+LEAF: category=282 text=r line=112 file=Test_full.kt
+LEAF: category=283 text== line=112 file=Test_full.kt
+LEAF: category=274 text=1 line=112 file=Test_full.kt
+LEAF: category=310 text=.. line=112 file=Test_full.kt
+LEAF: category=274 text=10 line=112 file=Test_full.kt
+LEAF: category=259 text=val line=113 file=Test_full.kt
+LEAF: category=282 text=s line=113 file=Test_full.kt
+LEAF: category=283 text== line=113 file=Test_full.kt
+LEAF: category=274 text=1 line=113 file=Test_full.kt
+LEAF: category=311 text=..< line=113 file=Test_full.kt
+LEAF: category=274 text=10 line=113 file=Test_full.kt
+LEAF: category=259 text=val line=114 file=Test_full.kt
+LEAF: category=282 text=t line=114 file=Test_full.kt
+LEAF: category=283 text== line=114 file=Test_full.kt
+LEAF: category=282 text=x line=114 file=Test_full.kt
+LEAF: category=308 text=?: line=114 file=Test_full.kt
+LEAF: category=274 text=0 line=114 file=Test_full.kt
+LEAF: category=259 text=val line=115 file=Test_full.kt
+LEAF: category=282 text=a line=115 file=Test_full.kt
+LEAF: category=283 text== line=115 file=Test_full.kt
+LEAF: category=282 text=x line=115 file=Test_full.kt
+LEAF: category=296 text=== line=115 file=Test_full.kt
+LEAF: category=274 text=5 line=115 file=Test_full.kt
+LEAF: category=259 text=val line=116 file=Test_full.kt
+LEAF: category=282 text=b line=116 file=Test_full.kt
+LEAF: category=283 text== line=116 file=Test_full.kt
+LEAF: category=282 text=x line=116 file=Test_full.kt
+LEAF: category=297 text=!= line=116 file=Test_full.kt
+LEAF: category=274 text=5 line=116 file=Test_full.kt
+LEAF: category=259 text=val line=117 file=Test_full.kt
+LEAF: category=282 text=c line=117 file=Test_full.kt
+LEAF: category=283 text== line=117 file=Test_full.kt
+LEAF: category=282 text=x line=117 file=Test_full.kt
+LEAF: category=298 text=>= line=117 file=Test_full.kt
+LEAF: category=274 text=0 line=117 file=Test_full.kt
+LEAF: category=259 text=val line=118 file=Test_full.kt
+LEAF: category=282 text=d line=118 file=Test_full.kt
+LEAF: category=283 text== line=118 file=Test_full.kt
+LEAF: category=282 text=x line=118 file=Test_full.kt
+LEAF: category=299 text=<= line=118 file=Test_full.kt
+LEAF: category=274 text=100 line=118 file=Test_full.kt
+LEAF: category=259 text=val line=119 file=Test_full.kt
+LEAF: category=282 text=e line=119 file=Test_full.kt
+LEAF: category=283 text== line=119 file=Test_full.kt
+LEAF: category=282 text=x line=119 file=Test_full.kt
+LEAF: category=302 text==== line=119 file=Test_full.kt
+LEAF: category=282 text=x line=119 file=Test_full.kt
+LEAF: category=259 text=val line=120 file=Test_full.kt
+LEAF: category=282 text=f line=120 file=Test_full.kt
+LEAF: category=283 text== line=120 file=Test_full.kt
+LEAF: category=282 text=x line=120 file=Test_full.kt
+LEAF: category=303 text=!== line=120 file=Test_full.kt
+LEAF: category=282 text=x line=120 file=Test_full.kt
+LEAF: category=315 text=} line=121 file=Test_full.kt
+LEAF: category=258 text=fun line=124 file=Test_full.kt
+LEAF: category=282 text=chaining line=124 file=Test_full.kt
+LEAF: category=312 text=( line=124 file=Test_full.kt
+LEAF: category=313 text=) line=124 file=Test_full.kt
+LEAF: category=314 text={ line=124 file=Test_full.kt
+LEAF: category=259 text=val line=125 file=Test_full.kt
+LEAF: category=282 text=items line=125 file=Test_full.kt
+LEAF: category=283 text== line=125 file=Test_full.kt
+LEAF: category=316 text=[ line=125 file=Test_full.kt
+LEAF: category=274 text=1 line=125 file=Test_full.kt
+LEAF: category=318 text=, line=125 file=Test_full.kt
+LEAF: category=274 text=2 line=125 file=Test_full.kt
+LEAF: category=318 text=, line=125 file=Test_full.kt
+LEAF: category=274 text=3 line=125 file=Test_full.kt
+LEAF: category=317 text=] line=125 file=Test_full.kt
+LEAF: category=259 text=val line=126 file=Test_full.kt
+LEAF: category=282 text=first line=126 file=Test_full.kt
+LEAF: category=283 text== line=126 file=Test_full.kt
+LEAF: category=282 text=items line=126 file=Test_full.kt
+LEAF: category=316 text=[ line=126 file=Test_full.kt
+LEAF: category=274 text=0 line=126 file=Test_full.kt
+LEAF: category=317 text=] line=126 file=Test_full.kt
+LEAF: category=259 text=val line=127 file=Test_full.kt
+LEAF: category=282 text=len line=127 file=Test_full.kt
+LEAF: category=283 text== line=127 file=Test_full.kt
+LEAF: category=282 text=items line=127 file=Test_full.kt
+LEAF: category=319 text=. line=127 file=Test_full.kt
+LEAF: category=282 text=size line=127 file=Test_full.kt
+LEAF: category=259 text=val line=128 file=Test_full.kt
+LEAF: category=282 text=safe line=128 file=Test_full.kt
+LEAF: category=283 text== line=128 file=Test_full.kt
+LEAF: category=282 text=items line=128 file=Test_full.kt
+LEAF: category=307 text=?. line=128 file=Test_full.kt
+LEAF: category=282 text=size line=128 file=Test_full.kt
+LEAF: category=259 text=val line=129 file=Test_full.kt
+LEAF: category=282 text=up line=129 file=Test_full.kt
+LEAF: category=283 text== line=129 file=Test_full.kt
+LEAF: category=280 text="hello" line=129 file=Test_full.kt
+LEAF: category=319 text=. line=129 file=Test_full.kt
+LEAF: category=282 text=toUpperCase line=129 file=Test_full.kt
+LEAF: category=312 text=( line=129 file=Test_full.kt
+LEAF: category=313 text=) line=129 file=Test_full.kt
+LEAF: category=315 text=} line=130 file=Test_full.kt
+LEAF: category=258 text=fun line=133 file=Test_full.kt
+LEAF: category=282 text=collections line=133 file=Test_full.kt
+LEAF: category=312 text=( line=133 file=Test_full.kt
+LEAF: category=313 text=) line=133 file=Test_full.kt
+LEAF: category=314 text={ line=133 file=Test_full.kt
+LEAF: category=259 text=val line=134 file=Test_full.kt
+LEAF: category=282 text=empty line=134 file=Test_full.kt
+LEAF: category=283 text== line=134 file=Test_full.kt
+LEAF: category=316 text=[ line=134 file=Test_full.kt
+LEAF: category=317 text=] line=134 file=Test_full.kt
+LEAF: category=259 text=val line=135 file=Test_full.kt
+LEAF: category=282 text=nums line=135 file=Test_full.kt
+LEAF: category=283 text== line=135 file=Test_full.kt
+LEAF: category=316 text=[ line=135 file=Test_full.kt
+LEAF: category=274 text=1 line=135 file=Test_full.kt
+LEAF: category=318 text=, line=135 file=Test_full.kt
+LEAF: category=274 text=2 line=135 file=Test_full.kt
+LEAF: category=318 text=, line=135 file=Test_full.kt
+LEAF: category=274 text=3 line=135 file=Test_full.kt
+LEAF: category=317 text=] line=135 file=Test_full.kt
+LEAF: category=259 text=val line=136 file=Test_full.kt
+LEAF: category=282 text=mixed line=136 file=Test_full.kt
+LEAF: category=283 text== line=136 file=Test_full.kt
+LEAF: category=316 text=[ line=136 file=Test_full.kt
+LEAF: category=274 text=1 line=136 file=Test_full.kt
+LEAF: category=289 text=+ line=136 file=Test_full.kt
+LEAF: category=274 text=1 line=136 file=Test_full.kt
+LEAF: category=318 text=, line=136 file=Test_full.kt
+LEAF: category=274 text=2 line=136 file=Test_full.kt
+LEAF: category=291 text=* line=136 file=Test_full.kt
+LEAF: category=274 text=2 line=136 file=Test_full.kt
+LEAF: category=318 text=, line=136 file=Test_full.kt
+LEAF: category=274 text=3 line=136 file=Test_full.kt
+LEAF: category=290 text=- line=136 file=Test_full.kt
+LEAF: category=274 text=1 line=136 file=Test_full.kt
+LEAF: category=317 text=] line=136 file=Test_full.kt
+LEAF: category=315 text=} line=137 file=Test_full.kt
+LEAF: category=258 text=fun line=140 file=Test_full.kt
+LEAF: category=282 text=incrementing line=140 file=Test_full.kt
+LEAF: category=312 text=( line=140 file=Test_full.kt
+LEAF: category=313 text=) line=140 file=Test_full.kt
+LEAF: category=314 text={ line=140 file=Test_full.kt
+LEAF: category=260 text=var line=141 file=Test_full.kt
+LEAF: category=282 text=a line=141 file=Test_full.kt
+LEAF: category=283 text== line=141 file=Test_full.kt
+LEAF: category=274 text=0 line=141 file=Test_full.kt
+LEAF: category=259 text=val line=142 file=Test_full.kt
+LEAF: category=282 text=b line=142 file=Test_full.kt
+LEAF: category=283 text== line=142 file=Test_full.kt
+LEAF: category=294 text=++ line=142 file=Test_full.kt
+LEAF: category=282 text=a line=142 file=Test_full.kt
+LEAF: category=259 text=val line=143 file=Test_full.kt
+LEAF: category=282 text=c line=143 file=Test_full.kt
+LEAF: category=283 text== line=143 file=Test_full.kt
+LEAF: category=295 text=-- line=143 file=Test_full.kt
+LEAF: category=282 text=a line=143 file=Test_full.kt
+LEAF: category=259 text=val line=144 file=Test_full.kt
+LEAF: category=282 text=d line=144 file=Test_full.kt
+LEAF: category=283 text== line=144 file=Test_full.kt
+LEAF: category=282 text=a line=144 file=Test_full.kt
+LEAF: category=294 text=++ line=144 file=Test_full.kt
+LEAF: category=259 text=val line=145 file=Test_full.kt
+LEAF: category=282 text=e line=145 file=Test_full.kt
+LEAF: category=283 text== line=145 file=Test_full.kt
+LEAF: category=282 text=a line=145 file=Test_full.kt
+LEAF: category=295 text=-- line=145 file=Test_full.kt
+LEAF: category=315 text=} line=146 file=Test_full.kt
+LEAF: category=258 text=fun line=149 file=Test_full.kt
+LEAF: category=282 text=nullable line=149 file=Test_full.kt
+LEAF: category=312 text=( line=149 file=Test_full.kt
+LEAF: category=282 text=x line=149 file=Test_full.kt
+LEAF: category=320 text=: line=149 file=Test_full.kt
+LEAF: category=282 text=Int line=149 file=Test_full.kt
+LEAF: category=309 text=? line=149 file=Test_full.kt
+LEAF: category=313 text=) line=149 file=Test_full.kt
+LEAF: category=314 text={ line=149 file=Test_full.kt
+LEAF: category=259 text=val line=150 file=Test_full.kt
+LEAF: category=282 text=y line=150 file=Test_full.kt
+LEAF: category=283 text== line=150 file=Test_full.kt
+LEAF: category=282 text=x line=150 file=Test_full.kt
+LEAF: category=308 text=?: line=150 file=Test_full.kt
+LEAF: category=274 text=0 line=150 file=Test_full.kt
+LEAF: category=259 text=val line=151 file=Test_full.kt
+LEAF: category=282 text=z line=151 file=Test_full.kt
+LEAF: category=283 text== line=151 file=Test_full.kt
+LEAF: category=282 text=x line=151 file=Test_full.kt
+LEAF: category=307 text=?. line=151 file=Test_full.kt
+LEAF: category=282 text=toString line=151 file=Test_full.kt
+LEAF: category=312 text=( line=151 file=Test_full.kt
+LEAF: category=313 text=) line=151 file=Test_full.kt
+LEAF: category=315 text=} line=152 file=Test_full.kt
+LEAF: category=258 text=fun line=155 file=Test_full.kt
+LEAF: category=282 text=casting line=155 file=Test_full.kt
+LEAF: category=312 text=( line=155 file=Test_full.kt
+LEAF: category=282 text=x line=155 file=Test_full.kt
+LEAF: category=320 text=: line=155 file=Test_full.kt
+LEAF: category=282 text=Int line=155 file=Test_full.kt
+LEAF: category=313 text=) line=155 file=Test_full.kt
+LEAF: category=314 text={ line=155 file=Test_full.kt
+LEAF: category=259 text=val line=156 file=Test_full.kt
+LEAF: category=282 text=y line=156 file=Test_full.kt
+LEAF: category=283 text== line=156 file=Test_full.kt
+LEAF: category=282 text=x line=156 file=Test_full.kt
+LEAF: category=273 text=as line=156 file=Test_full.kt
+LEAF: category=282 text=Int line=156 file=Test_full.kt
+LEAF: category=315 text=} line=157 file=Test_full.kt
+LEAF: category=258 text=fun line=160 file=Test_full.kt
+LEAF: category=282 text=jumps line=160 file=Test_full.kt
+LEAF: category=312 text=( line=160 file=Test_full.kt
+LEAF: category=313 text=) line=160 file=Test_full.kt
+LEAF: category=314 text={ line=160 file=Test_full.kt
+LEAF: category=260 text=var line=161 file=Test_full.kt
+LEAF: category=282 text=i line=161 file=Test_full.kt
+LEAF: category=283 text== line=161 file=Test_full.kt
+LEAF: category=274 text=0 line=161 file=Test_full.kt
+LEAF: category=263 text=while line=162 file=Test_full.kt
+LEAF: category=312 text=( line=162 file=Test_full.kt
+LEAF: category=282 text=i line=162 file=Test_full.kt
+LEAF: category=300 text=< line=162 file=Test_full.kt
+LEAF: category=274 text=10 line=162 file=Test_full.kt
+LEAF: category=313 text=) line=162 file=Test_full.kt
+LEAF: category=314 text={ line=162 file=Test_full.kt
+LEAF: category=261 text=if line=163 file=Test_full.kt
+LEAF: category=312 text=( line=163 file=Test_full.kt
+LEAF: category=282 text=i line=163 file=Test_full.kt
+LEAF: category=296 text=== line=163 file=Test_full.kt
+LEAF: category=274 text=3 line=163 file=Test_full.kt
+LEAF: category=313 text=) line=163 file=Test_full.kt
+LEAF: category=314 text={ line=163 file=Test_full.kt
+LEAF: category=282 text=i line=164 file=Test_full.kt
+LEAF: category=294 text=++ line=164 file=Test_full.kt
+LEAF: category=267 text=continue line=165 file=Test_full.kt
+LEAF: category=315 text=} line=166 file=Test_full.kt
+LEAF: category=261 text=if line=167 file=Test_full.kt
+LEAF: category=312 text=( line=167 file=Test_full.kt
+LEAF: category=282 text=i line=167 file=Test_full.kt
+LEAF: category=296 text=== line=167 file=Test_full.kt
+LEAF: category=274 text=7 line=167 file=Test_full.kt
+LEAF: category=313 text=) line=167 file=Test_full.kt
+LEAF: category=314 text={ line=167 file=Test_full.kt
+LEAF: category=266 text=break line=168 file=Test_full.kt
+LEAF: category=315 text=} line=169 file=Test_full.kt
+LEAF: category=282 text=i line=170 file=Test_full.kt
+LEAF: category=294 text=++ line=170 file=Test_full.kt
+LEAF: category=315 text=} line=171 file=Test_full.kt
+LEAF: category=265 text=return line=172 file=Test_full.kt
+LEAF: category=315 text=} line=173 file=Test_full.kt
+LEAF: category=258 text=fun line=176 file=Test_full.kt
+LEAF: category=282 text=double line=176 file=Test_full.kt
+LEAF: category=312 text=( line=176 file=Test_full.kt
+LEAF: category=282 text=x line=176 file=Test_full.kt
+LEAF: category=320 text=: line=176 file=Test_full.kt
+LEAF: category=282 text=Int line=176 file=Test_full.kt
+LEAF: category=313 text=) line=176 file=Test_full.kt
+LEAF: category=320 text=: line=176 file=Test_full.kt
+LEAF: category=282 text=Int line=176 file=Test_full.kt
+LEAF: category=283 text== line=176 file=Test_full.kt
+LEAF: category=282 text=x line=176 file=Test_full.kt
+LEAF: category=291 text=* line=176 file=Test_full.kt
+LEAF: category=274 text=2 line=176 file=Test_full.kt
+LEAF: category=258 text=fun line=179 file=Test_full.kt
+LEAF: category=282 text=nested line=179 file=Test_full.kt
+LEAF: category=312 text=( line=179 file=Test_full.kt
+LEAF: category=313 text=) line=179 file=Test_full.kt
+LEAF: category=314 text={ line=179 file=Test_full.kt
+LEAF: category=282 text=println line=180 file=Test_full.kt
+LEAF: category=312 text=( line=180 file=Test_full.kt
+LEAF: category=282 text=add line=180 file=Test_full.kt
+LEAF: category=312 text=( line=180 file=Test_full.kt
+LEAF: category=282 text=compute line=180 file=Test_full.kt
+LEAF: category=312 text=( line=180 file=Test_full.kt
+LEAF: category=274 text=1 line=180 file=Test_full.kt
+LEAF: category=318 text=, line=180 file=Test_full.kt
+LEAF: category=274 text=2 line=180 file=Test_full.kt
+LEAF: category=313 text=) line=180 file=Test_full.kt
+LEAF: category=318 text=, line=180 file=Test_full.kt
+LEAF: category=282 text=double line=180 file=Test_full.kt
+LEAF: category=312 text=( line=180 file=Test_full.kt
+LEAF: category=274 text=3 line=180 file=Test_full.kt
+LEAF: category=313 text=) line=180 file=Test_full.kt
+LEAF: category=313 text=) line=180 file=Test_full.kt
+LEAF: category=313 text=) line=180 file=Test_full.kt
+LEAF: category=315 text=} line=181 file=Test_full.kt
+LEAF: category=258 text=fun line=184 file=Test_full.kt
+LEAF: category=282 text=namedArg line=184 file=Test_full.kt
+LEAF: category=312 text=( line=184 file=Test_full.kt
+LEAF: category=313 text=) line=184 file=Test_full.kt
+LEAF: category=314 text={ line=184 file=Test_full.kt
+LEAF: category=259 text=val line=185 file=Test_full.kt
+LEAF: category=282 text=r line=185 file=Test_full.kt
+LEAF: category=283 text== line=185 file=Test_full.kt
+LEAF: category=282 text=add line=185 file=Test_full.kt
+LEAF: category=312 text=( line=185 file=Test_full.kt
+LEAF: category=282 text=x line=185 file=Test_full.kt
+LEAF: category=283 text== line=185 file=Test_full.kt
+LEAF: category=274 text=1 line=185 file=Test_full.kt
+LEAF: category=318 text=, line=185 file=Test_full.kt
+LEAF: category=282 text=y line=185 file=Test_full.kt
+LEAF: category=283 text== line=185 file=Test_full.kt
+LEAF: category=274 text=2 line=185 file=Test_full.kt
+LEAF: category=313 text=) line=185 file=Test_full.kt
+LEAF: category=315 text=} line=186 file=Test_full.kt
+LEAF: category=258 text=fun line=189 file=Test_full.kt
+LEAF: category=282 text=inRange line=189 file=Test_full.kt
+LEAF: category=312 text=( line=189 file=Test_full.kt
+LEAF: category=282 text=x line=189 file=Test_full.kt
+LEAF: category=320 text=: line=189 file=Test_full.kt
+LEAF: category=282 text=Int line=189 file=Test_full.kt
+LEAF: category=313 text=) line=189 file=Test_full.kt
+LEAF: category=314 text={ line=189 file=Test_full.kt
+LEAF: category=259 text=val line=190 file=Test_full.kt
+LEAF: category=282 text=r line=190 file=Test_full.kt
+LEAF: category=283 text== line=190 file=Test_full.kt
+LEAF: category=282 text=x line=190 file=Test_full.kt
+LEAF: category=269 text=in line=190 file=Test_full.kt
+LEAF: category=274 text=1 line=190 file=Test_full.kt
+LEAF: category=310 text=.. line=190 file=Test_full.kt
+LEAF: category=274 text=10 line=190 file=Test_full.kt
+LEAF: category=315 text=} line=191 file=Test_full.kt
+LEAF: category=272 text=const line=194 file=Test_full.kt
+LEAF: category=259 text=val line=194 file=Test_full.kt
+LEAF: category=282 text=MAX line=194 file=Test_full.kt
+LEAF: category=283 text== line=194 file=Test_full.kt
+LEAF: category=274 text=100 line=194 file=Test_full.kt
+program
+├─ import_list
+│  ├─ import_list
+│  │  └─ import_declaration
+│  │     ├─ 271:IMPORT `import`
+│  │     ├─ import_path
+│  │     │  ├─ 282:IDENT `kotlin`
+│  │     │  ├─ 319:DOT `.`
+│  │     │  └─ 282:IDENT `math`
+│  │     └─ 321:SEMI `;`
+│  └─ import_declaration
+│     ├─ 271:IMPORT `import`
+│     ├─ import_path
+│     │  ├─ import_path
+│     │  │  ├─ 282:IDENT `java`
+│     │  │  ├─ 319:DOT `.`
+│     │  │  └─ 282:IDENT `util`
+│     │  ├─ 319:DOT `.`
+│     │  └─ 282:IDENT `ArrayList`
+│     └─ 321:SEMI `;`
+└─ top_level_object_list
+   ├─ top_level_object_list
+   │  ├─ top_level_object_list
+   │  │  ├─ top_level_object_list
+   │  │  │  ├─ top_level_object_list
+   │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ top_level_object_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `main`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 280:STRINGLITERAL `"Hello, World!"`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `add`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │     ├─ 282:IDENT `y`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │     ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │     └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ optional_return_type
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ return_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 265:RETURN `return`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ additive_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 289:ADD `+`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ 282:IDENT `y`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `compute`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  │  ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │     ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │     └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ optional_return_type
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 282:IDENT `sum`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ additive_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        ├─ 289:ADD `+`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        └─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 282:IDENT `product`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │        └─ multiplicative_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 291:MUL `*`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           └─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `ratio`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        └─ multiplicative_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 292:DIV `/`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           └─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ return_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 265:RETURN `return`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ additive_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ additive_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  ├─ 282:IDENT `sum`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  ├─ 289:ADD `+`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  └─ 282:IDENT `product`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ 290:SUB `-`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        └─ 282:IDENT `ratio`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `variables`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 274:INTEGERLITERAL `10`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 260:VAR `var`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │        └─ 274:INTEGERLITERAL `20`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `big`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │        └─ 275:LONGLITERAL `100L`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `pi`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  │        └─ 276:REALLITERAL `3.14`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `flag`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        └─ 278:BOOLEANLITERAL `true`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `nothing`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │        └─ 281:NULLLITERAL `null`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `letter`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │        └─ 279:CHARACTERLITERAL `'z'`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `greeting`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │        └─ 280:STRINGLITERAL `"hello"`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  └─ expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │     ├─ 284:ADD_ASSIGN `+=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │     └─ 274:INTEGERLITERAL `5`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  └─ expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │     ├─ 285:SUB_ASSIGN `-=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │     └─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  └─ expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │     ├─ 286:MUL_ASSIGN `*=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │     └─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  └─ expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │     ├─ 287:DIV_ASSIGN `/=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │     └─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  └─ expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 288:MOD_ASSIGN `%=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     └─ 274:INTEGERLITERAL `4`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ 294:INCR `++`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ 295:DECR `--`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `neg`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        └─ prefix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 290:SUB `-`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           └─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `pos`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        └─ prefix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │           ├─ 289:ADD `+`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │           └─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `classify`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `n`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ optional_return_type
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ if_expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 261:IF `if`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 282:IDENT `n`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 301:RANGLE `>`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ return_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 265:RETURN `return`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 262:ELSE `else`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ if_expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 261:IF `if`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 282:IDENT `n`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 300:LANGLE `<`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  ├─ return_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  │  ├─ 265:RETURN `return`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  │  └─ prefix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  │     ├─ 290:SUB `-`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  │     └─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 262:ELSE `else`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  ├─ return_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  ├─ 265:RETURN `return`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `countdown`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `n`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 260:VAR `var`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 282:IDENT `i`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ 282:IDENT `n`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ while_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 263:WHILE `while`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 282:IDENT `i`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 301:RANGLE `>`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  │  ├─ 282:IDENT `i`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │  └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │     ├─ 282:IDENT `i`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  │     └─ 295:DECR `--`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │        └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `doLoop`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 260:VAR `var`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ do_while_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 270:DO `do`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  │  └─ 294:INCR `++`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 263:WHILE `while`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ 300:LANGLE `<`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  └─ 274:INTEGERLITERAL `10`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `sumList`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ 282:IDENT `List`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 260:VAR `var`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 282:IDENT `total`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ for_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 264:FOR `for`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 269:IN `in`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        │  ├─ expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        │  │  ├─ 282:IDENT `total`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        │  │  ├─ 284:ADD_ASSIGN `+=`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        │  │  └─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ return_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 265:RETURN `return`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ 282:IDENT `total`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `typedFor`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ 282:IDENT `List`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ for_statement
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 264:FOR `for`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 269:IN `in`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `describe`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ when_expression
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 268:WHEN `when`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 280:STRINGLITERAL `"one"`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 280:STRINGLITERAL `"two"`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 280:STRINGLITERAL `"three"`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 262:ELSE `else`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  ├─ 280:STRINGLITERAL `"other"`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `grade`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `score`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ when_expression
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 268:WHEN `when`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ when_entry_list
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 282:IDENT `score`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 298:GTE `>=`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  └─ 274:INTEGERLITERAL `90`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  ├─ 280:STRINGLITERAL `"A"`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 282:IDENT `score`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 298:GTE `>=`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  └─ 274:INTEGERLITERAL `80`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  ├─ 280:STRINGLITERAL `"B"`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 282:IDENT `score`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 298:GTE `>=`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  └─ 274:INTEGERLITERAL `70`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  ├─ 280:STRINGLITERAL `"C"`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ when_entry
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 262:ELSE `else`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 322:ARROW `->`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  ├─ 282:IDENT `println`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  ├─ 280:STRINGLITERAL `"F"`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `expressions`
+   │  │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │     └─ additive_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ additive_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        │  ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        │  ├─ 289:ADD `+`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        │  └─ multiplicative_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        │     ├─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        │     ├─ 291:MUL `*`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        │     └─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 290:SUB `-`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │        └─ multiplicative_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │           ├─ 274:INTEGERLITERAL `4`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │           ├─ 292:DIV `/`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  │           └─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `y`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │        └─ conjunction
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │           ├─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │           │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │           │  ├─ 301:RANGLE `>`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │           │  └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │           ├─ 304:AND `&&`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │           └─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │              ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │              ├─ 300:LANGLE `<`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  │              └─ 274:INTEGERLITERAL `100`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `z`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │        └─ disjunction
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │           ├─ 282:IDENT `y`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │           ├─ 305:OR `||`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  │           └─ 278:BOOLEANLITERAL `false`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `w`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │        └─ prefix_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │           ├─ 306:NOT `!`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  │           └─ 282:IDENT `z`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `r`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │        └─ range_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │           ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │           ├─ 310:RANGE `..`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  │           └─ 274:INTEGERLITERAL `10`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │     ├─ 282:IDENT `s`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │        └─ range_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │           ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │           ├─ 311:RANGE_UNTIL `..<`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  │           └─ 274:INTEGERLITERAL `10`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │     ├─ 282:IDENT `t`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │        └─ elvis_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │           ├─ 308:ELVIS `?:`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  │           └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │     ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │        └─ equality_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │           ├─ 296:EQ `==`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  │           └─ 274:INTEGERLITERAL `5`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        └─ equality_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │           ├─ 297:NEQ `!=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │           └─ 274:INTEGERLITERAL `5`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 282:IDENT `c`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        └─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           ├─ 298:GTE `>=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 282:IDENT `d`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │        └─ comparison_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 299:LTE `<=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           └─ 274:INTEGERLITERAL `100`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `e`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │        └─ equality_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 302:REF_EQ `===`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  │           └─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `f`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │        └─ equality_expr
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │           ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │           ├─ 303:REF_NEQ `!==`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  │           └─ 282:IDENT `x`
+   │  │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `chaining`
+   │  │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     └─ collection_literal
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        ├─ 316:LSQUARE `[`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        ├─ collection_items
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        │  ├─ collection_items
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        │  │  ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        │  │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        │  │  └─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        │  └─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  │        └─ 317:RSQUARE `]`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 282:IDENT `first`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │        └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           ├─ 316:LSQUARE `[`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           ├─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  │           └─ 317:RSQUARE `]`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 282:IDENT `len`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │        └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 319:DOT `.`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  │           └─ 282:IDENT `size`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `safe`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │        └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 282:IDENT `items`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 307:SAFE_CALL `?.`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  │           └─ 282:IDENT `size`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │     │     │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `up`
+   │  │  │  │  │  │  │  │  │  │     │     │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │  │     │     │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │  │     │     │  │        └─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │     │     │  │           ├─ postfix_expr
+   │  │  │  │  │  │  │  │  │  │     │     │  │           │  ├─ 280:STRINGLITERAL `"hello"`
+   │  │  │  │  │  │  │  │  │  │     │     │  │           │  ├─ 319:DOT `.`
+   │  │  │  │  │  │  │  │  │  │     │     │  │           │  └─ 282:IDENT `toUpperCase`
+   │  │  │  │  │  │  │  │  │  │     │     │  │           ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │  │     │     │  │           └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `collections`
+   │  │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 282:IDENT `empty`
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │     └─ collection_literal
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │        ├─ 316:LSQUARE `[`
+   │  │  │  │  │  │  │  │  │     │     │  │  │  │        └─ 317:RSQUARE `]`
+   │  │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │     │     │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `nums`
+   │  │  │  │  │  │  │  │  │     │     │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │     │     │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │     │     │  │  │        └─ collection_literal
+   │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ 316:LSQUARE `[`
+   │  │  │  │  │  │  │  │  │     │     │  │  │           ├─ collection_items
+   │  │  │  │  │  │  │  │  │     │     │  │  │           │  ├─ collection_items
+   │  │  │  │  │  │  │  │  │     │     │  │  │           │  │  ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │     │     │  │  │           │  │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │     │     │  │  │           │  │  └─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │     │     │  │  │           │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │     │     │  │  │           │  └─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │  │  │  │  │     │     │  │  │           └─ 317:RSQUARE `]`
+   │  │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │     │     │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │  │     │     │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `mixed`
+   │  │  │  │  │  │  │  │  │     │     │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │  │     │     │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │  │     │     │  │        └─ collection_literal
+   │  │  │  │  │  │  │  │  │     │     │  │           ├─ 316:LSQUARE `[`
+   │  │  │  │  │  │  │  │  │     │     │  │           ├─ collection_items
+   │  │  │  │  │  │  │  │  │     │     │  │           │  ├─ collection_items
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │  ├─ additive_expr
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │  │  ├─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │  │  ├─ 289:ADD `+`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │  │  └─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │  └─ multiplicative_expr
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │     ├─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │     ├─ 291:MUL `*`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  │     └─ 274:INTEGERLITERAL `2`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  ├─ 318:COMMA `,`
+   │  │  │  │  │  │  │  │  │     │     │  │           │  └─ additive_expr
+   │  │  │  │  │  │  │  │  │     │     │  │           │     ├─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │  │  │  │  │     │     │  │           │     ├─ 290:SUB `-`
+   │  │  │  │  │  │  │  │  │     │     │  │           │     └─ 274:INTEGERLITERAL `1`
+   │  │  │  │  │  │  │  │  │     │     │  │           └─ 317:RSQUARE `]`
+   │  │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │  │     │  ├─ 282:IDENT `incrementing`
+   │  │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │     │     │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ statement_list
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ property_declaration
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ 260:VAR `var`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  │     └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │     ├─ 282:IDENT `b`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │        └─ prefix_expr
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │           ├─ 294:INCR `++`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  │           └─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │     │     │  │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │     │     │  │  │  │     ├─ 282:IDENT `c`
+   │  │  │  │  │  │  │  │     │     │  │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │     │     │  │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │     │     │  │  │  │        └─ prefix_expr
+   │  │  │  │  │  │  │  │     │     │  │  │  │           ├─ 295:DECR `--`
+   │  │  │  │  │  │  │  │     │     │  │  │  │           └─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │     │     │  │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │     │     │  │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │     │     │  │  │     ├─ 282:IDENT `d`
+   │  │  │  │  │  │  │  │     │     │  │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │     │     │  │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │     │     │  │  │        └─ postfix_expr
+   │  │  │  │  │  │  │  │     │     │  │  │           ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │     │     │  │  │           └─ 294:INCR `++`
+   │  │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │     │     │  │  └─ property_declaration
+   │  │  │  │  │  │  │  │     │     │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `e`
+   │  │  │  │  │  │  │  │     │     │  │     └─ optional_initializer
+   │  │  │  │  │  │  │  │     │     │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │  │     │     │  │        └─ postfix_expr
+   │  │  │  │  │  │  │  │     │     │  │           ├─ 282:IDENT `a`
+   │  │  │  │  │  │  │  │     │     │  │           └─ 295:DECR `--`
+   │  │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │  │     │  ├─ 282:IDENT `nullable`
+   │  │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │  │     │  │  │  └─ type
+   │  │  │  │  │  │  │     │  │  │     ├─ 282:IDENT `Int`
+   │  │  │  │  │  │  │     │  │  │     └─ 309:QUEST `?`
+   │  │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │  │  │     │     │  │  ├─ property_declaration
+   │  │  │  │  │  │  │     │     │  │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │  │     │     │  │  │  ├─ 282:IDENT `y`
+   │  │  │  │  │  │  │     │     │  │  │  └─ optional_initializer
+   │  │  │  │  │  │  │     │     │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │     │     │  │  │     └─ elvis_expr
+   │  │  │  │  │  │  │     │     │  │  │        ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │     │     │  │  │        ├─ 308:ELVIS `?:`
+   │  │  │  │  │  │  │     │     │  │  │        └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │  │  │     │     │  │  └─ property_declaration
+   │  │  │  │  │  │  │     │     │  │     ├─ 259:VAL `val`
+   │  │  │  │  │  │  │     │     │  │     ├─ 282:IDENT `z`
+   │  │  │  │  │  │  │     │     │  │     └─ optional_initializer
+   │  │  │  │  │  │  │     │     │  │        ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │  │     │     │  │        └─ postfix_expr
+   │  │  │  │  │  │  │     │     │  │           ├─ postfix_expr
+   │  │  │  │  │  │  │     │     │  │           │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │  │     │     │  │           │  ├─ 307:SAFE_CALL `?.`
+   │  │  │  │  │  │  │     │     │  │           │  └─ 282:IDENT `toString`
+   │  │  │  │  │  │  │     │     │  │           ├─ 312:LPAREN `(`
+   │  │  │  │  │  │  │     │     │  │           └─ 313:RPAREN `)`
+   │  │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │  │     │  ├─ 282:IDENT `casting`
+   │  │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │  │  │     │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │  │  │     │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │  │     │  └─ block
+   │  │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │  │     │     │  ├─ property_declaration
+   │  │  │  │  │  │     │     │  │  ├─ 259:VAL `val`
+   │  │  │  │  │  │     │     │  │  ├─ 282:IDENT `y`
+   │  │  │  │  │  │     │     │  │  └─ optional_initializer
+   │  │  │  │  │  │     │     │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │  │     │     │  │     └─ as_expr
+   │  │  │  │  │  │     │     │  │        ├─ 282:IDENT `x`
+   │  │  │  │  │  │     │     │  │        ├─ 273:AS `as`
+   │  │  │  │  │  │     │     │  │        └─ 282:IDENT `Int`
+   │  │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  │  └─ top_level_object
+   │  │  │  │  │     ├─ function_declaration
+   │  │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │  │     │  ├─ 282:IDENT `jumps`
+   │  │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │  │     │  └─ block
+   │  │  │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │  │  │     │     ├─ statements
+   │  │  │  │  │     │     │  ├─ statement_list
+   │  │  │  │  │     │     │  │  ├─ statement_list
+   │  │  │  │  │     │     │  │  │  ├─ property_declaration
+   │  │  │  │  │     │     │  │  │  │  ├─ 260:VAR `var`
+   │  │  │  │  │     │     │  │  │  │  ├─ 282:IDENT `i`
+   │  │  │  │  │     │     │  │  │  │  └─ optional_initializer
+   │  │  │  │  │     │     │  │  │  │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │  │     │     │  │  │  │     └─ 274:INTEGERLITERAL `0`
+   │  │  │  │  │     │     │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │  └─ while_statement
+   │  │  │  │  │     │     │  │  │     ├─ 263:WHILE `while`
+   │  │  │  │  │     │     │  │  │     ├─ 312:LPAREN `(`
+   │  │  │  │  │     │     │  │  │     ├─ comparison_expr
+   │  │  │  │  │     │     │  │  │     │  ├─ 282:IDENT `i`
+   │  │  │  │  │     │     │  │  │     │  ├─ 300:LANGLE `<`
+   │  │  │  │  │     │     │  │  │     │  └─ 274:INTEGERLITERAL `10`
+   │  │  │  │  │     │     │  │  │     ├─ 313:RPAREN `)`
+   │  │  │  │  │     │     │  │  │     └─ block
+   │  │  │  │  │     │     │  │  │        ├─ 314:LCURL `{`
+   │  │  │  │  │     │     │  │  │        ├─ statements
+   │  │  │  │  │     │     │  │  │        │  ├─ statement_list
+   │  │  │  │  │     │     │  │  │        │  │  ├─ statement_list
+   │  │  │  │  │     │     │  │  │        │  │  │  ├─ if_expression
+   │  │  │  │  │     │     │  │  │        │  │  │  │  ├─ 261:IF `if`
+   │  │  │  │  │     │     │  │  │        │  │  │  │  ├─ 312:LPAREN `(`
+   │  │  │  │  │     │     │  │  │        │  │  │  │  ├─ equality_expr
+   │  │  │  │  │     │     │  │  │        │  │  │  │  │  ├─ 282:IDENT `i`
+   │  │  │  │  │     │     │  │  │        │  │  │  │  │  ├─ 296:EQ `==`
+   │  │  │  │  │     │     │  │  │        │  │  │  │  │  └─ 274:INTEGERLITERAL `3`
+   │  │  │  │  │     │     │  │  │        │  │  │  │  ├─ 313:RPAREN `)`
+   │  │  │  │  │     │     │  │  │        │  │  │  │  └─ block
+   │  │  │  │  │     │     │  │  │        │  │  │  │     ├─ 314:LCURL `{`
+   │  │  │  │  │     │     │  │  │        │  │  │  │     ├─ statements
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  ├─ statement_list
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  │  ├─ postfix_expr
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  │  │  ├─ 282:IDENT `i`
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  │  │  └─ 294:INCR `++`
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  │  └─ 267:CONTINUE `continue`
+   │  │  │  │  │     │     │  │  │        │  │  │  │     │  └─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │        │  │  │  │     └─ 315:RCURL `}`
+   │  │  │  │  │     │     │  │  │        │  │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │        │  │  │  └─ if_expression
+   │  │  │  │  │     │     │  │  │        │  │  │     ├─ 261:IF `if`
+   │  │  │  │  │     │     │  │  │        │  │  │     ├─ 312:LPAREN `(`
+   │  │  │  │  │     │     │  │  │        │  │  │     ├─ equality_expr
+   │  │  │  │  │     │     │  │  │        │  │  │     │  ├─ 282:IDENT `i`
+   │  │  │  │  │     │     │  │  │        │  │  │     │  ├─ 296:EQ `==`
+   │  │  │  │  │     │     │  │  │        │  │  │     │  └─ 274:INTEGERLITERAL `7`
+   │  │  │  │  │     │     │  │  │        │  │  │     ├─ 313:RPAREN `)`
+   │  │  │  │  │     │     │  │  │        │  │  │     └─ block
+   │  │  │  │  │     │     │  │  │        │  │  │        ├─ 314:LCURL `{`
+   │  │  │  │  │     │     │  │  │        │  │  │        ├─ statements
+   │  │  │  │  │     │     │  │  │        │  │  │        │  ├─ 266:BREAK `break`
+   │  │  │  │  │     │     │  │  │        │  │  │        │  └─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │        │  │  │        └─ 315:RCURL `}`
+   │  │  │  │  │     │     │  │  │        │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │        │  │  └─ postfix_expr
+   │  │  │  │  │     │     │  │  │        │  │     ├─ 282:IDENT `i`
+   │  │  │  │  │     │     │  │  │        │  │     └─ 294:INCR `++`
+   │  │  │  │  │     │     │  │  │        │  └─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  │        └─ 315:RCURL `}`
+   │  │  │  │  │     │     │  │  ├─ 321:SEMI `;`
+   │  │  │  │  │     │     │  │  └─ 265:RETURN `return`
+   │  │  │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │  │  │     │     └─ 315:RCURL `}`
+   │  │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  │  └─ top_level_object
+   │  │  │  │     ├─ function_declaration
+   │  │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │  │     │  ├─ 282:IDENT `double`
+   │  │  │  │     │  ├─ function_value_parameters
+   │  │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │  │     │  │  ├─ function_value_parameter
+   │  │  │  │     │  │  │  ├─ 282:IDENT `x`
+   │  │  │  │     │  │  │  ├─ 320:COLON `:`
+   │  │  │  │     │  │  │  └─ 282:IDENT `Int`
+   │  │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │  │     │  ├─ optional_return_type
+   │  │  │  │     │  │  ├─ 320:COLON `:`
+   │  │  │  │     │  │  └─ 282:IDENT `Int`
+   │  │  │  │     │  └─ function_body
+   │  │  │  │     │     ├─ 283:ASSIGNMENT `=`
+   │  │  │  │     │     └─ multiplicative_expr
+   │  │  │  │     │        ├─ 282:IDENT `x`
+   │  │  │  │     │        ├─ 291:MUL `*`
+   │  │  │  │     │        └─ 274:INTEGERLITERAL `2`
+   │  │  │  │     └─ 321:SEMI `;`
+   │  │  │  └─ top_level_object
+   │  │  │     ├─ function_declaration
+   │  │  │     │  ├─ 258:FUN `fun`
+   │  │  │     │  ├─ 282:IDENT `nested`
+   │  │  │     │  ├─ function_value_parameters
+   │  │  │     │  │  ├─ 312:LPAREN `(`
+   │  │  │     │  │  └─ 313:RPAREN `)`
+   │  │  │     │  └─ block
+   │  │  │     │     ├─ 314:LCURL `{`
+   │  │  │     │     ├─ statements
+   │  │  │     │     │  ├─ postfix_expr
+   │  │  │     │     │  │  ├─ 282:IDENT `println`
+   │  │  │     │     │  │  ├─ 312:LPAREN `(`
+   │  │  │     │     │  │  ├─ postfix_expr
+   │  │  │     │     │  │  │  ├─ 282:IDENT `add`
+   │  │  │     │     │  │  │  ├─ 312:LPAREN `(`
+   │  │  │     │     │  │  │  ├─ value_argument_list
+   │  │  │     │     │  │  │  │  ├─ postfix_expr
+   │  │  │     │     │  │  │  │  │  ├─ 282:IDENT `compute`
+   │  │  │     │     │  │  │  │  │  ├─ 312:LPAREN `(`
+   │  │  │     │     │  │  │  │  │  ├─ value_argument_list
+   │  │  │     │     │  │  │  │  │  │  ├─ 274:INTEGERLITERAL `1`
+   │  │  │     │     │  │  │  │  │  │  ├─ 318:COMMA `,`
+   │  │  │     │     │  │  │  │  │  │  └─ 274:INTEGERLITERAL `2`
+   │  │  │     │     │  │  │  │  │  └─ 313:RPAREN `)`
+   │  │  │     │     │  │  │  │  ├─ 318:COMMA `,`
+   │  │  │     │     │  │  │  │  └─ postfix_expr
+   │  │  │     │     │  │  │  │     ├─ 282:IDENT `double`
+   │  │  │     │     │  │  │  │     ├─ 312:LPAREN `(`
+   │  │  │     │     │  │  │  │     ├─ 274:INTEGERLITERAL `3`
+   │  │  │     │     │  │  │  │     └─ 313:RPAREN `)`
+   │  │  │     │     │  │  │  └─ 313:RPAREN `)`
+   │  │  │     │     │  │  └─ 313:RPAREN `)`
+   │  │  │     │     │  └─ 321:SEMI `;`
+   │  │  │     │     └─ 315:RCURL `}`
+   │  │  │     └─ 321:SEMI `;`
+   │  │  └─ top_level_object
+   │  │     ├─ function_declaration
+   │  │     │  ├─ 258:FUN `fun`
+   │  │     │  ├─ 282:IDENT `namedArg`
+   │  │     │  ├─ function_value_parameters
+   │  │     │  │  ├─ 312:LPAREN `(`
+   │  │     │  │  └─ 313:RPAREN `)`
+   │  │     │  └─ block
+   │  │     │     ├─ 314:LCURL `{`
+   │  │     │     ├─ statements
+   │  │     │     │  ├─ property_declaration
+   │  │     │     │  │  ├─ 259:VAL `val`
+   │  │     │     │  │  ├─ 282:IDENT `r`
+   │  │     │     │  │  └─ optional_initializer
+   │  │     │     │  │     ├─ 283:ASSIGNMENT `=`
+   │  │     │     │  │     └─ postfix_expr
+   │  │     │     │  │        ├─ 282:IDENT `add`
+   │  │     │     │  │        ├─ 312:LPAREN `(`
+   │  │     │     │  │        ├─ value_argument_list
+   │  │     │     │  │        │  ├─ value_argument
+   │  │     │     │  │        │  │  ├─ 282:IDENT `x`
+   │  │     │     │  │        │  │  ├─ 283:ASSIGNMENT `=`
+   │  │     │     │  │        │  │  └─ 274:INTEGERLITERAL `1`
+   │  │     │     │  │        │  ├─ 318:COMMA `,`
+   │  │     │     │  │        │  └─ value_argument
+   │  │     │     │  │        │     ├─ 282:IDENT `y`
+   │  │     │     │  │        │     ├─ 283:ASSIGNMENT `=`
+   │  │     │     │  │        │     └─ 274:INTEGERLITERAL `2`
+   │  │     │     │  │        └─ 313:RPAREN `)`
+   │  │     │     │  └─ 321:SEMI `;`
+   │  │     │     └─ 315:RCURL `}`
+   │  │     └─ 321:SEMI `;`
+   │  └─ top_level_object
+   │     ├─ function_declaration
+   │     │  ├─ 258:FUN `fun`
+   │     │  ├─ 282:IDENT `inRange`
+   │     │  ├─ function_value_parameters
+   │     │  │  ├─ 312:LPAREN `(`
+   │     │  │  ├─ function_value_parameter
+   │     │  │  │  ├─ 282:IDENT `x`
+   │     │  │  │  ├─ 320:COLON `:`
+   │     │  │  │  └─ 282:IDENT `Int`
+   │     │  │  └─ 313:RPAREN `)`
+   │     │  └─ block
+   │     │     ├─ 314:LCURL `{`
+   │     │     ├─ statements
+   │     │     │  ├─ property_declaration
+   │     │     │  │  ├─ 259:VAL `val`
+   │     │     │  │  ├─ 282:IDENT `r`
+   │     │     │  │  └─ optional_initializer
+   │     │     │  │     ├─ 283:ASSIGNMENT `=`
+   │     │     │  │     └─ infix_operation
+   │     │     │  │        ├─ 282:IDENT `x`
+   │     │     │  │        ├─ 269:IN `in`
+   │     │     │  │        └─ range_expr
+   │     │     │  │           ├─ 274:INTEGERLITERAL `1`
+   │     │     │  │           ├─ 310:RANGE `..`
+   │     │     │  │           └─ 274:INTEGERLITERAL `10`
+   │     │     │  └─ 321:SEMI `;`
+   │     │     └─ 315:RCURL `}`
+   │     └─ 321:SEMI `;`
+   └─ property_declaration
+      ├─ 272:CONST `const`
+      ├─ 259:VAL `val`
+      ├─ 282:IDENT `MAX`
+      └─ optional_initializer
+         ├─ 283:ASSIGNMENT `=`
+         └─ 274:INTEGERLITERAL `100`
