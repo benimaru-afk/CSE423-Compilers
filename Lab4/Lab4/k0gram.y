@@ -255,6 +255,10 @@ statement:
         { $$ = $1; }
     | loop_statement
         { $$ = $1; }
+    | if_expression
+        { $$ = $1; }
+    | when_expression
+        { $$ = $1; }
     | expression
         { $$ = $1; }
     | return_statement
@@ -305,13 +309,20 @@ while_statement:
     ;
 
 do_while_statement:
-      DO optional_control_structure_body WHILE LPAREN expression RPAREN
+      DO block WHILE LPAREN expression RPAREN
         { $$ = alloktree(R_DO_WHILE_STATEMENT, "do_while_statement", 6,
-                          $1, $2,  $3,  $4, $5,  $6); }
+                          $1, $2, $3, $4, $5, $6); }
+    | DO SEMI WHILE LPAREN expression RPAREN
+        { $$ = alloktree(R_DO_WHILE_STATEMENT, "do_while_statement", 6,
+                          $1, $2, $3, $4, $5, $6); }
     ;
 
 control_structure_body:
       block
+        { $$ = $1; }
+    | if_expression
+        { $$ = $1; }
+    | when_expression
         { $$ = $1; }
     | simple_statement
         { $$ = $1; }
@@ -360,10 +371,6 @@ if_expression:
         { $$ = alloktree(R_IF_EXPRESSION, "if_expression", 7,
                           $1,  $2, $3,  $4,
                          $5,  $6, $7); }
-    | IF LPAREN expression RPAREN control_structure_body ELSE if_expression
-        { $$ = alloktree(R_IF_EXPRESSION, "if_expression", 7,
-                          $1,  $2, $3,  $4,
-                         $5,  $6, $7); }
     ;
 
 when_expression:
@@ -383,16 +390,14 @@ when_entry_list:
         { $$ = NULL; }
     ;
 
+/* when_entry: SEMI required after body.
+ * Without it, tokens like IDENT/literals after the body are ambiguous
+ * between "continue body expression" and "start next entry condition".
+ * ASI always emits SEMI after when-entry bodies, so this is safe.    */
 when_entry:
-      when_condition_list ARROW control_structure_body
-        { $$ = alloktree(R_WHEN_ENTRY, "when_entry", 3,
-                         $1,  $2, $3); }
-    | when_condition_list ARROW control_structure_body SEMI
+      when_condition_list ARROW control_structure_body SEMI
         { $$ = alloktree(R_WHEN_ENTRY, "when_entry", 4,
                          $1,  $2, $3,  $4); }
-    | ELSE ARROW control_structure_body
-        { $$ = alloktree(R_WHEN_ENTRY, "when_entry", 3,
-                          $1,  $2, $3); }
     | ELSE ARROW control_structure_body SEMI
         { $$ = alloktree(R_WHEN_ENTRY, "when_entry", 4,
                           $1,  $2, $3,  $4); }
@@ -416,18 +421,18 @@ when_condition:
 expression:
       disjunction
         { $$ = $1; }
-    | expression ASSIGNMENT expression  %prec ASSIGNMENT
-        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1,  $2, $3); }
-    | expression ADD_ASSIGN  expression %prec ASSIGNMENT
-        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1,  $2, $3); }
-    | expression SUB_ASSIGN  expression %prec ASSIGNMENT
-        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1,  $2, $3); }
-    | expression MUL_ASSIGN  expression %prec ASSIGNMENT
-        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1,  $2, $3); }
-    | expression DIV_ASSIGN  expression %prec ASSIGNMENT
-        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1,  $2, $3); }
-    | expression MOD_ASSIGN  expression %prec ASSIGNMENT
-        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1,  $2, $3); }
+    | disjunction ASSIGNMENT expression %prec ASSIGNMENT
+        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1, $2, $3); }
+    | disjunction ADD_ASSIGN expression %prec ASSIGNMENT
+        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1, $2, $3); }
+    | disjunction SUB_ASSIGN expression %prec ASSIGNMENT
+        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1, $2, $3); }
+    | disjunction MUL_ASSIGN expression %prec ASSIGNMENT
+        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1, $2, $3); }
+    | disjunction DIV_ASSIGN expression %prec ASSIGNMENT
+        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1, $2, $3); }
+    | disjunction MOD_ASSIGN expression %prec ASSIGNMENT
+        { $$ = alloktree(R_EXPRESSION, "expression", 3, $1, $2, $3); }
     ;
 
 disjunction:
@@ -570,10 +575,7 @@ value_argument_list:
     ;
 
 value_argument:
-      IDENT ASSIGNMENT expression
-        { $$ = alloktree(R_VALUE_ARGUMENT, "value_argument", 3,
-                          $1,  $2, $3); }
-    | expression
+      expression
         { $$ = $1; }
     ;
 
@@ -590,10 +592,6 @@ primary_expr:
     | STRINGLITERAL
         { $$ = $1; }
     | collection_literal
-        { $$ = $1; }
-    | if_expression
-        { $$ = $1; }
-    | when_expression
         { $$ = $1; }
     ;
 

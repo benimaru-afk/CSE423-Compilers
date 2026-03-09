@@ -1969,12 +1969,12 @@ program
    │  │     │     │  │        ├─ 282:IDENT `add`
    │  │     │     │  │        ├─ 312:LPAREN `(`
    │  │     │     │  │        ├─ value_argument_list
-   │  │     │     │  │        │  ├─ value_argument
+   │  │     │     │  │        │  ├─ expression
    │  │     │     │  │        │  │  ├─ 282:IDENT `x`
    │  │     │     │  │        │  │  ├─ 283:ASSIGNMENT `=`
    │  │     │     │  │        │  │  └─ 274:INTEGERLITERAL `1`
    │  │     │     │  │        │  ├─ 318:COMMA `,`
-   │  │     │     │  │        │  └─ value_argument
+   │  │     │     │  │        │  └─ expression
    │  │     │     │  │        │     ├─ 282:IDENT `y`
    │  │     │     │  │        │     ├─ 283:ASSIGNMENT `=`
    │  │     │     │  │        │     └─ 274:INTEGERLITERAL `2`

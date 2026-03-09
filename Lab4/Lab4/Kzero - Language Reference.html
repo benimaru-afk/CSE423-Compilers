@@ -1,0 +1,583 @@
+
+<!-- saved from url=(0051)https://www.cs.nmt.edu/~jeffery/courses/423/k0.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Kzero - Language Reference </title>
+</head>
+<body link="#0000ff" vlink="#800080">
+
+<br><br><br>
+<br><br>
+<br>
+
+<center>
+<h3>
+<font size="7">Kzero</font><br><br>
+<em> a Programming Language</em>
+</h3>
+<a href="http://www.cs.nmt.edu/~jeffery/">Clinton Jeffery</a>
+<code><a href="mailto:clinton.jeffery@cs.nmt.edu">clinton.jeffery</a>@nmt.edu</code><br>
+with input from CSE 423 students
+<br><br>
+<em> Draft Version 0.10, March 4, 2025. </em>
+<p>
+<br><br>
+</p><h2> Language Reference Manual </h2>
+<br>
+<strong>Abstract</strong>
+</center>
+<p>
+
+</p><blockquote>
+
+<code>k0</code> (pronounced "Kay Zero", short for
+Kotlin 0 Compiler) is a subset of the Kotlin Programming Language.
+<code>k0</code> is a tiny
+language intended to be implemented in a compiler construction class.
+
+
+</blockquote>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<a href="http://www.nmt.edu/"> New Mexico Institute of Mining and Technology</a><br>
+<a href="http://www.cs.nmt.edu/">Department of Computer Science and Engineering</a><br>
+Socorro, NM 87801 USA
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3>Contents </h3>
+
+<ol>
+
+<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Introduction">Introduction</a></li>
+<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Lexical">Lexical Rules</a></li>
+	<ul>
+	<li> <a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Comments">Whitespace and Comments</a>
+	</li><li> <a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Reserved">Reserved words</a>
+	</li><li> <a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Operators">Operators</a>
+	</li><li> <a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Literals">Literals</a>
+	</li><li> <a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Punctuation">Punctuation</a>
+	</li><li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#SemiColons">Semi-colons</a></li>
+	</ul>
+<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Syntax">Syntax</a></li>
+	<ul>
+	<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#FunctionSyntax">Function Syntax</a></li>
+	<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#ControlStructures">Control Structures</a></li>
+	<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#DeclarationSyntax">Variable Declaration Syntax</a></li>
+	</ul>
+<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Types">Data Types and Semantics</a></li>
+	<ul>
+	<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Numbers">Numbers</a></li>
+	<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Arrays">Arrays</a></li>
+	<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Strings">Strings</a></li>
+	</ul>
+
+<li><a href="https://www.cs.nmt.edu/~jeffery/courses/423/k0.html#Summary">Summary</a>
+</li></ol>
+<p>
+</p><hr>
+
+<h2><a name="Introduction">1. Introduction</a></h2>
+
+<code>k0</code> is a subset of Kotlin.
+Broadly, <code>k0</code> is intended to correspond roughly to
+the subset of Kotlin that would be covered in a CS1 class.
+The facilities that <code>k0</code> supports are interesting
+enough to write some non-trivial computations in it.
+
+<p>
+
+<code>k0</code> programs are legal Kotlin programs with a <code>.kt</code>
+file extension.  The only form of Kotlin program supported in
+a <code>k0</code> program consists of a <code>main()</code> function where
+execution starts, followed by zero or more called functions.  A "Hello
+world" program looks like:
+
+</p><pre>fun main(args : Array&lt;String&gt;) {
+    println("Hello, World!")
+}
+</pre>
+
+<p>
+
+Kotlin features many basic types.
+<code>k0</code> supports:
+
+</p><pre>Byte
+Short
+Int
+Long
+Float
+Double
+Boolean
+String
+</pre>
+
+<p>
+
+The types <code>Int</code> and <code>Double</code> both refer to 64-bit values.
+The types <code>Short</code>, <code>Long</code>, and <code>Float</code> are
+allowed in <code>k0</code> and denote aliases for <code>Int</code> and <code>Double</code>.
+Boolean and Byte are stored in a single byte (like C, not like Java with its
+16-bit characters)
+
+</p><p>
+  
+<code>k0</code> has <code>while</code> and supports a small subset of
+the Kotlin <code>for</code> loops.
+  Curly braces around the loop body are required.
+  The only types of <code>for</code> loops in 
+  <code>k0</code> are the ones with explicit integer ranges:
+</p><pre>for (i in x..y)
+</pre>
+
+<p>
+
+Conditionals in <code>k0</code> consist of <code>if</code> statements.
+<code>if</code> statements use syntax similar to <code>while</code> loops.
+Curly braces are required.
+An <code>else</code> branch is optional.
+
+
+</p><pre>if (x &lt; 0) {
+   ...
+}
+</pre>
+
+<code>else</code> branches require curly braces,
+unless they are (chained) <code>if</code> statements.
+
+<pre>if (x &lt; 0) {
+   ...
+} else if (x &lt; 10) {
+   ...
+} else {
+   ...
+}
+</pre>
+
+
+<p>
+Kotlin supports creation of new types via a class.
+<code>k0</code> does not have (user-defined) classes, but does support
+creation and manipulation of instances of certain library classes.
+
+</p><p>
+
+Kotlin has weird arrays, via some library classes.
+<code>k0</code> has one-dimensional arrays only.
+
+</p><p>
+
+When in doubt about <code>k0</code> features,
+refer to the Kotlin language specification.
+I will add notes below as needed.  The easiest way to get out of
+having to implement something is to ask about it and negotiate.
+
+
+
+</p><h3> 2. <a name="Lexical">Lexical Rules</a> </h3>
+
+The lexical rules of <code>k0</code> start with: the lexical rules of Kotlin.
+<code>k0</code>
+may simplify and reduce the lexical rules of Kotlin a bit.
+<p>
+
+
+</p><p>
+<a name="Comments"></a><b><font size="3">2.1 Whitespace and Comments</font></b>
+</p><p>
+
+Of the Kotlin whitespace characters, k0 must implement space, tab, carriage
+return, and newline.
+
+</p><p>
+
+  k0 supports both styles of Kotlin comments.
+  Comments may be text placed between the delimiters /* and */. They may
+  not be nested.
+  Comments can also use // to comment from that point to the end of a line.
+  Examples:
+  </p><pre> x = 1; //single line comment
+    /* this is a
+    multiple line
+    comment */</pre>
+  
+<p>
+<a name="Reserved"></a><b><font size="3">2.2 Reserved Words</font></b>
+</p><p>
+
+  Kotlin has many reserved words.
+  The reserved words (also called keywords) in all of k0 are in bold.
+  Those not in any k0 have strikethrough and
+  should result in a fatal error ("this Kotlin feature is not in k0").
+
+</p><p>
+
+Supported reserved words:
+<b>
+  break, continue, do, else, false, for, fun, if, in, null, return, true,
+  val, var, when, while,
+  
+</b>
+
+</p><p>
+
+Kotlin reserved words not in Kzero:
+<s>
+as, as?, class, !in, is, !is, object, package, super, this, throw, try,
+typealias, typeof
+</s>.
+
+</p><p>
+
+Regarding the "Soft" keywords, <code>k0</code> treats all soft keywords as
+hard keywords (reserved words, never identifiers).
+
+Supported "soft" keywords:
+<b>
+import
+  
+</b>
+
+</p><p>
+
+Kotlin "soft" keywords words not in <code>k0</code>:
+<s>
+  by, catch, constructor, delegate, dynamic, field, file, finally, get,
+  init, param, property, receiver, set, setparam, value, where
+</s>.
+
+
+</p><p>
+
+Regarding the "Modifier" keywords, <code>k0</code> 
+  will generally just not do modifier keywords unless someone
+  persuades me otherwise. But I suppose we might need const
+
+Supported Modifier keywords:
+<b>
+  const
+</b>
+
+</p><p>
+
+Kotlin Modifier keywords words not in <code>k0</code>:
+<s>
+  abstract, actual, annotation, companion, crossinline, data, enum, expect,
+  external, final infix, inline, inner, internal, lateinit, noinline,
+  open, operator, out, private, protected, public, reified, sealed, suspend,
+  tailrec, vararg
+</s>.
+
+</p><p>
+  Regarding special identifiers, 
+<code>field</code> and <code>it</code> will be reserved words that
+are <code>k0</code> errors.
+
+
+</p><p>
+<a name="Operators"></a><b><font size="3">2.3 Operators</font></b>
+</p><p>
+
+  k0 supports the following operators</p><p>
+  
+<table border="">
+  <tbody><tr> <td> = += -= </td><td> assignment, augmented add and subtract </td></tr>
+  <tr> <td> + - * / % </td><td> binary arithmetic, int and float</td></tr>
+  <tr> <td> ++ -- </td><td> unary increment and decrement, int only, postfix only</td></tr>
+  <tr> <td> - </td><td> unary negation, prefix</td></tr>
+  <tr> <td> == != &gt; &lt; &gt;= &lt;= </td><td> binary comparison</td></tr>
+  <tr> <td> === !==  </td><td> referential equality </td></tr>
+  <tr> <td> &amp;&amp; || ! </td><td> logical AND, OR, and NOT </td></tr>
+  <tr> <td> !! </td><td> unary, asserts an expression is non-nullable  </td></tr>
+  <tr> <td> [ ] . </td><td> binary subscript and dot
+  </td></tr><tr> <td> ?. </td><td> perform method call or object field IF non-nullable  </td></tr>
+  <tr> <td> ?: </td><td> produce right side if left side is null  </td></tr>
+  <tr> <td> ? </td><td> unary suffixes produces nullable type  </td></tr>
+  <tr> <td> .. ..&lt; </td><td> ranges. k0 usage restricted from full Kotlin  </td></tr>
+
+
+  <tr> <td> (type) </td><td> basic type casts </td></tr>
+
+
+</tbody></table>
+
+</p><p>
+
+An error is reported for
+</p><ul>
+  <li> bitwise or shift operators
+    ~, &lt;&lt;, &gt;&gt;l; &amp;=, |=, ^=, &gt;&gt;=, &lt;&lt;=, &amp;, |, ^
+</li><li> other augmented assignment operators
+</li><li> reference operations
+</li></ul>
+
+
+<p>
+<a name="Literals"></a><b><font size="3">2.4 Literals</font></b>
+</p><p>
+
+</p><h4>Integers</h4>
+<ul>
+   <li> decimal integer literals
+   </li><li> <code>k0</code> does not bother with hex and binary.
+         Neither <code>k0</code> nor Kotlin does octals.
+   </li><li> unsupported formats are recognized and reported as lexical errors
+   </li><li> k0 doesn't do unsigned. unsigned designation is a lexical error
+   </li><li> long designation (L suffix) allowed
+</li></ul>
+
+   <h4>Reals</h4>
+
+   <ul>
+   <li> <code>k0</code> only does simple real literals involving
+       one or more integers to the left or right (or both) of a decimal
+   </li><li> <code>k0</code> shall not bother with scientific/exponent
+   </li><li> unsupported formats are recognized and reported as lexical errors
+   </li><li> float designation (F suffix) allowed and ignored since all floats are
+           doubles
+   </li></ul>
+
+   <h4> Characters </h4>
+
+<ul>
+<li> <code>k0</code> allows simple character literals consisting of a single
+     character enclosed in apostrophes
+</li><li> the character may be a printable character from the keyboard, or an
+       escape character, see below
+</li><li> <code>k0</code> recognizes and reports an error for character literals
+    with more than one character, e.g. 'abc'
+</li></ul>
+
+   <h4> Strings </h4>
+
+<ul>
+<li> <code>k0</code> allows simple string literals consisting of zero or more
+       characters enclosed in double quotes
+  </li><li> characters may be a printable character from the keyboard, or an
+       escape character, see below
+    </li><li> k0 supports multi-line strings in """ format """
+    </li><li> strings can have the dollar thingy in them but only for simple
+      variable names such as $foo
+</li></ul>
+ 
+
+<h4>Escape Sequences (Character and String Literals)</h4>
+
+k0 supports \n, \t, \', \", \r, \0, \b, \$, \\ <br>
+Unsupported escapes (backslash followed by anything else)
+should be recognized and report a lexical error.
+<p>
+
+   <table><tbody><tr>
+       <th>
+Escape sequence</th><th>Hex value in ASCII</th><th>	Character represented
+</th></tr><tr><td>\b</td><td>	08</td><td>	Backspace
+</td></tr><tr><td>\n</td><td>	0A</td><td>	Newline (Line Feed); see notes below
+</td></tr><tr><td>\r</td><td>	0D</td><td>	Carriage Return
+</td></tr><tr><td>\t</td><td>	09</td><td>	Horizontal Tab
+</td></tr><tr><td>\\</td><td>	5C</td><td>	Backslash
+</td></tr><tr><td>\'</td><td>	27</td><td>	Apostrophe or single quotation mark
+</td></tr><tr><td>\"</td><td>	22</td><td>	Double quotation mark
+</td></tr><tr><td>\$</td><td>    </td><td>  dollar sign
+</td></tr></tbody></table>
+
+   
+</p><p>
+<a name="Punctuation"></a><b><font size="3">2.5 Punctuation</font></b>
+</p><p>
+
+  Punctuation characters are lexemes that are supported in k0 that are
+  not part of other lexemes (not operators, not identifiers, not literals).
+
+  </p><pre>(  )  ,  ;  {  }  , :
+  </pre>
+
+  Other punctuation characters generally should be reported as lexical errors,
+  including
+
+  <pre>#  $  @  \  `
+  </pre>
+
+
+<p>
+<a name="Identifiers"></a><b><font size="3">2.6 Identifiers</font></b>
+</p><p>
+
+Identifiers in k0 are as per the C language, not Kotlin: a letter followed by
+zero or more additional letters or digits. They are case-sensitive.
+
+</p><h3> 3. <a name="Syntax">Syntax</a> </h3>
+
+A good fraction of standard Kotlin syntax will denote constructs that are not
+supported in k0.
+The easiest thing is probably to support the whole Kotlin language grammar,
+less the parts that have been ruled out via lexical errors, and then define
+portions of it that will be unsupported and trigger an error in HW#3.
+
+<p>
+<a name="FunctionSyntax"></a><b><font size="3">3.1 Function Syntax</font></b>
+</p><p>
+
+Function definitions in k0 follow the following format. They are all
+  static, with the static keyword required before the return type.
+</p><pre>fun <em>identifier</em> ( <em>parameter_list</em> ): <em>return type</em>
+{ <em>function body</em> }
+</pre>
+
+<code>k0</code> does not support function bodies that are expressions not
+enclosed in curly brackets.  The colon and the return type can be omitted
+for functions with no return, as per Kotlin.
+  
+<p>
+<a name="ControlStructures"></a><b><font size="3">3.2 Control Structures</font></b>
+</p><p>
+
+</p><pre>if (statement) {}
+if (statement) {} else {}
+if (statement) {} else if (statement) {} else {}
+while (statement) {}
+for ( x in y..z) {}
+</pre>
+
+Note we are not including the multi-faceted Kotlin <code>when</code> structure.
+
+  
+<p>
+<a name="Classes"></a><b><font size="3">3.3 Classes</font></b>
+</p><p>
+
+k0 has no class, other than references to instances of a few
+library classes.
+
+</p><p>
+
+k0 does not have anonymous (non-labeled or lambda) classes.
+
+
+</p><p>
+<a name="DeclarationSyntax"></a><b><font size="3">3.4 Declaration Syntax</font></b>
+</p><p>
+
+<code>var</code> or <code>val</code> is used to declare a variable
+or a constant, respectively.
+In <code>k0</code>,
+declaration syntax is only allowed for global variables and at the top of
+the bodies of function definitions, before the first executable statement.
+k0 allows only simple initializers including int, float and char.
+
+</p><pre>var identifier : type
+val identifier : type = literal
+</pre>
+
+A slightly simpler syntax is allowed for parameter lists, which do
+not allow initializers.
+<p>
+
+In <code>k0</code>, variable declarations may
+be comma-separated lists of identifiers, each of which may have array or
+initializer suffixes.
+
+</p><h3><a name="Types">4. Data Types</a></h3>
+
+
+
+<a name="Numbers"></a><b><font size="3">4.1 Numbers</font></b>
+<p>
+
+All data types listed are used by k0 and are described in the reserved words
+section.
+
+
+</p><p>
+
+Although the C language automatically converts between numeric types as
+needed (promotion and demotion), k0 does not.
+
+
+</p><p>
+<a name="Strings"></a><b><font size="3">4.2 Strings</font></b> <br>
+</p><p>
+
+These are references to a String class, as per Java. strings are immutable,
+they are objects not arrays of char or pointer to char, etc.
+</p><p>
+
+
+</p><p>
+<a name="Arrays"></a><b><font size="3">4.3 Arrays</font></b> <br>
+</p><p>
+
+<code>k0</code> supports only simple single dimensional arrays.
+
+For example:
+
+</p><p>
+  </p><pre>var num : Array&lt;Int&gt; = Array&lt;Int&gt; (100) { 0 } </pre>
+<p>  
+
+Array elements are read (and written, if the array is var) using
+subscripts.
+
+</p><p>
+  
+
+</p><h3><a name="Functions">4. Library Functions</a></h3>
+
+k0 supports a small subset of Kotlin's standard libraries.  Pretty much I
+understand these as being the Kotlin version of the Java equivalents. I
+haven't looked up all the Kotlin versions yet, but here is what I think
+k0 should include:
+
+<p>
+
+
+</p><pre>print(s)
+println(s)
+readln()
+String.get(n)
+String.equals(s)
+String.length()
+String.toString(i) vs. String.valueOf()  ??
+String.substring(x,y)
+java.util.Random.nextInt()
+java.lang.Math.abs()
+java.lang.Math.max()
+java.lang.Math.min()
+java.lang.Math.pow()
+java.lang.Math.cos()
+java.lang.Math.sin()
+java.lang.Math.tan()
+</pre>
+
+
+
+<!--<img src="k0libfuncs.png" width=800>-->
+
+<a name="Summary">
+<h3>Summary</h3>
+</a>
+
+Sure, k0 may be a toy language designed for a compiler class.
+Even with only this much, it may provide a convenient notation for a
+lot of simple programming tasks such as those faced by students in CSE 113.
+
+
+
+</body></html>

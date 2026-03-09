@@ -1,0 +1,285 @@
+k0gram.y: warning: 3 shift/reduce conflicts [-Wconflicts-sr]
+k0gram.y: warning: shift/reduce conflict on token WHILE [-Wcounterexamples]
+  First example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO • WHILE LPAREN expression RPAREN control_structure_body WHILE LPAREN expression RPAREN RCURL $end
+  Shift derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                              $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                      RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: do_while_statement
+                                                                                                                                                                          ↳ 57: DO optional_control_structure_body                                                       WHILE LPAREN expression RPAREN
+                                                                                                                                                                                   ↳ 53: control_structure_body
+                                                                                                                                                                                         ↳ 61: simple_statement
+                                                                                                                                                                                               ↳ 62: loop_statement
+                                                                                                                                                                                                     ↳ 49: while_statement
+                                                                                                                                                                                                           ↳ 55: • WHILE LPAREN expression RPAREN control_structure_body
+  Second example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO • WHILE LPAREN expression RPAREN RCURL $end
+  Reduce derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                              $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                      RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 54: ε •
+k0gram.y: warning: shift/reduce conflict on token WHILE [-Wcounterexamples]
+  First example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO • WHILE LPAREN expression RPAREN SEMI WHILE LPAREN expression RPAREN RCURL $end
+  Shift derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                            $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                    RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: do_while_statement
+                                                                                                                                                                          ↳ 57: DO optional_control_structure_body                                     WHILE LPAREN expression RPAREN
+                                                                                                                                                                                   ↳ 53: control_structure_body
+                                                                                                                                                                                         ↳ 61: simple_statement
+                                                                                                                                                                                               ↳ 62: loop_statement
+                                                                                                                                                                                                     ↳ 49: while_statement
+                                                                                                                                                                                                           ↳ 56: • WHILE LPAREN expression RPAREN SEMI
+  Second example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO • WHILE LPAREN expression RPAREN RCURL $end
+  Reduce derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                              $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                      RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 54: ε •
+k0gram.y: warning: shift/reduce conflict on token WHILE [-Wcounterexamples]
+time limit exceeded: 6.000000
+  First example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT IN expression RPAREN • WHILE LPAREN expression RPAREN control_structure_body WHILE LPAREN expression RPAREN RCURL $end
+  Shift derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                                                                  $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                                                                          RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                                                                     WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: for_statement
+                                                                                                                                                                                                           ↳ 51: FOR LPAREN IDENT IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                       ↳ 53: control_structure_body
+                                                                                                                                                                                                                                                             ↳ 61: simple_statement
+                                                                                                                                                                                                                                                                   ↳ 62: loop_statement
+                                                                                                                                                                                                                                                                         ↳ 49: while_statement
+                                                                                                                                                                                                                                                                               ↳ 55: • WHILE LPAREN expression RPAREN control_structure_body
+  Second example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT IN expression RPAREN • WHILE LPAREN expression RPAREN RCURL $end
+  Reduce derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                  $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                          RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                     WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: loop_statement
+                                                                                                                                                                                                           ↳ 48: for_statement
+                                                                                                                                                                                                                 ↳ 51: FOR LPAREN IDENT IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                             ↳ 54: ε •
+k0gram.y: warning: shift/reduce conflict on token WHILE [-Wcounterexamples]
+time limit exceeded: 6.000000
+  First example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT IN expression RPAREN • WHILE LPAREN expression RPAREN SEMI WHILE LPAREN expression RPAREN RCURL $end
+  Shift derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                                                $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                                                        RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                                                   WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: for_statement
+                                                                                                                                                                                                           ↳ 51: FOR LPAREN IDENT IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                       ↳ 53: control_structure_body
+                                                                                                                                                                                                                                                             ↳ 61: simple_statement
+                                                                                                                                                                                                                                                                   ↳ 62: loop_statement
+                                                                                                                                                                                                                                                                         ↳ 49: while_statement
+                                                                                                                                                                                                                                                                               ↳ 56: • WHILE LPAREN expression RPAREN SEMI
+  Second example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT IN expression RPAREN • WHILE LPAREN expression RPAREN RCURL $end
+  Reduce derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                  $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                          RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                     WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: loop_statement
+                                                                                                                                                                                                           ↳ 48: for_statement
+                                                                                                                                                                                                                 ↳ 51: FOR LPAREN IDENT IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                             ↳ 54: ε •
+k0gram.y: warning: shift/reduce conflict on token WHILE [-Wcounterexamples]
+time limit exceeded: 6.000000
+  First example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT COLON type IN expression RPAREN • WHILE LPAREN expression RPAREN control_structure_body WHILE LPAREN expression RPAREN RCURL $end
+  Shift derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                                                                             $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                                                                                     RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                                                                                WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: for_statement
+                                                                                                                                                                                                           ↳ 52: FOR LPAREN IDENT COLON type IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                                  ↳ 53: control_structure_body
+                                                                                                                                                                                                                                                                        ↳ 61: simple_statement
+                                                                                                                                                                                                                                                                              ↳ 62: loop_statement
+                                                                                                                                                                                                                                                                                    ↳ 49: while_statement
+                                                                                                                                                                                                                                                                                          ↳ 55: • WHILE LPAREN expression RPAREN control_structure_body
+  Second example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT COLON type IN expression RPAREN • WHILE LPAREN expression RPAREN RCURL $end
+  Reduce derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                             $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                                     RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                                WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: loop_statement
+                                                                                                                                                                                                           ↳ 48: for_statement
+                                                                                                                                                                                                                 ↳ 52: FOR LPAREN IDENT COLON type IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                                        ↳ 54: ε •
+k0gram.y: warning: shift/reduce conflict on token WHILE [-Wcounterexamples]
+time limit exceeded: 6.000000
+  First example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT COLON type IN expression RPAREN • WHILE LPAREN expression RPAREN SEMI WHILE LPAREN expression RPAREN RCURL $end
+  Shift derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                                                           $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                                                                   RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                                                              WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: for_statement
+                                                                                                                                                                                                           ↳ 52: FOR LPAREN IDENT COLON type IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                                  ↳ 53: control_structure_body
+                                                                                                                                                                                                                                                                        ↳ 61: simple_statement
+                                                                                                                                                                                                                                                                              ↳ 62: loop_statement
+                                                                                                                                                                                                                                                                                    ↳ 49: while_statement
+                                                                                                                                                                                                                                                                                          ↳ 56: • WHILE LPAREN expression RPAREN SEMI
+  Second example: import_list top_level_object_list FUN IDENT function_value_parameters optional_return_type LCURL DO FOR LPAREN IDENT COLON type IN expression RPAREN • WHILE LPAREN expression RPAREN RCURL $end
+  Reduce derivation
+    $accept
+    ↳ 0: program                                                                                                                                                                                                                                                                                                                             $end
+         ↳ 1: import_list top_level_object_list
+                          ↳ 8: top_level_object_list top_level_object
+                                                     ↳ 10: declaration
+                                                           ↳ 12: function_declaration
+                                                                 ↳ 14: FUN IDENT function_value_parameters optional_return_type optional_function_body
+                                                                                                                                ↳ 17: function_body
+                                                                                                                                      ↳ 25: block
+                                                                                                                                            ↳ 36: LCURL statements                                                                                                                                                                     RCURL
+                                                                                                                                                        ↳ 38: statement_list
+                                                                                                                                                              ↳ 40: statement
+                                                                                                                                                                    ↳ 43: loop_statement
+                                                                                                                                                                          ↳ 50: do_while_statement
+                                                                                                                                                                                ↳ 57: DO optional_control_structure_body                                                                                WHILE LPAREN expression RPAREN
+                                                                                                                                                                                         ↳ 53: control_structure_body
+                                                                                                                                                                                               ↳ 61: simple_statement
+                                                                                                                                                                                                     ↳ 62: loop_statement
+                                                                                                                                                                                                           ↳ 48: for_statement
+                                                                                                                                                                                                                 ↳ 52: FOR LPAREN IDENT COLON type IN expression RPAREN optional_control_structure_body
+                                                                                                                                                                                                                                                                        ↳ 54: ε •

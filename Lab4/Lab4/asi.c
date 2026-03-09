@@ -1,13 +1,12 @@
 /*
  * asi.c — Automatic Semicolon Insertion wrapper
  *
- * The parser calls yylex(). The real flex scanner is flex_yylex()
- * (renamed via YY_DECL in k0lex.l). This wrapper intercepts NEWLINE
- * tokens and converts them to SEMI where appropriate.
+ * Emit SEMI after newline if previous token can end a statement.
+ * Suppress SEMI if next token is '{'.
  *
- * Rules (from Kotlin spec):
- *   Emit SEMI after a newline if the previous token can end a statement.
- *   Suppress that SEMI if the next real token is '{'.
+ * RCURL special rule (per Kotlin spec):
+ *   '}' triggers SEMI on newline UNLESS the next real token is 'while'
+ *   (which means we're closing a do-while body, not a standalone block).
  */
 
 #include <stdio.h>
@@ -22,7 +21,6 @@ extern struct token yytoken;
 extern int lineno;
 extern char *current_filename;
 
-/* yylval is declared by bison in k0gram.tab.c; we just need the type */
 extern YYSTYPE yylval;
 
 static int last_tok = 0;
@@ -30,7 +28,6 @@ static int buffered_tok = 0;
 static struct token buffered_yytoken;
 static YYSTYPE buffered_yylval;
 
-/* Synthetic SEMI token — static so leafnode can point at it safely */
 static struct token semi_token;
 
 static int can_end_statement(int tok) {
@@ -42,7 +39,8 @@ static int can_end_statement(int tok) {
         case STRINGLITERAL:  case NULLLITERAL:
         case RETURN: case BREAK: case CONTINUE:
         case INCR:   case DECR:
-        case RPAREN: case RSQUARE: case RCURL:
+        case RPAREN: case RSQUARE:
+        case RCURL:   /* handled specially below */
             return 1;
         default:
             return 0;
@@ -50,7 +48,7 @@ static int can_end_statement(int tok) {
 }
 
 int yylex(void) {
-    /* Step 1: return buffered token, restoring both yytoken and yylval */
+    /* Return buffered token */
     if (buffered_tok) {
         int t = buffered_tok;
         buffered_tok = 0;
@@ -62,15 +60,14 @@ int yylex(void) {
 
     int tok = flex_yylex();
 
-    /* Step 2: handle NEWLINEs, possibly emitting a SEMI */
     if (tok == NEWLINE) {
         if (!can_end_statement(last_tok)) {
-            /* skip all consecutive newlines */
+            /* skip all newlines */
             while (tok == NEWLINE)
                 tok = flex_yylex();
-            /* fall through to return tok normally */
+            /* fall through */
         } else {
-            /* skip remaining consecutive newlines */
+            /* consume all consecutive newlines */
             int next = flex_yylex();
             while (next == NEWLINE)
                 next = flex_yylex();
@@ -78,16 +75,22 @@ int yylex(void) {
             /* suppress SEMI before '{' */
             if (next == LCURL) {
                 last_tok = LCURL;
-                /* yylval.tok was already set by flex_yylex via make_token */
                 return LCURL;
             }
 
-            /* buffer the next token with its full context */
-            buffered_tok    = next;
+            /* RCURL special case: suppress SEMI if next token is WHILE
+             * (this is a do { } while(...) — the WHILE is the terminator,
+             * not the start of a new statement)                          */
+            if (last_tok == RCURL && next == WHILE) {
+                last_tok = WHILE;
+                return WHILE;
+            }
+
+            /* buffer next token and emit SEMI */
+            buffered_tok     = next;
             buffered_yytoken = yytoken;
             buffered_yylval  = yylval;
 
-            /* build and return a synthetic SEMI */
             semi_token.category = SEMI;
             semi_token.text     = ";";
             semi_token.lineno   = lineno;
