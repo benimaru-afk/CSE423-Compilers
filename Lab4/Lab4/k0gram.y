@@ -46,7 +46,7 @@ void yyerror(const char *s);
 %type <treeptr> function_value_parameters function_value_parameter_list function_value_parameter
 %type <treeptr> function_body
 %type <treeptr> optional_type_annotation optional_initializer
-%type <treeptr> type
+%type <treeptr> type full_type type_args
 %type <treeptr> block statements statement_list statement
 %type <treeptr> loop_statement for_statement while_statement do_while_statement
 %type <treeptr> optional_control_structure_body control_structure_body simple_statement
@@ -140,7 +140,7 @@ function_declaration:
     ;
 
 optional_return_type:
-      COLON type
+      COLON full_type
         { $$ = alloktree(R_OPTIONAL_RETURN_TYPE, "optional_return_type", 2,
                          $1, $2); }
     | /* epsilon */
@@ -172,10 +172,10 @@ function_value_parameter_list:
     ;
 
 function_value_parameter:
-      IDENT COLON type
+      IDENT COLON full_type
         { $$ = alloktree(R_FUNCTION_VALUE_PARAMETER, "function_value_parameter", 3,
                          $1, $2, $3); }
-    | IDENT COLON type ASSIGNMENT expression
+    | IDENT COLON full_type ASSIGNMENT expression
         { $$ = alloktree(R_FUNCTION_VALUE_PARAMETER, "function_value_parameter", 5,
                          $1, $2, $3, $4, $5); }
     ;
@@ -201,7 +201,7 @@ property_declaration:
     ;
 
 optional_type_annotation:
-      COLON type
+      COLON full_type
         { $$ = alloktree(R_OPTIONAL_TYPE_ANNOTATION, "optional_type_annotation", 2,
                          $1, $2); }
     | /* epsilon */
@@ -218,11 +218,36 @@ optional_initializer:
 
 /* ===== TYPES ===== */
 
+/* 'type' — bare type only, used in 'as_expr AS type'.
+ * Must NOT include generics here: after AS, the parser sees
+ * IDENT and then LANGLE, and cannot distinguish a generic type
+ * bracket from a comparison operator without more lookahead.    */
 type:
       IDENT
         { $$ = $1; }
     | IDENT QUEST
         { $$ = alloktree(R_TYPE, "type", 2, $1, $2); }
+    ;
+
+/* 'full_type' — generic-capable type, used everywhere after COLON.
+ * Safe from the LANGLE ambiguity because COLON contexts are always
+ * followed by {, =, ,, ), SEMI — never by an expression operator.  */
+full_type:
+      IDENT
+        { $$ = $1; }
+    | IDENT QUEST
+        { $$ = alloktree(R_TYPE, "type", 2, $1, $2); }
+    | IDENT LANGLE type_args RANGLE
+        { $$ = alloktree(R_TYPE, "type", 4, $1, $2, $3, $4); }
+    | IDENT LANGLE type_args RANGLE QUEST
+        { $$ = alloktree(R_TYPE, "type", 5, $1, $2, $3, $4, $5); }
+    ;
+
+type_args:
+      full_type
+        { $$ = $1; }
+    | type_args COMMA full_type
+        { $$ = alloktree(R_TYPE, "type_args", 3, $1, $2, $3); }
     ;
 
 /* ===== BLOCK AND STATEMENTS ===== */
@@ -285,7 +310,7 @@ for_statement:
         { $$ = alloktree(R_FOR_STATEMENT, "for_statement", 7,
                          $1, $2, $3,
                          $4, $5, $6, $7); }
-    | FOR LPAREN IDENT COLON type IN expression RPAREN optional_control_structure_body
+    | FOR LPAREN IDENT COLON full_type IN expression RPAREN optional_control_structure_body
         { $$ = alloktree(R_FOR_STATEMENT, "for_statement", 9,
                          $1, $2, $3,
                          $4, $5, $6, $7,
