@@ -120,18 +120,30 @@ continue
 
 ## Project Structure
 
+Layout of the repo usually follows the usual lab (exercise to expand the compiler) and accompanying homework (more in depth assignment).
+
 ```
-Lab4/
-├── k0gram.y        # Bison grammar — LALR(1), 0 conflicts
-├── k0lex.l         # Flex lexer
-├── asi.c           # Automatic Semicolon Insertion wrapper
-├── tree.c          # Parse tree construction and printing
-├── tree.h          # Tree node types
-├── token.h         # Token struct definition
-├── prodrule.h      # Production rule constants (R_* enums)
-├── Makefile        # Build rules
-├── Test_full_v2.kt # Full-coverage test (38 functions)
-└── Test_generics.kt # Targeted generic-type tests (13 functions)
+Compilers/
+├── lab1       
+├── hw1         
+├── lab2         
+├── hw2          
+├── lab3         
+├── hw3        
+├── lab4
+      ├── k0gram.y        # Bison grammar — LALR(1), 0 conflicts
+      ├── k0lex.l         # Flex lexer
+      ├── asi.c           # Automatic Semicolon Insertion wrapper
+      ├── tree.c          # Parse tree construction and printing
+      ├── tree.h          # Tree node types
+      ├── token.h         # Token struct definition
+      ├── prodrule.h      # Production rule constants (R_* enums)
+      ├── Makefile        # Build rules
+      ├── Test_full_v2.kt # Full-coverage test (38 functions)
+      └── Test_generics.kt # Targeted generic-type tests (13 functions)   
+├── hw4        
+├── lab5 
+└── ...
 ```
 
 ---
