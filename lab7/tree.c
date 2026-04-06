@@ -32,7 +32,7 @@ struct tree *alloktree(int prodrule, char *symbolname, int nkids, ...) {
     for (int i = 0; i < nkids; i++) {
         struct tree *kid = va_arg(ap, struct tree *);
         if (kid != NULL) {
-            if (t->nkids >= MAXKIDS) {
+            if (t->nkids >= MAX_KIDS) {
                 fprintf(stderr, "alloktree: too many kids\n");
                 exit(3);
             }

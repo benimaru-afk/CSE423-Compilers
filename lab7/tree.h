@@ -11,7 +11,8 @@
    (avoids a circular include if symtab.h ever includes tree.h) */
 struct sym_table;
 
-#define MAXKIDS 9      /* max children per interior node  */
+#define MAXKIDS  9     /* max children per interior node  */
+#define MAX_KIDS 9     /* alias used in tree.c             */
 
 /* forward-declare typeinfo to avoid pulling in all of type.h here */
 struct typeinfo;

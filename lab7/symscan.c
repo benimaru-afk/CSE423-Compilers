@@ -26,18 +26,6 @@ static void register_scope(SymbolTable st)
  * and build a typeptr from it.
  * ========================================================================= */
 
-/* Find the first IDENT leaf text in a subtree (the base type name) */
-static char *first_ident_text(struct tree *t)
-{
-    if (!t) return NULL;
-    if (t->leaf && t->leaf->category == IDENT) return t->leaf->text;
-    for (int i = 0; i < t->nkids; i++) {
-        char *r = first_ident_text(t->kids[i]);
-        if (r) return r;
-    }
-    return NULL;
-}
-
 /* Build a typeptr from a full_type or type subtree node */
 static typeptr typeptr_from_tree(struct tree *t)
 {
