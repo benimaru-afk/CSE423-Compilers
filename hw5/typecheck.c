@@ -463,10 +463,23 @@ typeptr typecheck(struct tree *t, SymbolTable current)
         return t->type;
     }
 
+    /* ── optional_initializer: just return the expression type ─────── */
+    if (strcmp(name, "optional_initializer") == 0) {
+        /* kids: ASSIGNMENT expression -- return type of expression (kids[1]) */
+        if (t->nkids >= 2 && t->kids[1])
+            return typecheck(t->kids[1], current);
+        if (t->nkids == 1 && t->kids[0])
+            return typecheck(t->kids[0], current);
+        return none_typeptr;
+    }
+
     /* ── Default: recurse into all children ──────────────────────── */
     typeptr last_type = none_typeptr;
     for (int i = 0; i < t->nkids; i++) {
         typeptr ct = typecheck(t->kids[i], current);
+        /* If a call returns func type, unwrap to return type */
+        if (ct && ct->basetype == FUNC_TYPE && ct->u.f.returntype)
+            ct = ct->u.f.returntype;
         if (ct && ct != none_typeptr) last_type = ct;
     }
     t->type = last_type;
