@@ -13,8 +13,8 @@
  * Scope registry -- for printing and for checksyms lookup
  * ========================================================================= */
 #define MAX_SCOPES 512
-static SymbolTable all_scopes[MAX_SCOPES];
-static int         nscopes = 0;
+SymbolTable all_scopes[MAX_SCOPES];  /* exported for typecheck.c */
+int         nscopes = 0;
 
 static void register_scope(SymbolTable st)
 {
@@ -178,7 +178,7 @@ static void insert_params(struct tree *t, SymbolTable local)
             ptype = typeptr_from_tree(t->kids[2]);
 
         if (pname)
-            insertsym(local, pname, ptype, 0, pline, pfile);
+            insertsym(local, pname, ptype, 0, 0, pline, pfile);  /* params: not const, not mutable */
         return;
     }
     for (int i = 0; i < t->nkids; i++)
@@ -224,7 +224,7 @@ static void scan_node(struct tree *t, SymbolTable current)
         /* Build function type and insert into enclosing scope */
         typeptr ftype = alcfunctype(local, rettype);
         if (fname)
-            insertsym(current, fname, ftype, 0, fline, ffile);
+            insertsym(current, fname, ftype, 0, 0, fline, ffile);  /* func: not const, not mutable */
 
         /* Insert parameters into local scope */
         if (t->nkids >= 3 && t->kids[2])
@@ -282,8 +282,14 @@ static void scan_node(struct tree *t, SymbolTable current)
             }
         }
 
+        /* is_mutable = 1 only for var declarations (not val or const val) */
+        int is_var = 0;
+        if (!is_const && t->nkids >= 1 && t->kids[0] && t->kids[0]->leaf &&
+            t->kids[0]->leaf->category == VAR)
+            is_var = 1;
+
         if (vname)
-            insertsym(current, vname, vtype, is_const, vline, vfile);
+            insertsym(current, vname, vtype, is_const, is_var, vline, vfile);
 
         for (int i = 0; i < t->nkids; i++)
             scan_node(t->kids[i], current);
@@ -301,7 +307,7 @@ static void scan_node(struct tree *t, SymbolTable current)
             /* 9-kid form has type annotation at kids[4] */
             if (t->nkids == 9 && t->kids[4])
                 itype = typeptr_from_tree(t->kids[4]);
-            insertsym(current, iname, itype, 0, iline, ifile);
+            insertsym(current, iname, itype, 0, 0, iline, ifile);  /* iterator: val */
         }
         if (t->nkids > 0)
             scan_node(t->kids[t->nkids - 1], current);

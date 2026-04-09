@@ -52,7 +52,7 @@ SymbolTableEntry lookupsym_chain(SymbolTable st, char *name)
 }
 
 SymbolTableEntry insertsym(SymbolTable st, char *name,
-                           typeptr type, int is_const,
+                           typeptr type, int is_const, int is_mutable,
                            int lineno, char *filename)
 {
     SymbolTableEntry existing = lookupsym(st, name);
@@ -70,12 +70,13 @@ SymbolTableEntry insertsym(SymbolTable st, char *name,
     SymbolTableEntry e = malloc(sizeof(struct sym_entry));
     if (!e) { fprintf(stderr, "insertsym: out of memory\n"); exit(1); }
 
-    e->name     = strdup(name);
-    e->type     = type;
-    e->is_const = is_const;
-    e->lineno   = lineno;
-    e->filename = filename ? strdup(filename) : NULL;
-    e->owner    = st;
+    e->name       = strdup(name);
+    e->type       = type;
+    e->is_const   = is_const;
+    e->is_mutable = is_mutable;
+    e->lineno     = lineno;
+    e->filename   = filename ? strdup(filename) : NULL;
+    e->owner      = st;
 
     int h       = hash(st, name);
     e->next     = st->tbl[h];
@@ -84,9 +85,6 @@ SymbolTableEntry insertsym(SymbolTable st, char *name,
     return e;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────
- * printsymtab() -- print in the required format, with type information
- * ───────────────────────────────────────────────────────────────────────── */
 void printsymtab(SymbolTable st)
 {
     if (!st) return;
@@ -96,18 +94,18 @@ void printsymtab(SymbolTable st)
         SymbolTableEntry e = st->tbl[i];
         while (e) {
             char *tname = e->type ? typename(e->type) : "unknown";
-            printf("    %-20s : %s%s\n",
+            char *mut   = e->is_const   ? " [const]"   :
+                          e->is_mutable ? " [var]"      : " [val]";
+            printf("    %-20s : %s%s%s\n",
                    e->name, tname,
-                   e->is_const ? "  [const]" : "");
+                   (e->type && e->type->nullable) ? "?" : "",
+                   mut);
             e = e->next;
         }
     }
     printf("---\n");
 }
 
-/* ─────────────────────────────────────────────────────────────────────────
- * init_predefined()
- * ───────────────────────────────────────────────────────────────────────── */
 void init_predefined(void)
 {
     predefined_scope = mksymtab(SYM_NBUCKETS, "predefined", NULL);
@@ -119,7 +117,7 @@ void init_predefined(void)
     };
     typeptr ft = alctype(FUNC_TYPE);
     for (int i = 0; fns[i]; i++)
-        insertsym(predefined_scope, (char*)fns[i], ft, 0, 0, NULL);
+        insertsym(predefined_scope, (char*)fns[i], ft, 0, 0, 0, NULL);
 
     static const char *types[] = {
         "Int", "Long", "Double", "Float", "Short", "Byte",
@@ -129,5 +127,5 @@ void init_predefined(void)
     };
     typeptr ct = alctype(CLASS_TYPE);
     for (int i = 0; types[i]; i++)
-        insertsym(predefined_scope, (char*)types[i], ct, 0, 0, NULL);
+        insertsym(predefined_scope, (char*)types[i], ct, 0, 0, 0, NULL);
 }

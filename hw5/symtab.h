@@ -10,6 +10,7 @@ typedef struct sym_entry {
     char       *name;          /* symbol string (owned copy)                  */
     typeptr     type;          /* full type information (from type.h)         */
     int         is_const;      /* 1 if declared with const val                */
+    int         is_mutable;    /* 1 if declared with var (not val/const)      */
     int         lineno;        /* line where declared (0 = predefined)        */
     char       *filename;      /* file where declared (NULL = predefined)     */
     struct sym_table *owner;   /* which symbol table owns this entry          */
@@ -31,7 +32,7 @@ typedef struct sym_table {
 /* ─── Public API ─────────────────────────────────────────────────────────── */
 SymbolTable      mksymtab(int nbuckets, char *scope_name, SymbolTable parent);
 SymbolTableEntry insertsym(SymbolTable st, char *name,
-                           typeptr type, int is_const,
+                           typeptr type, int is_const, int is_mutable,
                            int lineno, char *filename);
 SymbolTableEntry lookupsym(SymbolTable st, char *name);
 SymbolTableEntry lookupsym_chain(SymbolTable st, char *name);

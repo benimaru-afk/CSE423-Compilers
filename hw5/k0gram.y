@@ -7,6 +7,10 @@
 #include "symtab.h"
 #include "symscan.h"
 #include "prodrule.h"
+#include "type.h"
+#include "typecheck.h"
+
+int debug_tokens = 0;
 
 extern int yylex(void);
 extern int lineno;
@@ -665,8 +669,8 @@ int main(int argc, char *argv[]) {
     int first_file = -1;   /* index of first non-flag argument */
 
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "-tree")   == 0) { do_tree   = 1; continue; }
-        if (strcmp(argv[i], "-symtab") == 0) { do_symtab = 1; continue; }
+        if (strcmp(argv[i], "-tree")   == 0) { do_tree = 1; debug_tokens = 1; continue; }
+        if (strcmp(argv[i], "-symtab") == 0) { do_symtab = 1; debug_tokens = 1; continue; }
         if (first_file < 0) first_file = i;
     }
 
@@ -715,6 +719,7 @@ int main(int argc, char *argv[]) {
 
         /* ── Undeclared variable checking ────────────────────────── */
         checksyms(parseroot, global);
+        typecheck(parseroot, global);
 
         /* ── Output ──────────────────────────────────────────────── */
         if (semantic_errors > 0) {
