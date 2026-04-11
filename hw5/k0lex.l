@@ -13,6 +13,9 @@ char *current_filename = "stdin";
 void make_token(int category);
 char* unescape_string(char *str);
 
+/* Set to 1 by -tree flag; suppresses LEAF output by default */
+extern int debug_tokens;
+
 /* Rename flex's scanner so our yylex() wrapper in asi.c can sit on top */
 #define YY_DECL int flex_yylex(void)
 YY_DECL;
@@ -173,7 +176,7 @@ void make_token(int category) {
     struct token *t = malloc(sizeof(struct token));
     *t = yytoken;
     yylval.treeptr = leafnode(t);
-    printnode(yylval.treeptr);
+    if (debug_tokens) printnode(yylval.treeptr);
 }
 
 char* unescape_string(char *str) {

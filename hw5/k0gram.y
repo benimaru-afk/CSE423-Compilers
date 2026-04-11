@@ -670,7 +670,7 @@ int main(int argc, char *argv[]) {
 
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-tree")   == 0) { do_tree = 1; debug_tokens = 1; continue; }
-        if (strcmp(argv[i], "-symtab") == 0) { do_symtab = 1; debug_tokens = 1; continue; }
+        if (strcmp(argv[i], "-symtab") == 0) { do_symtab = 1; continue; }
         if (first_file < 0) first_file = i;
     }
 
@@ -733,6 +733,10 @@ int main(int argc, char *argv[]) {
 
         treefree(parseroot);
         fclose(yyin);
+    }
+
+    if (exit_status != 0){
+        fprintf(stderr, "exit status: %d\n", exit_status);
     }
 
     return exit_status;
