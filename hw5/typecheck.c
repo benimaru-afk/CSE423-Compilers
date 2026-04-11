@@ -173,7 +173,8 @@ typeptr typecheck(struct tree *t, SymbolTable current)
             if (vname) {
                 SymbolTableEntry e = lookupsym_chain(current, vname);
                 if (e && e->type && init_type &&
-                    init_type != none_typeptr) {
+                    init_type != none_typeptr &&
+                    init_type->basetype != NONE_TYPE) {
                     if (!types_compatible(e->type, init_type)) {
                         char msg[256];
                         snprintf(msg, sizeof(msg),
@@ -182,8 +183,10 @@ typeptr typecheck(struct tree *t, SymbolTable current)
                             vname, typename(e->type), typename(init_type));
                         type_error(t->kids[last], msg);
                     }
-                    /* Nullability: assigning null to non-nullable */
+                    /* Nullability: only flag if RHS is literally null literal,
+                     * not just an uninferred expression */
                     if (init_type->basetype == NULL_TYPE &&
+                        init_type != none_typeptr &&
                         e->type && !e->type->nullable) {
                         char msg[256];
                         snprintf(msg, sizeof(msg),
