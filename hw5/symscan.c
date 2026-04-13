@@ -143,11 +143,40 @@ static typeptr typeptr_from_literal(struct tree *t)
 static typeptr infer_from_initializer(struct tree *t)
 {
     if (!t) return none_typeptr;
-    if (t->leaf) return typeptr_from_literal(t);
-    for (int i = 0; i < t->nkids; i++) {
-        typeptr r = infer_from_initializer(t->kids[i]);
-        if (r && r != none_typeptr) return r;
+    /* Only infer from literal leaves -- never recurse through complex
+     * expressions like variable references, calls, arithmetic etc.
+     * This prevents false type inference when a subtree contains a null
+     * literal that isn't the direct initializer value.              */
+    if (t->leaf) {
+        typeptr tp = typeptr_from_literal(t);
+        /* Only propagate null_typeptr if this is literally a null token,
+         * not a spurious match from another leaf in a complex expression */
+        return tp;
     }
+    /* For interior nodes, only look at simple single-expression wrappers
+     * (nodes with exactly one child that passes through the expression).
+     * Stop at any node that has an operator or multiple meaningful kids. */
+    const char *nm = t->symbolname ? t->symbolname : "";
+    /* These are pure pass-through wrappers -- safe to recurse */
+    if (strcmp(nm, "optional_initializer") == 0 ||
+        strcmp(nm, "disjunction") == 0 ||
+        strcmp(nm, "conjunction") == 0 ||
+        strcmp(nm, "infix_operation") == 0 ||
+        strcmp(nm, "elvis_expr") == 0 ||
+        strcmp(nm, "range_expr") == 0 ||
+        strcmp(nm, "as_expr") == 0 ||
+        strcmp(nm, "prefix_expr") == 0 ||
+        strcmp(nm, "postfix_expr") == 0 ||
+        strcmp(nm, "primary_expr") == 0 ||
+        strcmp(nm, "literal") == 0) {
+        for (int i = 0; i < t->nkids; i++) {
+            typeptr r = infer_from_initializer(t->kids[i]);
+            if (r && r != none_typeptr) return r;
+        }
+    }
+    /* For everything else (additive, multiplicative, comparison, etc.)
+     * we can't easily infer the result type without full type propagation,
+     * so just return none_typeptr (unknown). */
     return none_typeptr;
 }
 
@@ -279,6 +308,21 @@ static void scan_node(struct tree *t, SymbolTable current)
                 t->kids[init_idx]->symbolname &&
                 strcmp(t->kids[init_idx]->symbolname, "optional_initializer") == 0) {
                 vtype = infer_from_initializer(t->kids[init_idx]);
+                /* If inference returned null_typeptr but the declaration
+                 * is not explicitly "= null", treat as unknown (none).
+                 * This prevents false null-type for "var i = someVar". */
+                if (vtype && vtype->basetype == NULL_TYPE) {
+                    /* val x = null with no type annotation:
+                     * use nullable Any? so type checks don't false-fire */
+                    typeptr nany = calloc(1, sizeof(struct typeinfo));
+                    if (nany) {
+                        nany->basetype = ANY_TYPE;
+                        nany->nullable = 1;
+                        vtype = nany;
+                    } else {
+                        vtype = none_typeptr;
+                    }
+                }
             }
         }
 

@@ -172,7 +172,10 @@ typeptr typecheck(struct tree *t, SymbolTable current)
             /* Check initializer type matches declared type */
             if (vname) {
                 SymbolTableEntry e = lookupsym_chain(current, vname);
-                if (e && e->type && init_type &&
+                /* Skip check if either side is unknown/uninferred */
+                if (e && e->type &&
+                    e->type->basetype != NONE_TYPE &&
+                    init_type &&
                     init_type != none_typeptr &&
                     init_type->basetype != NONE_TYPE) {
                     if (!types_compatible(e->type, init_type)) {
@@ -183,11 +186,14 @@ typeptr typecheck(struct tree *t, SymbolTable current)
                             vname, typename(e->type), typename(init_type));
                         type_error(t->kids[last], msg);
                     }
-                    /* Nullability: only flag if RHS is literally null literal,
-                     * not just an uninferred expression */
+                    /* Nullability: flag only when we know the declared type
+                     * and it is genuinely non-nullable */
                     if (init_type->basetype == NULL_TYPE &&
                         init_type != none_typeptr &&
-                        e->type && !e->type->nullable) {
+                        e->type &&
+                        e->type->basetype != NONE_TYPE &&
+                        e->type->basetype != ANY_TYPE &&
+                        !e->type->nullable) {
                         char msg[256];
                         snprintf(msg, sizeof(msg),
                             "null cannot be assigned to non-nullable '%s'",
