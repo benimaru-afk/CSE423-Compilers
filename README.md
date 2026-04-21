@@ -87,6 +87,24 @@ when (x) { 1 -> ... else -> ... }
 
 ## Project Structure
 
+Layout of the repo follows the usual pattern of labs (exercises to expand the compiler) paired with homeworks (more in-depth assignments):
+
+```
+Compilers/
+├── lab1 / hw1
+├── lab2 / hw2
+├── lab3 / hw3
+├── lab4 / hw4        ← grammar, parse tree, symbol tables
+├── lab5              ← type system
+├── lab6              ← symbol table printing
+├── lab7              ← type annotations in symbol tables
+├── lab9              ← standalone TAC practice
+└── hw5               ← type rules and correct semantics
+└── hw6               ← semantic analysis, type checking, codegen
+```
+
+Current submission (`hw6`) contains:
+
 ```
 hw6/
 ├── k0gram.y         # Bison grammar + main() — LALR(1), 0 conflicts
@@ -212,6 +230,12 @@ gcc -Wall -g -c codegen.c
 gcc -Wall -g *.o -o k0
 ```
 
+To inspect grammar conflicts (should always report none):
+```bash
+bison -d k0gram.y 2>&1
+bison -d k0gram.y -Wcounterexamples 2>&1
+```
+
 **Expected output:** zero errors. Two harmless warnings from Flex-generated `lex.yy.c` about unused `input` and `yyunput` functions — these are internal to Flex and cannot be suppressed without modifying generated code.
 
 ---
@@ -224,6 +248,7 @@ gcc -Wall -g *.o -o k0
 ./k0 -symtab <file.kt>          # also print symbol tables
 ./k0 -tree -symtab <file.kt>    # both
 ./k0 <file.kt> > out.txt 2>&1   # capture all output
+./k0 <file.kt> 2>/dev/null       # suppress error messages, show only stdout
 ```
 
 ### Exit codes
@@ -464,7 +489,9 @@ BOOLEANLITERAL   CHARACTERLITERAL   STRINGLITERAL   NULLLITERAL
 | `Array<Int>(5)` constructor call in expressions | Not supported — LALR(1) ambiguity with comparisons |
 | Lambda / trailing lambdas `{ x -> ... }` | Not supported |
 | String interpolation `"Hello $name"` | Treated as opaque `STRINGLITERAL` — `$name` not expanded at codegen |
+| Named arguments `foo(x = 1)` | Removed — duplicates assignment expression |
 | Classes / objects | Not in K0 spec |
+| Unsigned integer literals | Lexer reports error |
 | `.length` / member access result | Receiver evaluated; member result opaque |
 | `arrayOf(...)` / collection literal codegen | Suppressed — no heap allocation in TAC |
 | Scientific notation `1e10` | Lexer reports error |
@@ -519,9 +546,12 @@ err_arith.kt:4: error: non-numeric left operand (bool) in arithmetic
 echo 'fun main() { println(10+2); }' > /tmp/foo.kt
 ./k0 /tmp/foo.kt && cat foo.ic
 
-# full language coverage
+# full language coverage (38 functions)
 ./k0 test_cases/Test_full_v2.kt
 cat Test_full_v2.ic
+
+# generic type coverage
+# ./k0 Test_generics.kt > out_generics.txt 2>&1
 
 # valid programs — all should exit 0
 ./k0 test_cases/hello.kt;  echo "exit: $?"
