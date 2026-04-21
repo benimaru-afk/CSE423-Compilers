@@ -1,6 +1,6 @@
 # k0 — Kotlin Subset Compiler
 
-> A from-scratch compiler frontend for **K0**, a statically-typed subset of Kotlin, built for CSE 423 Compilers at New Mexico Tech. Implements a complete lexer, parser, and parse-tree printer with zero grammar conflicts.
+> A from-scratch compiler frontend for **K0**, a statically-typed subset of Kotlin, built for CSE 423 Compilers at New Mexico Tech. Implements a complete lexer, parser, semantic analyzer, type checker, and three-address intermediate code generator with zero grammar conflicts.
 
 ---
 
@@ -14,6 +14,10 @@
 - [Usage](#usage)
 - [Grammar Design](#grammar-design)
 - [Automatic Semicolon Insertion](#automatic-semicolon-insertion)
+- [Symbol Tables](#symbol-tables)
+- [Type System](#type-system)
+- [Semantic Analysis](#semantic-analysis)
+- [Intermediate Code Generation](#intermediate-code-generation)
 - [Token Reference](#token-reference)
 - [Known Limitations](#known-limitations)
 - [Example Output](#example-output)
@@ -22,7 +26,7 @@
 
 ## Overview
 
-K0 ("Kay Zero") is a tiny but non-trivial subset of Kotlin — roughly the features you'd cover in a CS1 course. Every valid K0 program is also a valid Kotlin program. The compiler frontend accepts `.kt` source files and produces a printed parse tree.
+K0 ("Kay Zero") is a tiny but non-trivial subset of Kotlin — roughly the features you'd cover in a CS1 course. Every valid K0 program is also a valid Kotlin program. The compiler accepts `.kt` source files and produces a printed parse tree, symbol tables, type-checked semantic analysis, and three-address intermediate code in `.ic` files.
 
 The parser is built with **Bison (LALR(1))** and the lexer with **Flex**, connected by a custom Automatic Semicolon Insertion (ASI) layer that mirrors Kotlin's newline-sensitive grammar rules. The final grammar has **0 shift/reduce conflicts and 0 reduce/reduce conflicts**.
 
@@ -38,8 +42,6 @@ The parser is built with **Bison (LALR(1))** and the lexer with **Flex**, connec
 | Generic | `Array<Int>`, `Array<String>`, `Array<Int>?` |
 | Nested generic | `Array<Array<Int>>`, `Map<String, Int>` |
 
-> **Note:** Generic types are supported in all type-annotation positions (after `:`). Generic constructor calls in expressions (e.g. `Array<Int>(5)`) are not parseable — see [Known Limitations](#known-limitations).
-
 ### Declarations
 ```kotlin
 val x: Int = 10          // immutable
@@ -50,36 +52,21 @@ var arr: Array<Int>      // generic type annotation
 
 ### Functions
 ```kotlin
-fun greet(name: String): String { ... }   // with return type
-fun main() { ... }                         // no return type
-fun main(args: Array<String>) { ... }      // spec entry point
-fun double(x: Int) = x * 2                // single-expression body
-fun add(x: Int = 0, y: Int = 0): Int { .. } // default parameters
+fun greet(name: String): String { ... }
+fun main() { ... }
+fun double(x: Int) = x * 2
+fun add(x: Int = 0, y: Int = 0): Int { ... }
 ```
 
 ### Control Flow
 ```kotlin
-// if / else-if / else
 if (x > 0) { ... } else if (x < 0) { ... } else { ... }
-
-// while
 while (i > 0) { i-- }
-
-// do-while
 do { x++ } while (x < 10)
-
-// for-in (range)
 for (i in 1..10) { ... }
-
-// for-in (typed iterator)
 for (x: Int in arr) { ... }
-
-// range-until
 for (i in 0..<10) { ... }
-
-// when (with and without subject)
 when (x) { 1 -> ... else -> ... }
-when { x > 0 -> ... else -> ... }
 ```
 
 ### Operators
@@ -89,61 +76,38 @@ when { x > 0 -> ... else -> ... }
 | Assignment | `=` `+=` `-=` `*=` `/=` `%=` |
 | Comparison | `==` `!=` `<` `>` `<=` `>=` `===` `!==` |
 | Logical | `&&` `\|\|` `!` |
-| Unary prefix | `-` `+` `!` |
-| Postfix | `++` `--` (postfix only per spec) |
+| Unary prefix | `-` `+` `!` `++` `--` |
+| Postfix | `++` `--` |
 | Elvis / null-safe | `?:` `?.` |
 | Range | `..` `..<` |
-| In-range | `in` |
 | Cast | `as` |
 | Member / call | `.` `?.` `::` `[]` `()` |
-
-### Expressions
-```kotlin
-val result = a + b * c - d / e % f    // arithmetic precedence
-val safe = s?.length                   // safe call
-val fallback = value ?: "default"      // elvis
-val r = x in 1..100                   // in-range
-val cast = x as Int                    // type cast
-val ref = String::length               // double-colon ref
-val arr = [1, 2, 3]                   // collection literal
-```
-
-### Jump Statements
-```kotlin
-return          // void return
-return expr     // value return
-break
-continue
-```
 
 ---
 
 ## Project Structure
 
-Layout of the repo usually follows the usual lab (exercise to expand the compiler) and accompanying homework (more in depth assignment).
-
 ```
-Compilers/
-├── lab1       
-├── hw1         
-├── lab2         
-├── hw2          
-├── lab3         
-├── hw3        
-├── lab4
-      ├── k0gram.y        # Bison grammar — LALR(1), 0 conflicts
-      ├── k0lex.l         # Flex lexer
-      ├── asi.c           # Automatic Semicolon Insertion wrapper
-      ├── tree.c          # Parse tree construction and printing
-      ├── tree.h          # Tree node types
-      ├── token.h         # Token struct definition
-      ├── prodrule.h      # Production rule constants (R_* enums)
-      ├── Makefile        # Build rules
-      ├── Test_full_v2.kt # Full-coverage test (38 functions)
-      └── Test_generics.kt # Targeted generic-type tests (13 functions)   
-├── hw4        
-├── lab5 
-└── ...
+hw6/
+├── k0gram.y         # Bison grammar + main() — LALR(1), 0 conflicts
+├── k0lex.l          # Flex lexer with debug_tokens guard
+├── asi.c            # Automatic Semicolon Insertion wrapper
+├── tree.c / tree.h  # Parse tree construction, printing; struct addr place field
+├── token.h          # Token struct (category, text, lineno, filename, ival, dval, sval)
+├── prodrule.h       # Production rule constants (R_* enums)
+├── symtab.c / .h    # Hash-table symbol tables with type and place fields
+├── symscan.c / .h   # Two-pass tree traversal: buildsyms() + checksyms()
+├── type.c / .h      # Type system: typeinfo structs, singletons, constructors
+├── typecheck.c / .h # Type, mutability, and nullability checking pass
+├── tac.c / .h       # Three-address code data structures and tacprint()
+├── codegen.c / .h   # TAC generation from parse tree, output_ic()
+├── Makefile
+└── test_cases/
+    ├── Test_full_v2.kt    # Full-coverage test (38 functions)
+    ├── hello.kt
+    ├── valid.kt
+    ├── errors.kt
+    └── err_*.kt           # Individual semantic error test cases
 ```
 
 ---
@@ -156,37 +120,68 @@ Source file (.kt)
       ▼
 ┌─────────────┐
 │  k0lex.l    │  Flex lexer — tokenizes source, tracks line numbers,
-│  (Flex)     │  handles comments, string/char escapes, literal values
+│  (Flex)     │  handles comments, string/char escapes, literal values.
+│             │  LEAF lines suppressed by default; enabled by -tree flag
+│             │  via the debug_tokens global (extern int debug_tokens).
 └──────┬──────┘
        │  flex_yylex()  ← renamed so ASI can wrap it
        ▼
 ┌─────────────┐
 │   asi.c     │  Automatic Semicolon Insertion — intercepts NEWLINEs,
-│   (C)       │  emits SEMI tokens based on Kotlin's ASI rules,
-└──────┬──────┘  handles do-while RCURL special case
+│   (C)       │  emits SEMI tokens per Kotlin's ASI rules,
+└──────┬──────┘  suppresses SEMI before { and between } and while.
        │  yylex()
        ▼
 ┌─────────────┐
 │  k0gram.y   │  Bison LALR(1) parser — builds parse tree via
-│  (Bison)    │  alloktree() / leafnode() calls in semantic actions
+│  (Bison)    │  alloktree() / leafnode() calls in semantic actions.
+└──────┬──────┘  main() drives all subsequent passes.
+       │ parseroot (struct tree *)
+       ▼
+┌─────────────┐
+│  symscan.c  │  Pass 1 — buildsyms(): walks tree, populates per-scope
+│             │  hash-table symbol tables, infers types from annotations
+│             │  and literal initializers, assigns place (ADDR_NONE) stubs.
+│             │  Pass 2 — checksyms(): reports undeclared identifiers,
+│             │  annotates IDENT leaves with typeptr from symbol table.
 └──────┬──────┘
        │
        ▼
 ┌─────────────┐
-│   tree.c    │  treeprint() — walks the parse tree and prints
-│   (C)       │  it as an indented, Unicode box-drawing tree
-└─────────────┘
+│ typecheck.c │  Pass 3 — typecheck(): walks tree enforcing:
+│             │   • operator type compatibility (arithmetic needs numeric,
+│             │     logical needs bool, ! needs bool)
+│             │   • assignment type matching
+│             │   • mutability (val/const cannot be reassigned)
+│             │   • nullability (null → non-nullable is an error)
+│             │   • if/while conditions must be boolean
+│             │   • function call argument count
+└──────┬──────┘
+       │  (only if semantic_errors == 0)
+       ▼
+┌─────────────┐
+│  codegen.c  │  Pass 4 — codegen(): synthesizes .place (struct addr)
+│             │  on every expression node and builds a linked list of
+│             │  TAC instructions (struct instr linked list).
+│             │  output_ic() writes the .ic file to the current directory.
+└──────┬──────┘
+       │
+       ▼
+  foo.ic
+  (.string / .data / .code regions)
 ```
 
 ### Token Flow
 
 Each token matched by the lexer calls `make_token()`, which:
-1. Populates the global `yytoken` struct (`category`, `text`, `lineno`, `filename`)
-2. Allocates a heap-owned copy for the parse tree leaf (so nodes don't alias the overwritten global)
-3. Calls `leafnode()` to wrap it in a tree node
-4. Assigns it to `yylval.treeptr`
 
-String literals are additionally processed through `unescape_string()` to handle `\n`, `\t`, `\"`, `\\`, etc.
+1. Populates the global `yytoken` struct (`category`, `text`, `lineno`, `filename`)
+2. Allocates a heap-owned copy for the parse tree leaf so nodes don't alias the overwritten global
+3. Calls `leafnode()` to wrap it in a `struct tree` node, initializing `stab = NULL`, `type = NULL`, `place = ADDR_NONE`
+4. Assigns it to `yylval.treeptr`
+5. Calls `printnode()` **only if** `debug_tokens == 1` (set exclusively by the `-tree` flag in `main()`)
+
+Integer and float literals store their parsed values in `leaf->ival` and `leaf->dval`. String literals are processed through `unescape_string()` to handle `\n`, `\t`, `\"`, `\\`, etc.
 
 ---
 
@@ -196,53 +191,59 @@ String literals are additionally processed through `unescape_string()` to handle
 
 ```bash
 make              # build the k0 binary
-make clean        # remove all generated files
+make clean        # remove all generated files and .ic output files
 ```
 
-The Makefile runs:
+The Makefile compiles each `.c` file to a separate `.o` with `-Wall -g`, then links:
+
 ```
 bison -d k0gram.y          → k0gram.tab.c, k0gram.tab.h
 flex k0lex.l               → lex.yy.c
-gcc k0gram.tab.c lex.yy.c asi.c tree.c -o k0
+gcc -Wall -g -c k0gram.tab.c
+gcc -Wall -g -c lex.yy.c
+gcc -Wall -g -c asi.c
+gcc -Wall -g -c tree.c
+gcc -Wall -g -c symtab.c
+gcc -Wall -g -c symscan.c
+gcc -Wall -g -c type.c
+gcc -Wall -g -c typecheck.c
+gcc -Wall -g -c tac.c
+gcc -Wall -g -c codegen.c
+gcc -Wall -g *.o -o k0
 ```
 
-To inspect grammar conflicts (should report none):
-```bash
-bison -d k0gram.y 2>&1
-bison -d k0gram.y -Wcounterexamples 2>&1
-```
+**Expected output:** zero errors. Two harmless warnings from Flex-generated `lex.yy.c` about unused `input` and `yyunput` functions — these are internal to Flex and cannot be suppressed without modifying generated code.
 
 ---
 
 ## Usage
 
 ```bash
-./k0 <file.kt>               # parse and print tree to stdout
-./k0 <file.kt> > tree.txt    # capture output to file
-./k0 <file.kt> 2>/dev/null   # suppress LEAF lines (stderr), show tree only
+./k0 <file.kt>                  # parse, analyze, generate foo.ic
+./k0 -tree <file.kt>            # also print parse tree + LEAF lines
+./k0 -symtab <file.kt>          # also print symbol tables
+./k0 -tree -symtab <file.kt>    # both
+./k0 <file.kt> > out.txt 2>&1   # capture all output
 ```
 
-### Output format
+### Exit codes
 
-Every token is printed to stderr as it is lexed:
-```
-LEAF: category=258 text=fun line=1 file=hello.kt
-```
+| Code | Meaning |
+|------|---------|
+| 0 | No errors — `.ic` file written |
+| 1 | Cannot open file |
+| 2 | Syntax error |
+| 3 | Semantic error (undeclared, type mismatch, mutability, nullability, etc.) |
 
-On successful parse, the full tree is printed to stdout:
-```
-program
-└─ function_declaration
-   ├─ 258:FUN `fun`
-   ├─ 282:IDENT `main`
-   ├─ function_value_parameters
-   │  ├─ 312:LPAREN `(`
-   │  └─ 313:RPAREN `)`
-   └─ block
-      ...
+### Output files
+
+On success, the compiler writes `<basename>.ic` to the **current working directory** regardless of where the input file lives:
+
+```bash
+./k0 /some/path/to/foo.kt    # writes ./foo.ic, not /some/path/to/foo.ic
 ```
 
-Exit codes: `0` = success, `2` = parse error.
+Stdout prints the filename on open and `No errors` on success. All error messages go to stderr.
 
 ---
 
@@ -250,22 +251,20 @@ Exit codes: `0` = success, `2` = parse error.
 
 ### Conflict Resolution
 
-The grammar was developed iteratively from 97 shift/reduce and 58 reduce/reduce conflicts down to zero.
-
-| Fix | Conflict removed | What changed |
-|-----|-----------------|--------------|
+| Fix | Conflicts removed | What changed |
+|-----|-------------------|--------------|
 | 1 | ~30 S/R on expression LHS | Changed `expression: expression = expression` to `expression: disjunction = expression` |
-| 2 | ~20 R/R on if/when | Removed `if_expression` and `when_expression` from `primary_expr`; added them directly to `statement` and `control_structure_body` |
+| 2 | ~20 R/R on if/when | Removed from `primary_expr`; added to `statement` and `control_structure_body` |
 | 3 | ~20 S/R in when entries | Made SEMI required after `when_entry` body (ASI always provides it) |
-| 4 | 20 R/R + useless rule | Removed explicit `ELSE if_expression` rule — covered by `ELSE control_structure_body → if_expression` |
-| 5 | 3 S/R in do-while | Changed `DO optional_body WHILE` to `DO block WHILE \| DO SEMI WHILE` |
-| 6 | 1 S/R in value_argument | Removed named-argument form — `IDENT = expr` is already an assignment expression |
-| 7 | 1 S/R on LANGLE after AS | Split `type` into `type` (bare, used only in `as_expr`) and `full_type` (generic-capable, used in all `:` contexts) |
+| 4 | 20 R/R + useless rule | Removed explicit `ELSE if_expression` — covered by `ELSE control_structure_body` |
+| 5 | 3 S/R in do-while | Changed to `DO block WHILE \| DO SEMI WHILE` |
+| 6 | 1 S/R in value_argument | Removed named-argument form — already covered by assignment expression |
+| 7 | 1 S/R on LANGLE after AS | Split `type` into bare `type` (used only in `as_expr`) and generic-capable `full_type` (used in all `:` contexts) |
 
 ### Expression Tower (lowest → highest precedence)
 
 ```
-expression          =  +=  -=  *=  /=  %=    (right-assoc, LHS: disjunction)
+expression          =  +=  -=  *=  /=  %=    (right-assoc, LHS must be disjunction)
 disjunction         ||
 conjunction         &&
 equality_expr       ==  !=  ===  !==
@@ -278,67 +277,154 @@ multiplicative_expr *  /  %
 as_expr             as                        (uses bare `type`)
 prefix_expr         !  -  +  ++  --           (right-assoc unary)
 postfix_expr        ++  --  .  ?.  ::  []  () (highest)
-primary_expr        literals, IDENT, (expr), []
+primary_expr        literals, IDENT, (expr), [], if, when
 ```
 
 ### Type System Split
 
-Generic types require splitting `type` into two nonterminals to avoid an LALR(1) ambiguity where `IDENT < ...` after `as` could be either a generic bracket or a comparison operator:
+To avoid an LALR(1) ambiguity where `IDENT < T >` after `as` could be either a generic bracket or a comparison operator, `type` is split into two nonterminals:
 
 ```
-type      — bare only (IDENT, IDENT?)            used in: as_expr AS type
-full_type — generic-capable                       used in: all COLON contexts
+type      — bare only (IDENT, IDENT?)             used in: as_expr AS type
+full_type — generic-capable                        used in: all COLON contexts
 
 full_type:
     IDENT
-    IDENT QUEST                          e.g. Int?
-    IDENT LANGLE type_args RANGLE        e.g. Array<Int>
-    IDENT LANGLE type_args RANGLE QUEST  e.g. Array<Int>?
+    IDENT QUEST                           e.g.  Int?
+    IDENT LANGLE type_args RANGLE         e.g.  Array<Int>
+    IDENT LANGLE type_args RANGLE QUEST   e.g.  Array<Int>?
 
 type_args:
     full_type
-    type_args COMMA full_type            e.g. Map<String, Int>
+    type_args COMMA full_type             e.g.  Map<String, Int>
 ```
 
 ---
 
 ## Automatic Semicolon Insertion
 
-`asi.c` wraps the Flex-generated `flex_yylex()` (renamed via `#define YY_DECL`) and implements Kotlin's newline-as-semicolon rule.
-
-### Tokens that trigger SEMI on newline
+`asi.c` wraps `flex_yylex()` and implements Kotlin's newline-as-semicolon rule. A SEMI is injected after a NEWLINE when the preceding token is any of:
 
 ```
-IDENT
-INTEGERLITERAL  LONGLITERAL  REALLITERAL  DOUBLELITERAL
-BOOLEANLITERAL  CHARACTERLITERAL  STRINGLITERAL  NULLLITERAL
-RETURN  BREAK  CONTINUE
-INCR  DECR  RPAREN  RSQUARE
-RCURL   ← special case
+IDENT, all literals (INT, LONG, REAL, DOUBLE, BOOL, CHAR, STRING, NULL),
+RETURN, BREAK, CONTINUE, INCR, DECR, RPAREN, RSQUARE, RCURL
 ```
 
-### RCURL / do-while special case
+SEMI is suppressed before `{` (LCURL always swallows preceding SEMI) and when `RCURL` is immediately followed by `WHILE` (the do-while special case).
 
-`RCURL` must trigger SEMI so statements after block bodies are separated — but in `do { } while(...)`, the `}` and `while` are on the same conceptual unit and must not get a SEMI between them.
+---
 
-**Solution:** SEMI is suppressed when `last_tok == RCURL` and the next real token is `WHILE`:
+## Symbol Tables
 
-```c
-if (last_tok == RCURL && next == WHILE) {
-    return WHILE;   // do-while — no SEMI inserted
-}
+Each scope gets a separate hash-table-based symbol table (`SYM_NBUCKETS = 64` buckets, chained with linked lists). Three scope levels:
+
+- **Predefined** — stdlib (`println`, `print`, `readln`, `abs`, `max`, `min`, `pow`, `cos`, `sin`, `tan`) and type names (`Int`, `String`, `Boolean`, etc.)
+- **Global** — top-level function names and `const val` declarations; entries assigned `R_GLOBAL` offsets
+- **Per-function local** — parameters, `val`/`var`/`const val` locals, for-loop iterators; entries assigned `R_LOCAL` offsets
+
+Each `sym_entry` stores:
+
+| Field | Type | Purpose |
+|-------|------|---------|
+| `name` | `char *` | symbol string |
+| `type` | `typeptr` | full type information |
+| `is_const` | `int` | 1 if `const val` |
+| `is_mutable` | `int` | 1 if `var` |
+| `lineno` | `int` | declaration line |
+| `filename` | `char *` | declaration file |
+| `place` | `struct addr` | memory address (region + offset) for codegen |
+
+---
+
+## Type System
+
+`type.h` defines `struct typeinfo` with `basetype`, `nullable` flag, and a union for function/array subtypes.
+
+| Constant | K0 type(s) |
+|----------|-----------|
+| `INT_TYPE` | Int, Long, Short, Byte |
+| `FLOAT_TYPE` | Double, Float |
+| `BOOL_TYPE` | Boolean |
+| `CHAR_TYPE` | Char |
+| `STRING_TYPE` | String |
+| `ARRAY_TYPE` | Array\<T\>, List, Map, Set |
+| `FUNC_TYPE` | function declarations |
+| `ANY_TYPE` | Any, unknown |
+| `NULL_TYPE` | `null` literal |
+| `NONE_TYPE` | unresolved / void / Unit |
+
+Scalar types use singleton `typeptr` instances (e.g. `integer_typeptr`). `typename_to_typeptr()` maps K0 type name strings from the parse tree to the correct singleton. `val x = null` with no annotation is stored as nullable `ANY_TYPE`.
+
+---
+
+## Semantic Analysis
+
+Three passes run in sequence inside `main()` after a successful parse:
+
+**Pass 1 — `buildsyms()`** populates symbol tables by walking the parse tree. Explicit type annotations are extracted from `optional_type_annotation` / `full_type` subtrees. Type is inferred from literal initializers when no annotation is present (`val x = 5` → `INT_TYPE`). Function types are built with `alcfunctype(local_scope, return_type)`.
+
+**Pass 2 — `checksyms()`** walks the tree a second time. Import paths, type annotation nodes, declaration name positions, and member names after `.`/`?.`/`::` are skipped to avoid false positives. Every other `IDENT` leaf is looked up via `lookupsym_chain()` and annotated with `t->type`.
+
+**Pass 3 — `typecheck()`** enforces type rules:
+
+- Arithmetic operands must be numeric (`INT_TYPE` or `FLOAT_TYPE`)
+- `&&`, `||`, `!` operands must be `BOOL_TYPE`
+- `if` / `while` conditions must be `BOOL_TYPE`
+- Assignment to `val` or `const val` is an error
+- Type mismatches in declarations and assignments are errors
+- `null` cannot be assigned to a non-nullable declared type
+
+---
+
+## Intermediate Code Generation
+
+Pass 4 is implemented in `codegen.c`. It walks the parse tree recursively, building a singly-linked list of `struct instr` nodes and setting `t->place` (a `struct addr`) on every expression subtree.
+
+### Memory regions
+
+| Region constant | Description |
+|----------------|-------------|
+| `R_LOCAL` | Stack frame locals, params, temporaries (offset from base pointer) |
+| `R_GLOBAL` | Global variables (offset from global data area) |
+| `R_CONST` | Immediate integer/boolean value (stored in offset field) |
+| `R_STRING` | Offset into the `.string` region |
+| `R_NAME` | Symbolic name (used for `call` targets) |
+| `R_NONE` | Unused / void address |
+
+All values are **8 bytes**. `assign_offsets(scope, region)` walks the hash table and assigns sequential 8-byte offsets. Temporaries are allocated by `new_temp()` starting just past the last named local (`frame_base = nEntries * 8`).
+
+### Output file format
+
+```
+.string  <total-bytes>
+    <string-content>\000        ← NUL-terminated; non-printables as \ooo octal
+.data
+    <name>  8                   ← global variable, 8 bytes each
+.code
+<funcname>:                     ← procedure label (from D_PROC pseudo-instruction)
+    addr  loc:0,string:0        ← load address of string constant into local
+    add   loc:8,const:10,const:2
+    parm  loc:8                 ← push argument (right to left)
+    parm  loc:0
+    call  printf,2,loc:16       ← call, nargs, result location
+    return  const:0
 ```
 
-### LCURL suppression
+### println translation
 
-SEMI is never emitted before `{`, so patterns like:
+K0's `println(expr)` is lowered to `printf`:
 
-```kotlin
-fun foo()
-{
-```
+- `println(numericExpr)` — inject `%d\n` format string into `.string`, emit `addr` to load it, push value arg, push format arg, `call printf,2`
+- `println("literal")` — string arg is already an address; push it directly, `call printf,1`
 
-...do not produce a spurious SEMI before the opening brace.
+### Control flow
+
+| K0 construct | TAC pattern |
+|---|---|
+| `if (c) T else E` | `bnif lab_else,cond` → T body → `goto lab_end` → `lab_else:` → E body → `lab_end:` |
+| `while (c) B` | `lab_top:` → `bnif lab_end,cond` → B body → `goto lab_top` → `lab_end:` |
+| `for (i in 0..10) B` | `asn iter,start` → `lab_top:` → B body → `goto lab_top` → `lab_end:` |
+| `do B while (c)` | `lab_top:` → B body → cond code → `bif lab_top,cond` |
 
 ---
 
@@ -352,41 +438,21 @@ WHEN  IN  DO  IMPORT  CONST  AS
 
 ### Literals
 ```
-INTEGERLITERAL   — decimal integers, e.g. 42
-LONGLITERAL      — long integers with L suffix, e.g. 100L
-REALLITERAL      — simple reals, e.g. 3.14
-DOUBLELITERAL    — doubles with optional D/d suffix
-BOOLEANLITERAL   — true | false
-CHARACTERLITERAL — single character in apostrophes, e.g. 'z'
-STRINGLITERAL    — double-quoted string, escape sequences processed
-NULLLITERAL      — null
-```
-
-### Identifiers
-```
-[a-zA-Z_][a-zA-Z0-9_]*    C-style identifiers (not full Kotlin Unicode rules)
+INTEGERLITERAL   LONGLITERAL   REALLITERAL   DOUBLELITERAL
+BOOLEANLITERAL   CHARACTERLITERAL   STRINGLITERAL   NULLLITERAL
 ```
 
 ### Operators
 ```
-=   +=  -=  *=  /=  %=           assignment
-+   -   *   /   %                 arithmetic
-++  --                            increment / decrement
-==  !=  <   >   <=  >=            comparison
-=== !==                           referential equality
-&&  ||  !                         logical
-?.  ?:  ?                         null-safety
-..  ..<                           range / range-until
-->  ::                            arrow / double-colon
-```
-
-### Punctuation
-```
-(  )   — LPAREN / RPAREN
-{  }   — LCURL / RCURL
-[  ]   — LSQUARE / RSQUARE
-,  .   — COMMA / DOT
-:  ;   — COLON / SEMI (SEMI usually inserted by ASI, not written explicitly)
+=  +=  -=  *=  /=  %=        assignment
++  -  *  /  %                 arithmetic
+++  --                         increment/decrement
+==  !=  <  >  <=  >=           comparison
+===  !==                       referential equality
+&&  ||  !                      logical
+?.  ?:  ?                      null-safety
+..  ..<                        range / range-until
+->  ::                         arrow / double-colon
 ```
 
 ---
@@ -395,59 +461,53 @@ NULLLITERAL      — null
 
 | Feature | Status |
 |---------|--------|
-| `Array<Int>(5)` constructor call in expressions | **Not supported** — `IDENT < T >` in expression context is indistinguishable from chained comparisons in LALR(1) |
+| `Array<Int>(5)` constructor call in expressions | Not supported — LALR(1) ambiguity with comparisons |
 | Lambda / trailing lambdas `{ x -> ... }` | Not supported |
-| Named arguments `foo(x = 1)` | Removed — duplicates assignment expression |
-| String templates `"Hello $name"` | Treated as opaque `STRINGLITERAL` |
+| String interpolation `"Hello $name"` | Treated as opaque `STRINGLITERAL` — `$name` not expanded at codegen |
 | Classes / objects | Not in K0 spec |
-| Extension functions | Not in K0 spec |
-| Unsigned integer literals | Lexer reports error |
+| `.length` / member access result | Receiver evaluated; member result opaque |
+| `arrayOf(...)` / collection literal codegen | Suppressed — no heap allocation in TAC |
 | Scientific notation `1e10` | Lexer reports error |
-| Nested `/* */` comments | Not supported (Kotlin allows nesting; K0 does not) |
+| Nested `/* */` comments | Not supported |
 
 ---
 
 ## Example Output
 
+### Intermediate code for the spec example
+
 ```kotlin
-fun add(x: Int, y: Int): Int {
-    return x + y
-}
+fun main() { println(10+2); }
 ```
 
 ```
-program
-└─ top_level_object_list
-   └─ function_declaration
-      ├─ 258:FUN `fun`
-      ├─ 282:IDENT `add`
-      ├─ function_value_parameters
-      │  ├─ 312:LPAREN `(`
-      │  ├─ function_value_parameter_list
-      │  │  ├─ function_value_parameter
-      │  │  │  ├─ 282:IDENT `x`
-      │  │  │  ├─ 320:COLON `:`
-      │  │  │  └─ 282:IDENT `Int`
-      │  │  ├─ 318:COMMA `,`
-      │  │  └─ function_value_parameter
-      │  │     ├─ 282:IDENT `y`
-      │  │     ├─ 320:COLON `:`
-      │  │     └─ 282:IDENT `Int`
-      │  └─ 313:RPAREN `)`
-      ├─ optional_return_type
-      │  ├─ 320:COLON `:`
-      │  └─ 282:IDENT `Int`
-      └─ block
-         ├─ 314:LCURL `{`
-         ├─ statements
-         │  ├─ return_statement
-         │  │  ├─ 265:RETURN `return`
-         │  │  └─ additive_expr
-         │  │     ├─ 282:IDENT `x`
-         │  │     ├─ 289:ADD `+`
-         │  │     └─ 282:IDENT `y`
-         │  └─ 321:SEMI `;`
-         └─ 315:RCURL `}`
+.string 8
+    %d\012\000
+.code
+main:
+    addr    loc:0,string:0
+    add     loc:8,const:10,const:2
+    parm    loc:8
+    parm    loc:0
+    call    printf,2,loc:16
+    return  const:0
+```
+
+### Semantic error examples
+
+```bash
+$ ./k0 err_immut.kt 2>&1
+err_immut.kt
+err_immut.kt:3: error: assignment to immutable variable 'x' (declared as val)
+
+$ ./k0 err_null.kt 2>&1
+err_null.kt
+err_null.kt:2: error: type mismatch in declaration of 'x': expected int, got null
+err_null.kt:2: error: null cannot be assigned to non-nullable 'x'
+
+$ ./k0 err_arith.kt 2>&1
+err_arith.kt
+err_arith.kt:4: error: non-numeric left operand (bool) in arithmetic
 ```
 
 ---
@@ -455,17 +515,27 @@ program
 ## Running the Tests
 
 ```bash
-# full language coverage (38 functions)
-./k0 Test_full_v2.kt > out_full.txt 2>&1 && echo "PASS" || echo "FAIL"
+# spec example
+echo 'fun main() { println(10+2); }' > /tmp/foo.kt
+./k0 /tmp/foo.kt && cat foo.ic
 
-# usual workflow
-./k0 [YOUR KOTLIN TEST FILE HERE].kt > OUT.txt ||
-./k0 [YOUR KOTLIN TEST FILE HERE].kt > OUT.txt 
-./k0 [YOUR KOTLIN TEST FILE HERE].kt > OUT.txt 2>&1 && echo "PASS" || echo "FAIL"
+# full language coverage
+./k0 test_cases/Test_full_v2.kt
+cat Test_full_v2.ic
 
-# check for any syntax errors in output
-grep -c "syntax error" out_full.txt      # should print 0
-grep -c "syntax error" out_generics.txt  # should print 0
+# valid programs — all should exit 0
+./k0 test_cases/hello.kt;  echo "exit: $?"
+./k0 test_cases/valid.kt;  echo "exit: $?"
+
+# error cases — all should exit 3
+./k0 test_cases/errors.kt 2>&1;        echo "exit: $?"
+./k0 test_cases/err_immut.kt 2>&1;     echo "exit: $?"
+./k0 test_cases/err_type_decl.kt 2>&1; echo "exit: $?"
+./k0 test_cases/err_null.kt 2>&1;      echo "exit: $?"
+./k0 test_cases/err_arith.kt 2>&1;     echo "exit: $?"
+./k0 test_cases/err_logical.kt 2>&1;   echo "exit: $?"
+./k0 test_cases/err_not.kt 2>&1;       echo "exit: $?"
+./k0 test_cases/err_redecl.kt 2>&1;    echo "exit: $?"
 ```
 
 ---

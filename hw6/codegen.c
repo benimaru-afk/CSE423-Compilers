@@ -11,6 +11,7 @@
 #include "symtab.h"
 #include "tac.h"
 #include "codegen.h"
+#include <ctype.h>
 #include "k0gram.tab.h"
 
 /* =========================================================================
@@ -172,6 +173,39 @@ struct instr *codegen(struct tree *t, SymbolTable current)
 
     const char *name = t->symbolname ? t->symbolname : "";
 
+    /* ── collection_literal: just recurse for side effects, no place ── */
+    if (strcmp(name, "collection_literal") == 0 ||
+        strcmp(name, "collection_items")   == 0) {
+        struct instr *code = NULL;
+        for (int i = 0; i < t->nkids; i++)
+            code = append(code, codegen(t->kids[i], current));
+        t->place = ADDR_NONE;
+        return code;
+    }
+
+    /* ── postfix_expr dot/safe-call/double-colon: skip member name ── */
+    if (strcmp(name, "postfix_expr") == 0 && t->nkids == 3) {
+        if (t->kids[1] && t->kids[1]->leaf) {
+            int op = t->kids[1]->leaf->category;
+            if (op == DOUBLE_COLON) {
+                /* x::method -- return ADDR_NAME of the method */
+                if (t->kids[2] && t->kids[2]->leaf)
+                    t->place = ADDR_NAME(t->kids[2]->leaf->text);
+                else
+                    t->place = ADDR_NONE;
+                return NULL;
+            }
+            if (op == DOT || op == SAFE_CALL) {
+                /* receiver.member -- evaluate receiver, result is opaque */
+                struct instr *code = codegen(t->kids[0], current);
+                /* Use a temp to represent the result of the member access */
+                int tmp = new_temp();
+                t->place = ADDR_LOCAL(tmp);
+                return code;
+            }
+        }
+    }
+
     /* ── Skip type annotation subtrees ───────────────────────────── */
     if (strcmp(name, "optional_type_annotation") == 0 ||
         strcmp(name, "optional_return_type")     == 0 ||
@@ -187,6 +221,8 @@ struct instr *codegen(struct tree *t, SymbolTable current)
 
     /* ── program: generate all top-level objects ──────────────────── */
     if (strcmp(name, "program") == 0) {
+        /* Assign global variable offsets before generating code */
+        assign_offsets(current, R_GLOBAL);
         struct instr *code = NULL;
         for (int i = 0; i < t->nkids; i++)
             code = append(code, codegen(t->kids[i], current));
@@ -219,6 +255,9 @@ struct instr *codegen(struct tree *t, SymbolTable current)
         /* Generate body */
         for (int i = 3; i < t->nkids; i++)
             code = append(code, codegen(t->kids[i], local));
+
+        /* Implicit return const:0 for void functions (spec requirement) */
+        code = append(code, gen(O_RET, ADDR_NONE, ADDR_CONST(0), ADDR_NONE));
 
         /* end pseudo-instruction */
         code = append(code, gen(D_END,
@@ -260,7 +299,9 @@ struct instr *codegen(struct tree *t, SymbolTable current)
             }
             if (expr) {
                 code = append(code, codegen(expr, current));
-                if (dest.region != R_NONE && expr->place.region != R_NONE)
+                /* Only emit ASN if we have both a valid dest and valid src */
+                if (dest.region != R_NONE && dest.region != 0 &&
+                    expr->place.region != R_NONE && expr->place.region != 0)
                     code = append(code, gen(O_ASN, dest, expr->place, ADDR_NONE));
             }
         }
@@ -298,6 +339,15 @@ struct instr *codegen(struct tree *t, SymbolTable current)
             code = append(code, gen(O_ASN, lhs, ADDR_LOCAL(tmp), ADDR_NONE));
         }
         t->place = lhs;
+        return code;
+    }
+
+    /* ── range_expr: place = start value (left side) ────────────── */
+    if (strcmp(name, "range_expr") == 0 && t->nkids == 3) {
+        struct instr *code = codegen(t->kids[0], current);
+        code = append(code, codegen(t->kids[2], current));
+        /* Place is the start of the range (left operand) */
+        t->place = t->kids[0]->place;
         return code;
     }
 
@@ -398,60 +448,100 @@ struct instr *codegen(struct tree *t, SymbolTable current)
                     break;
                 }
             }
-            /* stack now has args in reverse order, reverse it */
+            /* stack now has args in reverse order, reverse it.
+             * For println: skip codegen here -- the handler regenerates
+             * args in the correct order (after format string addr). */
             for (int i = 0; i < top; i++) {
                 struct tree *arg = stack[top - 1 - i];
-                arg_code = append(arg_code, codegen(arg, current));
-                if (nargs < 32) arg_addrs[nargs++] = arg->place;
+                if (!is_println) {
+                    arg_code = append(arg_code, codegen(arg, current));
+                    if (nargs < 32) arg_addrs[nargs++] = arg->place;
+                } else {
+                    nargs++;  /* just count args for println */
+                }
             }
-            code = append(code, arg_code);
+            if (!is_println)
+                code = append(code, arg_code);
 
             /* For println: add format string as first param */
             if (is_println) {
-                const char *fmt = "%d\\n";
-                /* Check if single string arg */
-                if (nargs == 1 && arg_addrs[0].region == R_LOCAL) {
-                    /* string arg: just call printf with it directly */
-                    int tmp_str = new_temp();
-                    add_string_const("%s\\n");
-                    int sfmt = string_const_offset("%s\\n");
-                    code = append(code, gen(O_ADDR,
-                                           ADDR_LOCAL(tmp_str),
-                                           ADDR_STRING(sfmt),
-                                           ADDR_NONE));
-                    /* PARM args right to left */
-                    for (int i = nargs - 1; i >= 0; i--)
-                        code = append(code, gen(O_PARM, ADDR_NONE,
-                                               arg_addrs[i], ADDR_NONE));
+                /* Determine format string based on argument type:
+                 * - STRINGLITERAL arg: the arg already holds a string addr
+                 *   from an O_ADDR instruction -- use it directly as the
+                 *   format string (no extra fmt needed, just call printf)
+                 * - Any other arg (numeric, bool, etc.): use %d\n format */
+                int arg_is_string = 0;
+                if (nargs == 1) {
+                    /* Walk the original arg subtree to check if it was a
+                     * string literal */
+                    struct tree *arg_tree = (top > 0) ? stack[0] : NULL;
+                    /* Unwrap pass-through nodes */
+                    while (arg_tree && !arg_tree->leaf && arg_tree->nkids == 1)
+                        arg_tree = arg_tree->kids[0];
+                    if (arg_tree && arg_tree->leaf &&
+                        arg_tree->leaf->category == STRINGLITERAL)
+                        arg_is_string = 1;
+                }
+
+                if (arg_is_string && nargs == 1) {
+                    /* println("some string") -- arg IS the format string */
+                    /* parm the string addr, call printf with 1 arg */
                     code = append(code, gen(O_PARM, ADDR_NONE,
-                                           ADDR_LOCAL(tmp_str), ADDR_NONE));
+                                           arg_addrs[0], ADDR_NONE));
                     int result = new_temp();
                     code = append(code, gen(O_CALL,
                                            ADDR_NAME("printf"),
-                                           ADDR_CONST(nargs + 1),
+                                           ADDR_CONST(1),
                                            ADDR_LOCAL(result)));
                     t->place = ADDR_LOCAL(result);
                     return code;
                 }
-                add_string_const(fmt);
-                int sfmt = string_const_offset(fmt);
+
+                /* println(expr) -- numeric/bool: use %d\n format string.
+                 * Emit in spec order:
+                 *   1. addr  loc:fmt, string:0   (load format string)
+                 *   2. <arg code already emitted above in arg_code>
+                 *   3. parm  loc:value            (push value, rightmost param)
+                 *   4. parm  loc:fmt              (push format string)
+                 *   5. call  printf, 2, loc:result */
+                add_string_const("%d\n");
+                int sfmt = string_const_offset("%d\n");
+                /* Allocate the format string temp BEFORE arg temps so it
+                 * gets a lower offset, matching the spec layout */
                 int tmp_str = new_temp();
-                code = append(code, gen(O_ADDR,
-                                       ADDR_LOCAL(tmp_str),
-                                       ADDR_STRING(sfmt),
-                                       ADDR_NONE));
+                struct instr *fmt_instr = gen(O_ADDR,
+                                             ADDR_LOCAL(tmp_str),
+                                             ADDR_STRING(sfmt),
+                                             ADDR_NONE);
+                /* Rebuild: fmt_instr first, then arg_code already in code */
+                /* We need to prepend fmt_instr before the arg code.
+                 * Since arg_code is already appended to code, we need to
+                 * restructure. Reset and redo in correct order. */
+                /* Actually arg_code was appended to code earlier.
+                 * We need format string addr BEFORE arg evaluation.
+                 * Re-generate args after format string. */
+                /* Regenerate cleanly: format addr, then args, then parms */
+                struct instr *final_code = fmt_instr;
+                /* Re-evaluate args after format string addr */
+                for (int i = 0; i < top; i++) {
+                    struct tree *arg = stack[top - 1 - i];
+                    final_code = append(final_code, codegen(arg, current));
+                    arg_addrs[i] = arg->place;
+                }
+                /* parm: push value args right to left */
                 for (int i = nargs - 1; i >= 0; i--)
-                    code = append(code, gen(O_PARM, ADDR_NONE,
-                                           arg_addrs[i], ADDR_NONE));
-                code = append(code, gen(O_PARM, ADDR_NONE,
-                                       ADDR_LOCAL(tmp_str), ADDR_NONE));
+                    final_code = append(final_code, gen(O_PARM, ADDR_NONE,
+                                                       arg_addrs[i], ADDR_NONE));
+                /* parm: push format string last (it's param 1) */
+                final_code = append(final_code, gen(O_PARM, ADDR_NONE,
+                                                   ADDR_LOCAL(tmp_str), ADDR_NONE));
                 int result = new_temp();
-                code = append(code, gen(O_CALL,
-                                       ADDR_NAME("printf"),
-                                       ADDR_CONST(nargs + 1),
-                                       ADDR_LOCAL(result)));
+                final_code = append(final_code, gen(O_CALL,
+                                                   ADDR_NAME("printf"),
+                                                   ADDR_CONST(nargs + 1),
+                                                   ADDR_LOCAL(result)));
                 t->place = ADDR_LOCAL(result);
-                return code;
+                return final_code;
             }
 
             /* Normal function call: params right to left */
@@ -547,21 +637,29 @@ struct instr *codegen(struct tree *t, SymbolTable current)
 
     /* ── for_statement ────────────────────────────────────────────── */
     if (strcmp(name, "for_statement") == 0) {
-        /* FOR ( IDENT IN expr ) body */
+        /* 7-kid: FOR ( IDENT IN expr ) body
+         * 9-kid: FOR ( IDENT : type IN expr ) body */
         char *iter_name = NULL;
         if (t->nkids >= 3 && t->kids[2] && t->kids[2]->leaf)
             iter_name = t->kids[2]->leaf->text;
 
-        struct tree *range_tree = (t->nkids >= 5) ? t->kids[4] : NULL;
-        struct tree *body       = t->kids[t->nkids - 1];
+        /* range expression: kids[4] for 7-kid, kids[6] for 9-kid */
+        struct tree *range_tree = NULL;
+        if (t->nkids == 9)       range_tree = t->kids[6];
+        else if (t->nkids >= 5)  range_tree = t->kids[4];
 
-        struct addr iter_addr = iter_name ? addr_of(iter_name, current) : ADDR_NONE;
+        struct tree *body = t->kids[t->nkids - 1];
+
+        struct addr iter_addr = iter_name ?
+            addr_of(iter_name, current) : ADDR_NONE;
 
         struct instr *code = codegen(range_tree, current);
         struct addr range = range_tree ? range_tree->place : ADDR_NONE;
 
-        /* Simple: ASN iter = range start (treat range as start value) */
-        code = append(code, gen(O_ASN, iter_addr, range, ADDR_NONE));
+        /* Only emit ASN if we have a valid range expression */
+        if (iter_addr.region != R_NONE && iter_addr.region != 0 &&
+            range.region != R_NONE && range.region != 0)
+            code = append(code, gen(O_ASN, iter_addr, range, ADDR_NONE));
 
         struct addr *lbl_top = genlabel();
         struct addr *lbl_end = genlabel();
@@ -596,8 +694,11 @@ struct instr *codegen(struct tree *t, SymbolTable current)
     /* ── Default: recurse into all children ──────────────────────── */
     struct instr *code = NULL;
     for (int i = 0; i < t->nkids; i++) {
+        if (!t->kids[i]) continue;
         code = append(code, codegen(t->kids[i], current));
-        if (t->kids[i]) t->place = t->kids[i]->place;
+        /* Propagate place from last non-none child */
+        if (t->kids[i]->place.region != R_NONE)
+            t->place = t->kids[i]->place;
     }
     return code;
 }
@@ -642,6 +743,32 @@ void output_ic(struct instr *code, const char *src_filename)
                 else fputc(c, f);
             }
             fprintf(f, "\\000\n");
+        }
+    }
+
+    /* .data region for global variables */
+    /* Walk global scope and emit .data declarations */
+    {
+        extern SymbolTable all_scopes[];
+        extern int nscopes;
+        int has_globals = 0;
+        /* First scope registered is global */
+        if (nscopes > 0) {
+            SymbolTable g = all_scopes[0];
+            for (int i = 0; i < g->nBuckets; i++) {
+                SymbolTableEntry e = g->tbl[i];
+                while (e) {
+                    /* Only emit non-function globals */
+                    if (!e->type || e->type->basetype != FUNC_TYPE) {
+                        if (!has_globals) {
+                            fprintf(f, ".data\n");
+                            has_globals = 1;
+                        }
+                        fprintf(f, "\t%s\t8\n", e->name);
+                    }
+                    e = e->next;
+                }
+            }
         }
     }
 
@@ -690,7 +817,8 @@ void output_ic(struct instr *code, const char *src_filename)
                 case R_NAME:   fprintf(f, "%s",         (a).u.name ? (a).u.name : "?"); break; \
                 case R_STRING: fprintf(f, "string:%d", (a).u.offset); break; \
                 case R_NONE:   break; \
-                default:       fprintf(f, "?:%d",      (a).u.offset); break; \
+                case 0:        break; /* uninitialized -- skip */ \
+                default:       break; /* skip unknown regions  */ \
             } \
         } while(0)
 
@@ -708,6 +836,11 @@ void output_ic(struct instr *code, const char *src_filename)
             fprintf(f, "\n"); l = l->next; continue;
         }
         if (op == O_ASN) {
+            /* Skip if either operand is uninitialized */
+            if (l->dest.region == 0 || l->src1.region == 0 ||
+                l->src1.region == R_NONE) {
+                l = l->next; continue;
+            }
             fprintf(f, "\tasn\t"); FADDR(l->dest);
             fprintf(f, ","); FADDR(l->src1);
             fprintf(f, "\n"); l = l->next; continue;
@@ -723,14 +856,18 @@ void output_ic(struct instr *code, const char *src_filename)
             fprintf(f, "\n"); l = l->next; continue;
         }
         if (op >= O_BLT && op <= O_BNIF) {
-            fprintf(f, "\t%s\t", opcodename(op));
+            { char *opn = opcodename(op); fprintf(f, "\t");
+              for (char *p = opn; *p; p++) fputc(tolower((unsigned char)*p), f);
+              fprintf(f, "\t"); }
             FADDR(l->dest);
             if (l->src1.region != R_NONE) { fprintf(f, ","); FADDR(l->src1); }
             if (l->src2.region != R_NONE) { fprintf(f, ","); FADDR(l->src2); }
             fprintf(f, "\n"); l = l->next; continue;
         }
-        /* binary ops */
-        fprintf(f, "\t%s\t", opcodename(op));
+        /* binary ops -- lowercase */
+        { char *opn = opcodename(op); fprintf(f, "\t");
+          for (char *p = opn; *p; p++) fputc(tolower((unsigned char)*p), f);
+          fprintf(f, "\t"); }
         FADDR(l->dest); fprintf(f, ",");
         FADDR(l->src1);
         if (l->src2.region != R_NONE) { fprintf(f, ","); FADDR(l->src2); }
