@@ -1,0 +1,27 @@
+.string	8
+	%d\012\000
+.code
+main:
+	asn	loc:0,const:20
+	asn	loc:8,const:6
+	addr	loc:16,string:0
+	add	loc:24,loc:0,loc:8
+	parm	loc:24
+	parm	loc:16
+	call	printf,2,loc:32
+	addr	loc:40,string:0
+	sub	loc:48,loc:0,loc:8
+	parm	loc:48
+	parm	loc:40
+	call	printf,2,loc:56
+	addr	loc:64,string:0
+	mul	loc:72,loc:0,loc:8
+	parm	loc:72
+	parm	loc:64
+	call	printf,2,loc:80
+	addr	loc:88,string:0
+	div	loc:96,loc:0,loc:8
+	parm	loc:96
+	parm	loc:88
+	call	printf,2,loc:104
+	return	const:0
