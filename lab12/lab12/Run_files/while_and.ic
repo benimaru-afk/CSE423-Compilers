@@ -1,0 +1,19 @@
+.string	8
+	%d\012\000
+.code
+main:
+	asn	loc:0,const:0
+lab5:
+	blt	loc:8,loc:0,const:20
+	div	loc:16,loc:0,const:3
+	beq	loc:24,loc:16,const:1
+	bif	loc:32,loc:8,loc:24
+	bnif	lab6,loc:32
+	add	loc:40,loc:0,const:1
+	asn	loc:0,loc:40
+	goto	lab5
+lab6:
+	addr	loc:48,string:0
+	parm	loc:48
+	call	printf,1,loc:56
+	return	const:0

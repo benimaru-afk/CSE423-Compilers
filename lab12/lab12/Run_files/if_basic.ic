@@ -1,0 +1,14 @@
+.string	8
+	%d\012\000
+.code
+main:
+	asn	loc:0,const:0
+	blt	loc:8,loc:0,const:10
+	bnif	lab5,loc:8
+	add	loc:16,loc:0,const:1
+	asn	loc:0,loc:16
+lab5:
+	addr	loc:24,string:0
+	parm	loc:24
+	call	printf,1,loc:32
+	return	const:0
